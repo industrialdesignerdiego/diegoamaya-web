@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diego Amaya | Diseño Industrial, Docencia e Investigación</title>
+<meta name="description" content="Diego Germán Amaya, diseñador industrial, MBA y doctorando en Diseño. Investigación, docencia, innovación tecnológica, fabricación digital e Industria 4.0.">
+<meta name="author" content="Diego Germán Amaya">
+<link rel="canonical" href="https://www.diegoamaya.com.ar/">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://www.diegoamaya.com.ar/">
+<meta property="og:site_name" content="Diego Amaya">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Diego Amaya | Diseño Industrial, Docencia e Investigación">
+<meta property="og:description" content="Diseñador industrial, MBA y doctorando en Diseño. Investigación, docencia, fabricación digital e Industria 4.0.">
+<meta property="profile:first_name" content="Diego Germán">
+<meta property="profile:last_name" content="Amaya">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#10243A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Diego Germán Amaya",
+  "alternateName": "Diego Amaya",
+  "url": "https://www.diegoamaya.com.ar/",
+  "jobTitle": "Diseñador Industrial · MBA · Doctorando en Diseño",
+  "email": "mailto:diego.g.amaya@gmail.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "San Miguel de Tucumán", "addressRegion": "Tucumán", "addressCountry": "AR"},
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "Universidad Nacional de Córdoba"},
+    {"@type": "CollegeOrUniversity", "name": "Universidad Siglo 21"}
+  ],
+  "knowsAbout": ["Diseño industrial", "Industria 4.0", "Fabricación aditiva", "Simulación computacional", "Diseño paramétrico", "Innovación tecnológica", "Docencia universitaria"],
+  "sameAs": ["https://designargentina.com.ar", "https://www.behance.net/diegoamayadesign", "https://www.instagram.com/design_argentina", "https://www.instagram.com/mobiodesign"]
+}
+</script>
+<style>
+/* Layout idea: plano técnico. Grilla de 12 columnas con margen izquierdo de "rótulo" (etiquetas mono tipo plano CAD),
+   títulos anchos de gran escala, secciones de investigación y contacto invertidas sobre azul profundo. */
+:root{
+  --deep:#10243A;      /* azul profundo */
+  --graphite:#20252B;  /* grafito */
+  --mid:#77818B;       /* gris medio */
+  --paper:#F7F8F8;     /* blanco cálido */
+  --accent:#3978B8;    /* azul tecnológico, solo acento */
+  --rule:#D9DEE2;      /* divisores sutiles */
+  --mid-ink:#5B656F;   /* gris medio oscurecido para texto chico (contraste AA) */
+  --accent-on-deep:#7FB0E3;
+  --font-display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body:"IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter:clamp(18px, 4vw, 56px);
+  --max:1280px;
+  --header-h:64px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 8px);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--graphite);font-family:var(--font-body);font-size:17px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-0.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.on-deep :focus-visible{outline-color:var(--accent-on-deep)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--deep);color:var(--paper);padding:8px 14px;z-index:100}
+.skip:focus{left:8px}
+.mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+
+/* ---------- Header ---------- */
+.site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid transparent;transition:border-color .3s}
+.site-header.scrolled{border-bottom-color:var(--rule)}
+.header-inner{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-family:var(--font-display);font-stretch:125%;font-weight:700;font-size:15px;letter-spacing:.14em;text-decoration:none;color:var(--deep);white-space:nowrap}
+.brand span{color:var(--accent)}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{font-size:14px;text-decoration:none;padding:8px 12px;color:var(--graphite);position:relative;border-radius:2px}
+.nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.nav a:hover::after,.nav a[aria-current="true"]::after{transform:scaleX(1)}
+.nav a[aria-current="true"]{color:var(--deep);font-weight:500}
+.nav .nav-cta{margin-left:10px;border:1px solid var(--deep);color:var(--deep);padding:7px 14px}
+.nav .nav-cta::after{display:none}
+.nav .nav-cta:hover{background:var(--deep);color:var(--paper)}
+.menu-btn{display:none;background:none;border:1px solid var(--rule);width:44px;height:40px;cursor:pointer;color:var(--deep);align-items:center;justify-content:center}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex}
+  .nav{position:fixed;inset:var(--header-h) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--rule);padding:8px var(--gutter) 20px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  .nav.open{opacity:1;transform:none;visibility:visible}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--rule);font-size:17px}
+  .nav a::after{display:none}
+  .nav .nav-cta{margin:16px 0 0;text-align:center;padding:12px}
+}
+
+/* ---------- Section scaffolding ---------- */
+section{position:relative}
+.sec{padding:clamp(72px,10vw,140px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(140px,2fr) 10fr;gap:24px clamp(16px,3vw,40px);margin-bottom:clamp(40px,6vw,72px)}
+.sec-label{display:flex;flex-direction:column;gap:6px;color:var(--mid-ink);padding-top:10px;border-top:1px solid var(--graphite)}
+.sec-label b{font-weight:500;color:var(--graphite)}
+.sec-title{font-size:clamp(34px,5.4vw,72px);font-stretch:88%;font-weight:600;color:var(--deep);max-width:16ch}
+.lede{font-size:clamp(18px,1.7vw,21px);line-height:1.55;max-width:62ch;color:var(--graphite)}
+.body-grid{display:grid;grid-template-columns:minmax(140px,2fr) 10fr;gap:24px clamp(16px,3vw,40px)}
+.body-grid > .col-main{grid-column:2}
+@media (max-width:760px){
+  .sec-head,.body-grid{grid-template-columns:1fr}
+  .body-grid > .col-main{grid-column:1}
+}
+.prose p+p{margin-top:1.1em}
+.prose{max-width:64ch}
+
+.on-deep{background:var(--deep);color:#DDE4EA}
+.on-deep .sec-title{color:var(--paper)}
+.on-deep .sec-label{border-top-color:#C9D3DC;color:#9FB0C0}
+.on-deep .sec-label b{color:var(--paper)}
+.on-deep .lede{color:#DDE4EA}
+
+/* ---------- Review flags ---------- */
+.flag{display:none;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#8A5A00;background:#FFF3D6;border:1px solid #E9C877;padding:1px 6px;border-radius:2px;vertical-align:middle;margin-left:6px;cursor:help;white-space:nowrap}
+body.review .flag{display:inline-block}
+.on-deep .flag{color:#FFE2A3;background:rgba(255,200,90,.12);border-color:rgba(255,200,90,.45)}
+
+/* ---------- Hero ---------- */
+.hero{padding:clamp(40px,6vw,72px) 0 clamp(56px,7vw,96px);border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,4vw,64px);align-items:end}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;color:var(--mid-ink);margin-bottom:clamp(28px,4vw,48px)}
+.hero-meta .loc::before{content:"";display:inline-block;width:7px;height:7px;background:var(--accent);margin-right:8px;vertical-align:1px}
+.hero-name{font-family:var(--font-display);font-stretch:125%;font-weight:700;font-size:clamp(15px,1.3vw,18px);letter-spacing:.22em;color:var(--deep);margin-bottom:10px}
+.hero-desc{color:var(--mid-ink);margin-bottom:clamp(28px,4vw,44px)}
+.hero h1{font-size:clamp(48px,8.6vw,124px);font-stretch:80%;font-weight:600;line-height:.94;letter-spacing:-.025em;color:var(--deep);max-width:none}
+.hero h1 .l2{display:block;color:var(--graphite);font-weight:300;font-stretch:100%;padding-left:clamp(0px,6vw,96px)}
+.hero h1 .l2 em{font-style:normal;color:var(--accent);font-weight:500}
+.hero-text{margin-top:clamp(28px,4vw,44px);max-width:52ch;font-size:clamp(17px,1.5vw,19px)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:15px;font-weight:500;text-decoration:none;padding:13px 20px;border:1px solid var(--deep);border-radius:2px;cursor:pointer;transition:background .2s,color .2s,border-color .2s;background:none;color:var(--deep)}
+.btn-primary{background:var(--deep);color:var(--paper)}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-ghost:hover{background:var(--deep);color:var(--paper)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(3px)}
+.on-deep .btn{border-color:#C9D3DC;color:var(--paper)}
+.on-deep .btn-primary{background:var(--paper);color:var(--deep);border-color:var(--paper)}
+.on-deep .btn-primary:hover{background:var(--accent-on-deep);border-color:var(--accent-on-deep)}
+
+.figure{position:relative;border:1px solid var(--rule);background:
+  linear-gradient(var(--rule) 1px,transparent 1px) 0 0/24px 24px,
+  linear-gradient(90deg,var(--rule) 1px,transparent 1px) 0 0/24px 24px;background-color:#FBFCFC;aspect-ratio:4/5;min-height:320px}
+.figure canvas{position:absolute;inset:0;width:100%;height:100%}
+.fig-tag{position:absolute;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--mid-ink);background:#FBFCFC;padding:2px 6px;text-transform:uppercase}
+.fig-tl{top:10px;left:10px}.fig-tr{top:10px;right:10px}.fig-bl{bottom:10px;left:10px}.fig-br{bottom:10px;right:10px;font-variant-numeric:tabular-nums}
+.fig-tl b{color:var(--deep);font-weight:500}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.figure{aspect-ratio:16/11;min-height:0}}
+
+.enter{animation:enter .9s cubic-bezier(.2,.7,.2,1) both}
+.enter.d1{animation-delay:.08s}.enter.d2{animation-delay:.16s}.enter.d3{animation-delay:.24s}.enter.d4{animation-delay:.32s}
+@keyframes enter{from{transform:translateY(14px);opacity:.25}to{transform:none;opacity:1}}
+
+/* ---------- Sobre mí ---------- */
+.about-grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(24px,4vw,64px);align-items:start}
+.portrait{aspect-ratio:4/5;border:1px dashed var(--mid);display:flex;flex-direction:column;justify-content:space-between;padding:14px;color:var(--mid-ink);background:repeating-linear-gradient(135deg,transparent 0 11px,rgba(119,129,139,.12) 11px 12px)}
+.portrait strong{font-family:var(--font-display);font-weight:500;color:var(--graphite);font-size:17px;line-height:1.3}
+.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--graphite)}
+.axis{padding:22px 24px 8px 0}
+.axis+.axis{padding-left:24px;border-left:1px solid var(--rule)}
+.axis .n{color:var(--accent)}
+.axis h3{font-size:clamp(24px,2.6vw,34px);font-stretch:118%;font-weight:700;letter-spacing:.04em;color:var(--deep);margin:14px 0 10px}
+.axis p{color:var(--mid-ink);font-size:16px;max-width:30ch}
+@media (max-width:760px){.about-grid{grid-template-columns:1fr}.portrait{max-width:300px}.axes{grid-template-columns:1fr}.axis+.axis{padding-left:0;border-left:0;border-top:1px solid var(--rule)}}
+
+/* ---------- Investigación ---------- */
+.research-intro{display:grid;grid-template-columns:minmax(140px,2fr) 10fr;gap:24px clamp(16px,3vw,40px)}
+.research-intro .prose{grid-column:2}
+.record{margin-top:clamp(48px,6vw,80px);border:1px solid rgba(201,211,220,.35);display:grid;grid-template-columns:5fr 7fr}
+.record-head{padding:clamp(24px,3vw,40px);border-right:1px solid rgba(201,211,220,.35);display:flex;flex-direction:column;gap:18px}
+.record-head .status{display:inline-flex;align-items:center;gap:8px;color:var(--accent-on-deep)}
+.record-head .status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent-on-deep);box-shadow:0 0 0 4px rgba(127,176,227,.18)}
+.record-head h3{font-size:clamp(40px,5vw,68px);font-stretch:82%;color:var(--paper)}
+.record-head p{color:#C9D3DC;max-width:40ch}
+.record dl{margin:0;display:grid;grid-template-columns:minmax(120px,1fr) 2.4fr}
+.record dt,.record dd{margin:0;padding:14px clamp(16px,2vw,24px);border-bottom:1px solid rgba(201,211,220,.2)}
+.record dt{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9FB0C0;padding-top:17px}
+.record dd{color:var(--paper);font-size:16px}
+.record dd .muted{color:#9FB0C0}
+.record dl > :nth-last-child(-n+2){border-bottom:0}
+@media (max-width:860px){.record{grid-template-columns:1fr}.record-head{border-right:0;border-bottom:1px solid rgba(201,211,220,.35)}}
+@media (max-width:520px){.record dl{grid-template-columns:1fr}.record dt{border-bottom:0;padding-bottom:0}}
+.lines{margin-top:clamp(56px,7vw,96px)}
+.lines-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #C9D3DC;padding-bottom:12px;color:#9FB0C0}
+.lines ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr)}
+.lines li{padding:24px 20px 28px 0;border-bottom:1px solid rgba(201,211,220,.2);display:flex;gap:16px;align-items:baseline}
+.lines li:not(:nth-child(3n+1)){padding-left:20px;border-left:1px solid rgba(201,211,220,.2)}
+.lines .code{color:var(--accent-on-deep);flex:none}
+.lines .t{font-family:var(--font-display);font-size:clamp(19px,1.8vw,23px);font-weight:500;color:var(--paper);line-height:1.2}
+@media (max-width:860px){.lines ol{grid-template-columns:1fr 1fr}.lines li:not(:nth-child(3n+1)){padding-left:0;border-left:0}.lines li:nth-child(2n){padding-left:20px;border-left:1px solid rgba(201,211,220,.2)}}
+@media (max-width:520px){.lines ol{grid-template-columns:1fr}.lines li:nth-child(2n){padding-left:0;border-left:0}}
+
+/* ---------- Docencia ---------- */
+.teach-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(32px,5vw,80px)}
+.subjects{list-style:none;padding:0;margin:0;border-top:1px solid var(--graphite)}
+.subjects li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.subjects .s{font-family:var(--font-display);font-size:clamp(22px,2.2vw,28px);font-weight:500;color:var(--deep)}
+.subjects .m{color:var(--mid-ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:14px;border:1px solid var(--rule);padding:6px 12px;border-radius:2px;background:#fff}
+.side-label{color:var(--mid-ink);margin:0 0 12px}
+.activities{margin-top:clamp(56px,7vw,96px)}
+.act-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+.slot{border:1px dashed var(--mid);padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;color:var(--mid-ink);background:#fff}
+.slot b{font-family:var(--font-display);font-weight:500;color:var(--graphite);font-size:18px;line-height:1.25}
+@media (max-width:900px){.teach-grid{grid-template-columns:1fr}.act-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.act-grid{grid-template-columns:1fr}}
+
+/* ---------- Proyectos ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filter{font-family:var(--font-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;background:none;border:1px solid var(--rule);color:var(--graphite);padding:8px 12px;cursor:pointer;border-radius:2px}
+.filter:hover{border-color:var(--graphite)}
+.filter[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:var(--paper)}
+.projects{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2vw,28px)}
+.card{grid-column:span 4;display:flex;flex-direction:column;text-align:left;background:#fff;border:1px solid var(--rule);padding:0;cursor:pointer;font:inherit;color:inherit;transition:border-color .25s,transform .25s}
+.card.wide{grid-column:span 8}
+.card.wide .ph{aspect-ratio:21/9}
+.card:hover{border-color:var(--deep);transform:translateY(-2px)}
+.card[hidden]{display:none}
+.ph{position:relative;aspect-ratio:16/10;border-bottom:1px solid var(--rule);background:
+  linear-gradient(var(--rule) 1px,transparent 1px) 0 0/20px 20px,
+  linear-gradient(90deg,var(--rule) 1px,transparent 1px) 0 0/20px 20px;background-color:var(--paper);overflow:hidden}
+.ph svg{position:absolute;inset:0;width:100%;height:100%}
+.ph .ph-label{position:absolute;left:10px;bottom:10px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mid-ink);background:var(--paper);padding:2px 6px}
+.card-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card-meta{display:flex;justify-content:space-between;gap:12px;color:var(--mid-ink)}
+.card h3{font-size:clamp(22px,2vw,28px);font-weight:600;color:var(--deep)}
+.card p{color:var(--mid-ink);font-size:15.5px}
+.card .more{margin-top:auto;padding-top:8px;color:var(--accent);font-size:14px;font-weight:500}
+@media (max-width:980px){.card,.card.wide{grid-column:span 6}}
+@media (max-width:620px){.card,.card.wide{grid-column:span 12}}
+
+.studio{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--graphite);padding-top:24px;display:grid;grid-template-columns:5fr 4fr auto;gap:20px 40px;align-items:start}
+.studio h3{font-size:clamp(26px,2.6vw,34px);color:var(--deep);margin:10px 0 8px}
+.studio p{color:var(--mid-ink);max-width:44ch}
+.studio ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.studio li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+@media (max-width:860px){.studio{grid-template-columns:1fr}}
+dialog{border:0;padding:0;max-width:min(860px,calc(100% - 32px));width:100%;background:var(--paper);color:var(--graphite);box-shadow:0 30px 80px rgba(16,36,58,.35)}
+dialog::backdrop{background:rgba(16,36,58,.55)}
+.dlg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:24px 28px 18px;border-bottom:1px solid var(--rule)}
+.dlg-head h3{font-size:clamp(28px,3.4vw,42px);color:var(--deep);margin-top:6px}
+.dlg-close{background:none;border:1px solid var(--rule);width:40px;height:40px;cursor:pointer;color:var(--graphite);flex:none;font-size:20px;line-height:1}
+.dlg-close:hover{border-color:var(--graphite)}
+.dlg-body{padding:0 28px 28px}
+.dlg-body .ph{aspect-ratio:21/9;margin:20px 0 4px;border:1px solid var(--rule)}
+.spec{display:grid;grid-template-columns:minmax(130px,1fr) 3fr;margin:0}
+.spec dt,.spec dd{margin:0;padding:12px 0;border-bottom:1px solid var(--rule)}
+.spec dt{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid-ink);padding-top:15px}
+.spec .pending{color:var(--mid-ink);font-style:italic}
+@media (max-width:560px){.spec{grid-template-columns:1fr}.spec dt{border-bottom:0;padding-bottom:0}}
+
+/* ---------- Trayectoria ---------- */
+.timeline{position:relative;list-style:none;margin:0;padding:0}
+.timeline::before{content:"";position:absolute;left:calc(25% - 1px);top:0;bottom:0;width:1px;background:var(--rule)}
+.timeline .progress{position:absolute;left:calc(25% - 1px);top:0;width:1px;background:var(--accent);height:0}
+.tl-item{display:grid;grid-template-columns:25% 75%;position:relative}
+.tl-year{font-family:var(--font-display);font-stretch:80%;font-weight:600;font-size:clamp(26px,3.2vw,44px);color:var(--deep);padding:22px 28px 22px 0;text-align:right;font-variant-numeric:tabular-nums;line-height:1}
+.tl-body{padding:24px 0 30px 36px;border-bottom:1px solid var(--rule);position:relative}
+.tl-body::before{content:"";position:absolute;left:-5px;top:32px;width:9px;height:9px;background:var(--paper);border:1px solid var(--mid);transition:background .4s,border-color .4s}
+.tl-item.reached .tl-body::before{background:var(--accent);border-color:var(--accent)}
+.tl-body h3{font-family:var(--font-body);font-size:clamp(18px,1.6vw,20px);font-weight:500;line-height:1.4;color:var(--graphite);max-width:56ch}
+.tl-body .k{color:var(--mid-ink);margin-bottom:8px;display:block}
+.tl-item.biz .tl-body .k{color:var(--mid-ink)}
+.tl-item.acad .tl-body .k{color:var(--accent)}
+@media (max-width:620px){
+  .timeline::before,.timeline .progress{left:0}
+  .tl-item{grid-template-columns:1fr}
+  .tl-year{text-align:left;padding:22px 0 0 24px;font-size:28px}
+  .tl-body{padding:10px 0 24px 24px}
+  .tl-body::before{left:-5px;top:-22px}
+}
+
+/* ---------- Reconocimientos ---------- */
+.awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.award{border:1px solid var(--rule);background:#fff;padding:20px;display:flex;flex-direction:column;gap:14px;min-height:190px;transition:border-color .25s}
+.award:hover{border-color:var(--deep)}
+.award .top{display:flex;justify-content:space-between;gap:10px;color:var(--mid-ink)}
+.award .yr{font-variant-numeric:tabular-nums;color:var(--deep)}
+.award h3{font-size:22px;font-weight:600;color:var(--deep);line-height:1.15}
+.award p{color:var(--mid-ink);font-size:15px;margin-top:auto}
+.prod{margin-top:clamp(56px,7vw,96px)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--mid-ink);margin:14px 0 22px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:10px;height:10px;display:inline-block}
+.sw.acad{background:var(--deep)}.sw.media{background:transparent;border:1px solid var(--graphite)}.sw.cat{background:var(--mid)}.sw.inpi{background:var(--accent)}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.prod-col{border-top:3px solid var(--deep);padding-top:14px}
+.prod-col.media{border-top-color:var(--graphite);border-top-style:double}
+.prod-col.cat{border-top-color:var(--mid)}
+.prod-col.inpi{border-top-color:var(--accent)}
+.prod-col h3{font-family:var(--font-body);font-size:17px;font-weight:600;color:var(--graphite);margin-bottom:6px}
+.prod-col .empty{color:var(--mid-ink);font-size:15px;border:1px dashed var(--rule);padding:14px;margin-top:10px;background:#fff}
+@media (max-width:860px){.prod-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.prod-grid{grid-template-columns:1fr}}
+
+/* ---------- Contacto ---------- */
+.contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,5vw,80px)}
+.contact-data{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid #C9D3DC}
+.contact-data li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid rgba(201,211,220,.25)}
+.contact-data .mono{color:#9FB0C0;padding-top:3px}
+.contact-data a{color:var(--paper);text-decoration-color:var(--accent-on-deep);text-underline-offset:4px;word-break:break-word}
+.contact-data a:hover{color:var(--accent-on-deep)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#B9C6D2}
+label .req{color:var(--accent-on-deep)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--paper);background:rgba(255,255,255,.04);border:1px solid rgba(201,211,220,.4);border-radius:2px;padding:12px 14px;width:100%}
+select option{color:var(--graphite)}
+textarea{min-height:150px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent-on-deep);background:rgba(255,255,255,.07)}
+input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:#F2A097}
+.err{font-size:13.5px;color:#F6B8B0;min-height:0}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.form-note{font-size:14px;color:#9FB0C0;max-width:46ch}
+.status-box{grid-column:1/-1;border:1px solid rgba(201,211,220,.4);padding:16px 18px;display:none}
+.status-box.show{display:block}
+.status-box.error{border-color:#F2A097}
+.status-box.ok{border-color:var(--accent-on-deep)}
+.status-box h3{font-family:var(--font-body);font-size:16px;font-weight:600;color:var(--paper);margin-bottom:6px}
+.status-box p{font-size:15px;color:#C9D3DC}
+.status-box .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:560px){form{grid-template-columns:1fr}.contact-data li{grid-template-columns:1fr;gap:2px}}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--graphite);color:#B9C3CC;padding:36px 0}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px}
+.foot .brand{color:var(--paper)}
+.foot-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tool-btn{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;background:none;color:#DDE4EA;border:1px solid #4A535C;padding:8px 12px;cursor:pointer;border-radius:2px}
+.tool-btn:hover{border-color:#DDE4EA}
+.to-top{position:fixed;right:18px;bottom:18px;z-index:40;width:46px;height:46px;border:1px solid var(--deep);background:var(--paper);color:var(--deep);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s,transform .25s,visibility .25s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--deep);color:var(--paper)}
+.review-banner{display:none;background:#FFF3D6;color:#6B4600;border-bottom:1px solid #E9C877;font-size:14px}
+body.review .review-banner{display:block}
+.review-banner .wrap{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding-top:8px;padding-bottom:8px}
+.review-banner button{font:inherit;font-size:13px;background:none;border:1px solid #C9A04A;color:#6B4600;padding:4px 10px;cursor:pointer;border-radius:2px}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="review-banner" role="note">
+  <div class="wrap">
+    <span><strong>Borrador para revisión.</strong> Las etiquetas «a verificar» marcan datos que hay que confirmar con los CV antes de publicar.</span>
+    <button type="button" data-toggle-review>Ocultar etiquetas</button>
+  </div>
+</div>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#inicio" aria-label="Diego Amaya, ir al inicio">DIEGO<span>·</span>AMAYA</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#investigacion">Investigación</a>
+      <a href="#docencia">Docencia</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#contacto" class="nav-cta">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-meta mono enter">
+        <span class="loc">Tucumán, Argentina</span>
+        <span>Diseño Industrial · Docencia · Investigación</span>
+      </div>
+      <p class="hero-name enter d1">DIEGO AMAYA</p>
+      <p class="hero-desc mono enter d1">Diseñador Industrial · MBA · Doctorando en Diseño</p>
+      <h1 id="hero-title" class="enter d2">Diseñar el presente.<span class="l2">Investigar el <em>futuro.</em></span></h1>
+      <p class="hero-text enter d3">Diseñador industrial, MBA y doctorando en Diseño. Mi trabajo conecta el pensamiento proyectual, la investigación académica y las tecnologías emergentes para explorar nuevas formas de diseñar, producir e innovar.</p>
+      <div class="hero-actions enter d4">
+        <a class="btn btn-primary" href="#trayectoria">Conocer mi trayectoria <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#investigacion">Explorar investigaciones <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <figure class="figure enter d2" aria-label="Figura técnica: superficie paramétrica en malla de alambre, en rotación lenta">
+      <canvas id="paramCanvas" aria-hidden="true"></canvas>
+      <span class="fig-tag fig-tl"><b>Fig. 01</b> · Superficie reglada</span>
+      <span class="fig-tag fig-tr">u, v ∈ [−1, 1]</span>
+      <span class="fig-tag fig-bl">z = k · u · v</span>
+      <span class="fig-tag fig-br" id="figReadout">θ 000.0°</span>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= SOBRE MÍ ================= -->
+<section class="sec" id="sobre-mi" aria-labelledby="t-about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label mono"><b>01</b><span>Sobre mí</span></div>
+      <h2 class="sec-title" id="t-about">El diseño como punto de encuentro entre conocimiento, tecnología e industria.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="portrait" role="img" aria-label="Espacio reservado para la fotografía profesional de Diego Germán Amaya">
+        <span class="mono">Retrato · 4:5</span>
+        <strong>Fotografía profesional pendiente</strong>
+        <span class="mono">Reemplazar por imagen del titular</span>
+      </div>
+      <div class="prose lede" id="aboutText"></div>
+    </div>
+    <div class="axes" id="axes"></div>
+  </div>
+</section>
+
+<!-- ================= INVESTIGACIÓN ================= -->
+<section class="sec on-deep" id="investigacion" aria-labelledby="t-research">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label mono"><b>02</b><span>Investigación</span></div>
+      <h2 class="sec-title" id="t-research">Investigar las transformaciones del diseño.</h2>
+    </div>
+    <div class="research-intro">
+      <div class="prose lede" id="researchText"></div>
+    </div>
+
+    <article class="record" aria-labelledby="t-m40">
+      <div class="record-head">
+        <span class="status mono" id="m40status"></span>
+        <h3 id="t-m40">Mobiliario 4.0</h3>
+        <p id="m40summary"></p>
+      </div>
+      <dl id="m40spec"></dl>
+    </article>
+
+    <div class="lines">
+      <div class="lines-head mono"><span>Líneas de investigación</span><span id="linesCount"></span></div>
+      <ol id="linesList"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOCENCIA ================= -->
+<section class="sec" id="docencia" aria-labelledby="t-teach">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label mono"><b>03</b><span>Docencia</span></div>
+      <h2 class="sec-title" id="t-teach">Enseñar diseño es formar nuevas maneras de pensar.</h2>
+    </div>
+    <div class="teach-grid">
+      <div class="prose" id="teachText"></div>
+      <div>
+        <p class="side-label mono">Asignaturas · Lic. en Diseño Industrial, USP-T</p>
+        <ul class="subjects" id="subjects"></ul>
+        <p class="side-label mono" style="margin-top:36px">Áreas de enseñanza</p>
+        <div class="chips" id="teachAreas"></div>
+      </div>
+    </div>
+    <div class="activities">
+      <div class="lines-head mono" style="color:var(--mid-ink);border-bottom-color:var(--graphite)"><span>Actividades académicas</span><span>Espacio preparado para cargar material</span></div>
+      <div class="act-grid" id="activities"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROYECTOS ================= -->
+<section class="sec" id="proyectos" aria-labelledby="t-proj" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head" style="border-top:1px solid var(--rule);padding-top:clamp(72px,10vw,140px)">
+      <div class="sec-label mono"><b>04</b><span>Diseño e innovación</span></div>
+      <div>
+        <h2 class="sec-title" id="t-proj">Del pensamiento proyectual a la materialización.</h2>
+        <div class="prose" id="projText" style="margin-top:32px"></div>
+      </div>
+    </div>
+    <div class="filters" role="group" aria-label="Filtrar proyectos por categoría" id="filters"></div>
+    <div class="projects" id="projectGrid"></div>
+    <aside class="studio" id="studio" aria-label="Estudio profesional"></aside>
+  </div>
+</section>
+
+<dialog id="projDialog" aria-labelledby="dlgTitle">
+  <div class="dlg-head">
+    <div><span class="mono" id="dlgCat" style="color:var(--accent)"></span><h3 id="dlgTitle"></h3></div>
+    <button class="dlg-close" type="button" aria-label="Cerrar ficha" data-close>×</button>
+  </div>
+  <div class="dlg-body" id="dlgBody"></div>
+</dialog>
+
+<!-- ================= TRAYECTORIA ================= -->
+<section class="sec" id="trayectoria" aria-labelledby="t-path" style="background:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label mono"><b>05</b><span>Trayectoria</span></div>
+      <h2 class="sec-title" id="t-path">Una trayectoria entre el diseño, la industria y la academia.</h2>
+    </div>
+    <ol class="timeline" id="timeline"><li class="progress" aria-hidden="true"></li></ol>
+  </div>
+</section>
+
+<!-- ================= RECONOCIMIENTOS ================= -->
+<section class="sec" id="reconocimientos" aria-labelledby="t-awards">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label mono"><b>06</b><span>Reconocimientos y publicaciones</span></div>
+      <h2 class="sec-title" id="t-awards">Diseño, conocimiento y reconocimiento.</h2>
+    </div>
+    <h3 class="mono" style="font-family:var(--font-mono);font-weight:500;color:var(--mid-ink);margin-bottom:16px">Distinciones</h3>
+    <div class="awards" id="awards"></div>
+
+    <div class="prod">
+      <div class="lines-head mono" style="color:var(--mid-ink);border-bottom-color:var(--graphite)"><span>Producción académica y profesional</span><span>Clasificada por tipo de fuente</span></div>
+      <div class="legend mono" aria-hidden="true">
+        <span><i class="sw acad"></i>Académica</span>
+        <span><i class="sw media"></i>Medios</span>
+        <span><i class="sw cat"></i>Catálogos</span>
+        <span><i class="sw inpi"></i>Registros INPI</span>
+      </div>
+      <div class="prod-grid" id="prodGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="sec on-deep" id="contacto" aria-labelledby="t-contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label mono"><b>07</b><span>Contacto</span></div>
+      <h2 class="sec-title" id="t-contact">Conectemos conocimiento, diseño y nuevas oportunidades.</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="prose" id="contactText"></div>
+        <ul class="contact-data" id="contactData"></ul>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="f-name">Nombre <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="nombre" type="text" autocomplete="name" required aria-describedby="e-name">
+          <span class="err" id="e-name" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="f-email">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+          <span class="err" id="e-email" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="f-org">Institución u organización</label>
+          <input id="f-org" name="organizacion" type="text" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label for="f-reason">Motivo de contacto <span class="req" aria-hidden="true">*</span></label>
+          <select id="f-reason" name="motivo" required aria-describedby="e-reason"></select>
+          <span class="err" id="e-reason" aria-live="polite"></span>
+        </div>
+        <div class="field full">
+          <label for="f-msg">Mensaje <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="f-msg" name="mensaje" required aria-describedby="e-msg"></textarea>
+          <span class="err" id="e-msg" aria-live="polite"></span>
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Preparar correo <span class="arr" aria-hidden="true">→</span></button>
+          <p class="form-note">Este formulario todavía no tiene un servidor de envío. Al confirmar, abre tu programa de correo con el mensaje armado; el envío lo hacés vos desde ahí.</p>
+        </div>
+        <div class="status-box" id="formStatus" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="#inicio">DIEGO<span>·</span>AMAYA</a>
+      <p class="mono" style="margin-top:8px;color:#8C97A1">© <span id="yr">2026</span> Diego Germán Amaya · San Miguel de Tucumán</p>
+    </div>
+    <div class="foot-tools">
+      <span class="mono" style="color:#8C97A1">CV en PDF: disponible cuando se cargue el archivo</span>
+      <button class="tool-btn" type="button" data-toggle-review>Ocultar etiquetas de revisión</button>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" type="button" id="toTop" aria-label="Volver al inicio">
+  <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M7 15V2M1 7l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+</button>
+
+<script>
+/* =====================================================================
+   CONTENIDO CENTRALIZADO
+   Todo el texto del sitio vive en este objeto. Para actualizar el sitio,
+   editá SITE; los componentes no cambian. `verify` = nota de revisión.
+   En la versión Next.js este objeto pasa a /content/*.ts o a un CMS.
+   ===================================================================== */
+const SITE = {
+  person: {
+    name: "Diego Germán Amaya",
+    email: "diego.g.amaya@gmail.com",
+    location: "San Miguel de Tucumán, Argentina",
+    portfolio: "https://designargentina.com.ar",
+    /* Enlaces provistos por el titular (parámetros de seguimiento removidos) */
+    links: [
+      { k: "Portfolio", label: "designargentina.com.ar", url: "https://designargentina.com.ar" },
+      { k: "Behance", label: "behance.net/diegoamayadesign", url: "https://www.behance.net/diegoamayadesign" },
+      { k: "Estudio", label: "mechanicaldesigndept.com", url: "https://mechanicaldesigndept.com/es-ar" },
+      { k: "Instagram", label: "@design_argentina", url: "https://www.instagram.com/design_argentina" },
+      { k: "Instagram", label: "@mobiodesign", url: "https://www.instagram.com/mobiodesign" }
+    ]
+  },
+  studio: {
+    name: "Mechanical Design Department",
+    url: "https://mechanicaldesigndept.com/es-ar",
+    desc: "Servicio de diseño mecánico y simulación computacional para desarrollo de productos.",
+    services: ["Diseño mecánico y modelado 3D", "Simulación CAE", "Planimetría técnica 2D", "Renderizado"],
+    verify: "Confirmar rol (fundador, director) y año de inicio. El sitio del estudio no nombra al titular."
+  },
+  about: {
+    paragraphs: [
+      "Soy diseñador industrial, Magíster en Administración de Empresas y doctorando en Diseño por la Universidad de Palermo.",
+      "Mi trayectoria profesional y académica se desarrolla en la intersección entre el diseño industrial, la innovación tecnológica, la educación superior y los procesos de transformación productiva.",
+      { text: "Durante más de 15 años he trabajado en el desarrollo de productos, la gestión de proyectos industriales y la incorporación de herramientas digitales a los procesos de diseño y fabricación.",
+        verify: "«Más de 15 años»: la graduación figura en 2012 (14 años a 2026). Confirmar si se cuenta experiencia previa al título." },
+      "Mi experiencia profesional me permitió comprender el diseño desde una perspectiva integral, articulando creatividad, conocimiento técnico, gestión empresarial y competitividad.",
+      "En paralelo, mi actividad docente y mi formación doctoral consolidaron un interés particular por la producción de conocimiento, la enseñanza del diseño y las transformaciones asociadas a las tecnologías de Industria 4.0.",
+      "Actualmente, mis intereses se concentran en el diseño industrial, la fabricación aditiva, la simulación computacional, la inteligencia artificial y los procesos de transformación digital."
+    ],
+    axes: [
+      { k: "Diseño", d: "Desarrollo de productos y soluciones industriales." },
+      { k: "Docencia", d: "Formación académica y transferencia de conocimientos." },
+      { k: "Investigación", d: "Estudio de la innovación y la transformación tecnológica." }
+    ]
+  },
+  research: {
+    paragraphs: [
+      "Mi actividad de investigación se orienta al estudio de las relaciones entre diseño industrial, competitividad, innovación tecnológica y transformación productiva.",
+      "Actualmente desarrollo mis estudios doctorales en Diseño en la Universidad de Palermo, con una investigación centrada en la competitividad del diseño de mobiliario argentino desarmable (RTA) en el contexto de la Industria 4.0.",
+      "El propósito es comprender cómo las tecnologías emergentes influyen sobre los procesos proyectuales, los modelos de producción y las estrategias competitivas de las empresas industriales."
+    ],
+    featured: {
+      status: "Investigación doctoral en curso",
+      summary: "Investigación doctoral sobre competitividad, diseño de mobiliario argentino e Industria 4.0.",
+      spec: [
+        { k: "Título", v: "Mobiliario 4.0", verify: "Confirmar el título formal registrado de la tesis." },
+        { k: "Institución", v: "Universidad de Palermo · Doctorado en Diseño" },
+        { k: "Estado", v: "En desarrollo (inicio 2024)" },
+        { k: "Área", v: "Diseño industrial · Competitividad · Industria 4.0" },
+        { k: "Objetivo general", v: "Comprender cómo las tecnologías emergentes influyen sobre los procesos proyectuales, los modelos de producción y las estrategias competitivas en el diseño de mobiliario argentino desarmable (RTA)." },
+        { k: "Metodología", pending: "A completar cuando esté documentada en el plan de tesis." },
+        { k: "Publicaciones", pending: "Sin publicaciones vinculadas cargadas." },
+        { k: "Documentos", pending: "Sin enlaces cargados. Se publicarán solo enlaces verificados." }
+      ]
+    },
+    lines: [
+      "Diseño industrial e Industria 4.0",
+      "Competitividad e innovación",
+      "Fabricación aditiva y diseño paramétrico",
+      "Simulación computacional y optimización",
+      "Inteligencia artificial aplicada al diseño",
+      "Transformación digital de procesos proyectuales"
+    ]
+  },
+  teaching: {
+    paragraphs: [
+      "Concibo la enseñanza del diseño industrial como un proceso que integra pensamiento crítico, experimentación, conocimiento tecnológico y resolución de problemas.",
+      "Entre 2020 y 2025 desarrollé actividades docentes en la Licenciatura en Diseño Industrial de la Universidad San Pablo Tucumán, participando en asignaturas vinculadas con tecnología, diseño industrial y gestión empresarial.",
+      "Mi enfoque pedagógico procura vincular los contenidos académicos con los desafíos reales de los procesos productivos, promoviendo el aprendizaje mediante proyectos, el desarrollo de prototipos y la incorporación de herramientas digitales.",
+      "Considero que la formación de futuros diseñadores debe contemplar tanto las competencias fundamentales de la disciplina como las transformaciones derivadas de la automatización, la fabricación digital y la inteligencia artificial."
+    ],
+    subjects: [
+      { s: "Tecnología I", m: "Tecnología" },
+      { s: "Tecnología II", m: "Tecnología" },
+      { s: "Diseño Industrial II", m: "Proyecto" },
+      { s: "Gestión de Empresas", m: "Gestión" }
+    ],
+    areas: ["Diseño industrial","Tecnologías de fabricación","Modelado CAD 3D","Fabricación aditiva","Diseño mecánico","Gestión empresarial","Innovación tecnológica"],
+    activities: [
+      { t: "Talleres", d: "Registro de talleres dictados" },
+      { t: "Conferencias y seminarios", d: "Fecha, institución y tema" },
+      { t: "Proyectos de estudiantes", d: "Solo con autorización de sus autores" },
+      { t: "Actividades académicas", d: "Jurados, extensión, comisiones" }
+    ]
+  },
+  projectsIntro: [
+    "Mi experiencia profesional comprende el desarrollo de productos industriales, mobiliario, componentes mecánicos, packaging y soluciones para diferentes sectores productivos.",
+    "A lo largo de mi trayectoria he participado en proyectos que integran conceptualización, diseño paramétrico, documentación técnica, simulación computacional, prototipado y fabricación.",
+    "Esta práctica profesional constituye un vínculo permanente entre el conocimiento académico y los desafíos concretos de la industria."
+  ],
+  categories: ["Diseño de productos","Diseño mecánico","Simulación FEA","Fabricación aditiva","Mobiliario RTA","Packaging industrial","Desarrollo tecnológico"],
+  projects: [
+    { id: "mobio", name: "Mobiliario Mobio", year: "2014–2019", cats: ["Mobiliario RTA","Diseño de productos"], wide: true, shape: "rta",
+      teaser: "Diseño y fabricación de mobiliario contemporáneo. Incluye Mobio Lamp, distinguida con el Sello Buen Diseño Argentino en 2017.",
+      problem: null, solution: null, tech: null,
+      results: "Sello Buen Diseño Argentino — Mobio Lamp (2017).",
+      verify: "Completar problema, solución y tecnologías desde el CV." },
+    { id: "porzana", name: "Pocillo Porzana", year: null, cats: ["Diseño de productos"], shape: "cup",
+      teaser: "Pieza de vajilla distinguida con el Sello Buen Diseño Argentino.",
+      problem: null, solution: null, tech: null,
+      results: "Sello Buen Diseño Argentino.",
+      verify: "Falta el año del proyecto y de la distinción." },
+    { id: "bovinos", name: "Máquina de alimentación para bovinos", year: null, cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine",
+      teaser: "Desarrollo de equipamiento para el sector agropecuario.",
+      problem: null, solution: null, tech: null, results: null,
+      verify: "Confirmar año, cliente o contexto y alcance de la participación." },
+    { id: "fea", name: "Desarrollos mecánicos con simulación computacional", year: null, cats: ["Simulación FEA","Diseño mecánico"], shape: "fea",
+      teaser: "Componentes mecánicos validados mediante análisis por elementos finitos.",
+      problem: null, solution: null, tech: null, results: null,
+      verify: "Seleccionar casos concretos documentados en el CV." },
+    { id: "am", name: "Productos desarrollados mediante impresión 3D", year: null, cats: ["Fabricación aditiva","Diseño de productos"], shape: "am",
+      teaser: "Productos y prototipos concebidos para fabricación aditiva.",
+      problem: null, solution: null, tech: null, results: null,
+      verify: "Seleccionar casos concretos documentados en el CV." }
+  ],
+  timeline: [
+    { y: "2012", t: "Graduación como Diseñador Industrial en la Universidad Nacional de Córdoba.", k: "Formación", c: "acad" },
+    { y: "2014–2019", t: "Desarrollo y dirección de Mobio, empresa dedicada al diseño y fabricación de mobiliario contemporáneo.", k: "Industria", c: "biz" },
+    { y: "2015–2019", t: "Desarrollo de MueblesOnline, iniciativa de comercialización digital de mobiliario.", k: "Industria", c: "biz" },
+    { y: "2020", t: "Obtención del MBA en Administración de Empresas por la Universidad Siglo 21.", k: "Formación", c: "acad",
+      verify: "Confirmar denominación exacta del título (MBA / Magíster en Administración de Empresas)." },
+    { y: "2020–2025", t: "Docencia en la Licenciatura en Diseño Industrial de la Universidad San Pablo Tucumán.", k: "Docencia", c: "acad" },
+    { y: "2021–hoy", t: "Participación en gestión empresarial y proyectos de innovación tecnológica.", k: "Industria", c: "biz",
+      verify: "Indicar organización y rol para dar precisión al hito." },
+    { y: "2024–hoy", t: "Doctorado en Diseño en la Universidad de Palermo (en curso).", k: "Investigación", c: "acad" },
+    { y: "2025–2026", t: "Profundización de la formación en tecnologías digitales, inteligencia artificial, simulación y fabricación aditiva.", k: "Formación", c: "acad",
+      verify: "Detallar cursos o certificaciones concretas." }
+  ],
+  awards: [
+    { t: "Sello Buen Diseño Argentino", w: "Pocillo Porzana", y: null, type: "Distinción", verify: "Falta el año." },
+    { t: "Concurso Nacional INNOVAR", w: null, y: "2019", type: "Concurso", verify: "Indicar proyecto y categoría o mención obtenida." },
+    { t: "Sello Buen Diseño Argentino", w: "Mobio Lamp", y: "2017", type: "Distinción" },
+    { t: "Bienal Internacional de Arquitectura de Argentina", w: null, y: "2018", type: "Exhibición", verify: "Indicar proyecto y tipo de participación (selección, exhibición, premio)." },
+    { t: "Reconocimientos en diseño de mobiliario", w: null, y: null, type: "Distinciones", verify: "Detallar cada reconocimiento por separado con año y entidad." }
+  ],
+  production: [
+    { id: "acad", t: "Publicaciones académicas y ponencias", d: "Artículos con referato, capítulos, ponencias y conferencias.", items: [] },
+    { id: "media", t: "Menciones en medios", d: "Notas periodísticas y artículos de divulgación. No equivalen a publicaciones científicas.", items: [] },
+    { id: "cat", t: "Catálogos oficiales", d: "Catálogos de exposiciones, sellos y bienales.", items: [] },
+    { id: "inpi", t: "Registros de propiedad industrial", d: "Modelos y diseños industriales registrados ante el INPI.", items: [] }
+  ],
+  contact: {
+    paragraphs: [
+      "Me interesa participar en iniciativas que vinculen universidades, centros de investigación, empresas y organizaciones productivas.",
+      "Estoy abierto a colaboraciones académicas, proyectos interdisciplinarios, actividades docentes, conferencias, investigación aplicada y consultoría tecnológica."
+    ],
+    reasons: ["Colaboración académica","Proyecto interdisciplinario","Actividad docente","Conferencia o seminario","Investigación aplicada","Consultoría tecnológica","Otro"]
+  }
+};
+
+/* ===================== Utilidades ===================== */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const flag = note => note ? `<span class="flag" title="${esc(note)}" tabindex="0" aria-label="A verificar: ${esc(note)}">a verificar</span>` : "";
+const para = p => typeof p === "string" ? `<p>${esc(p)}</p>` : `<p>${esc(p.text)}${flag(p.verify)}</p>`;
+const pad = n => String(n).padStart(2, "0");
+
+/* ===================== Render ===================== */
+$("#aboutText").innerHTML = SITE.about.paragraphs.map(para).join("");
+$("#axes").innerHTML = SITE.about.axes.map((a, i) =>
+  `<div class="axis"><span class="mono n">E-${pad(i + 1)}</span><h3>${esc(a.k.toUpperCase())}</h3><p>${esc(a.d)}</p></div>`).join("");
+
+$("#researchText").innerHTML = SITE.research.paragraphs.map(para).join("");
+const F = SITE.research.featured;
+$("#m40status").textContent = F.status;
+$("#m40summary").textContent = F.summary;
+$("#m40spec").innerHTML = F.spec.map(r =>
+  `<dt>${esc(r.k)}</dt><dd>${r.pending ? `<span class="muted">${esc(r.pending)}</span>` : esc(r.v)}${flag(r.verify)}</dd>`).join("");
+$("#linesList").innerHTML = SITE.research.lines.map((l, i) =>
+  `<li><span class="mono code">L-${pad(i + 1)}</span><span class="t">${esc(l)}</span></li>`).join("");
+$("#linesCount").textContent = `${pad(SITE.research.lines.length)} líneas`;
+
+$("#teachText").innerHTML = SITE.teaching.paragraphs.map(para).join("");
+$("#subjects").innerHTML = SITE.teaching.subjects.map(s =>
+  `<li><span class="s">${esc(s.s)}</span><span class="mono m">${esc(s.m)}</span></li>`).join("");
+$("#teachAreas").innerHTML = SITE.teaching.areas.map(a => `<span class="chip">${esc(a)}</span>`).join("");
+$("#activities").innerHTML = SITE.teaching.activities.map((a, i) =>
+  `<div class="slot"><span class="mono">A-${pad(i + 1)} · Sin cargar</span><b>${esc(a.t)}</b><span style="font-size:14px">${esc(a.d)}</span></div>`).join("");
+
+$("#projText").innerHTML = SITE.projectsIntro.map(para).join("");
+
+/* Placeholders técnicos (no representan los proyectos reales: son esquemas genéricos rotulados) */
+function phSVG(shape) {
+  const s = 'fill="none" stroke="#20252B" stroke-width="1"';
+  const a = 'fill="none" stroke="#3978B8" stroke-width="1.2"';
+  const d = 'stroke-dasharray="4 4"';
+  const m = {
+    rta: `<g ${s}><path d="M110 150h180M110 150v-70h180v70M110 110h180"/><path d="M120 80l-30-25h180l30 25" ${d}/></g><g ${a}><path d="M200 80v70"/><circle cx="200" cy="80" r="3"/><circle cx="200" cy="150" r="3"/></g>`,
+    cup: `<g ${s}><path d="M150 70h100l-10 80h-80z"/><path d="M250 90c25 0 25 35 -5 40"/><ellipse cx="200" cy="160" rx="70" ry="8"/></g><g ${a}><path d="M200 55v115" ${d}/></g>`,
+    machine: `<g ${s}><rect x="110" y="70" width="130" height="70"/><path d="M240 95h60v45h-60"/><circle cx="140" cy="155" r="14"/><circle cx="270" cy="155" r="14"/></g><g ${a}><path d="M130 70l40-30h50l20 30" ${d}/></g>`,
+    fea: `<g ${s}><path d="M100 140h200v-30l-60-25h-80l-60 25z"/></g><g ${a}><path d="M100 110l40 30M160 85l20 55M240 85l-20 55M300 110l-40 30M140 140l20-55M260 140l-20-55"/></g><g fill="#3978B8"><circle cx="160" cy="85" r="2.5"/><circle cx="240" cy="85" r="2.5"/><circle cx="100" cy="110" r="2.5"/><circle cx="300" cy="110" r="2.5"/></g>`,
+    am: `<g ${s}>${Array.from({length:9},(_,i)=>`<path d="M${150+i*2} ${150-i*9}h${100-i*4}"/>`).join("")}</g><g ${a}><path d="M200 40v30M190 70h20l-10 10z"/></g>`
+  };
+  return `<svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${m[shape] || ""}</svg>`;
+}
+
+const activeCats = new Set(SITE.projects.flatMap(p => p.cats));
+const filterCats = ["Todos", ...SITE.categories.filter(c => activeCats.has(c))];
+$("#filters").innerHTML = filterCats.map((c, i) =>
+  `<button class="filter" type="button" aria-pressed="${i === 0}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+
+$("#projectGrid").innerHTML = SITE.projects.map((p, i) => `
+  <button class="card${p.wide ? " wide" : ""}" type="button" data-id="${p.id}" data-cats="${esc(p.cats.join("|"))}" aria-haspopup="dialog">
+    <div class="ph">${phSVG(p.shape)}<span class="ph-label">P-${pad(i + 1)} · Imagen pendiente</span></div>
+    <div class="card-body">
+      <div class="card-meta mono"><span>${esc(p.cats[0])}</span><span>${p.year ? esc(p.year) : "Año a confirmar"}</span></div>
+      <h3>${esc(p.name)}</h3>
+      <p>${esc(p.teaser)}</p>
+      <span class="more">Ver ficha →</span>
+    </div>
+  </button>`).join("");
+
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest(".filter"); if (!b) return;
+  document.querySelectorAll(".filter").forEach(f => f.setAttribute("aria-pressed", f === b));
+  const cat = b.dataset.cat;
+  document.querySelectorAll(".card").forEach(c => { c.hidden = cat !== "Todos" && !c.dataset.cats.split("|").includes(cat); });
+});
+
+/* Ficha de proyecto */
+const dlg = $("#projDialog");
+let lastFocus = null;
+const pending = "Pendiente de documentar con el CV.";
+function openProject(id) {
+  const i = SITE.projects.findIndex(p => p.id === id); const p = SITE.projects[i]; if (!p) return;
+  $("#dlgCat").textContent = `P-${pad(i + 1)} · ${p.cats.join(" · ")}`;
+  $("#dlgTitle").textContent = p.name;
+  const row = (k, v) => `<dt>${k}</dt><dd>${v ? esc(v) : `<span class="pending">${pending}</span>`}</dd>`;
+  $("#dlgBody").innerHTML = `
+    <div class="ph">${phSVG(p.shape)}<span class="ph-label">Imágenes pendientes · no se usan imágenes generadas</span></div>
+    <dl class="spec">
+      ${row("Año", p.year)}${row("Categoría", p.cats.join(", "))}${row("Problema", p.problem)}
+      ${row("Solución", p.solution)}${row("Tecnologías", p.tech)}${row("Resultados", p.results)}
+    </dl>
+    ${p.verify ? `<p style="margin-top:16px">${flag(p.verify)} <span class="flag" style="margin:0;cursor:default">${esc(p.verify)}</span></p>` : ""}`;
+  lastFocus = document.activeElement;
+  if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+}
+function closeProject() { dlg.close ? dlg.close() : dlg.removeAttribute("open"); }
+$("#projectGrid").addEventListener("click", e => { const c = e.target.closest(".card"); if (c) openProject(c.dataset.id); });
+dlg.addEventListener("click", e => { if (e.target === dlg || e.target.closest("[data-close]")) closeProject(); });
+dlg.addEventListener("close", () => { if (lastFocus) lastFocus.focus(); });
+
+/* Trayectoria */
+$("#timeline").insertAdjacentHTML("beforeend", SITE.timeline.map(t => `
+  <li class="tl-item ${t.c}"><div class="tl-year">${esc(t.y)}</div>
+  <div class="tl-body"><span class="mono k">${esc(t.k)}</span><h3>${esc(t.t)}${flag(t.verify)}</h3></div></li>`).join(""));
+
+/* Reconocimientos */
+$("#awards").innerHTML = SITE.awards.map(a => `
+  <article class="award"><div class="top mono"><span>${esc(a.type)}</span><span class="yr">${a.y ? esc(a.y) : "—"}</span></div>
+  <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : "Proyecto a especificar"}${flag(a.verify)}</p></article>`).join("");
+$("#prodGrid").innerHTML = SITE.production.map(c => `
+  <div class="prod-col ${c.id}"><h3>${esc(c.t)}</h3><p style="color:var(--mid-ink);font-size:15px">${esc(c.d)}</p>
+  ${c.items.length ? `<ul>${c.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`
+    : `<p class="empty">Sin registros cargados. Se agregarán solo referencias verificadas.</p>`}</div>`).join("");
+
+/* Contacto */
+$("#contactText").innerHTML = SITE.contact.paragraphs.map(para).join("");
+const P = SITE.person;
+$("#contactData").innerHTML = `
+  <li><span class="mono">Nombre</span><span>${esc(P.name)}</span></li>
+  <li><span class="mono">Email</span><a href="mailto:${esc(P.email)}">${esc(P.email)}</a></li>
+  <li><span class="mono">Ubicación</span><span>${esc(P.location)}</span></li>
+  ${P.links.map(l => `<li><span class="mono">${esc(l.k)}</span><a href="${esc(l.url)}" rel="noopener" target="_blank">${esc(l.label)} ↗</a></li>`).join("")}`;
+const ST = SITE.studio;
+$("#studio").innerHTML = `
+  <div><span class="mono" style="color:var(--accent)">Práctica profesional actual</span>
+  <h3>${esc(ST.name)}${flag(ST.verify)}</h3><p>${esc(ST.desc)}</p></div>
+  <ul>${ST.services.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
+  <a class="btn btn-ghost" href="${esc(ST.url)}" rel="noopener" target="_blank">Visitar el estudio <span class="arr" aria-hidden="true">↗</span></a>`;
+$("#f-reason").innerHTML = `<option value="">Seleccioná una opción</option>` +
+  SITE.contact.reasons.map(r => `<option>${esc(r)}</option>`).join("");
+
+/* ===================== Formulario (mailto, sin simular envío) ===================== */
+const form = $("#contactForm"), statusBox = $("#formStatus");
+const rules = {
+  "f-name": v => v.trim().length >= 2 || "Escribí tu nombre.",
+  "f-email": v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || "Revisá el correo: falta la @ o el dominio.",
+  "f-reason": v => !!v || "Elegí un motivo de contacto.",
+  "f-msg": v => v.trim().length >= 20 || "El mensaje necesita al menos 20 caracteres."
+};
+function check(id) {
+  const el = document.getElementById(id), r = rules[id](el.value), err = document.getElementById("e-" + id.slice(2));
+  const ok = r === true; el.setAttribute("aria-invalid", !ok); err.textContent = ok ? "" : r; return ok;
+}
+Object.keys(rules).forEach(id => document.getElementById(id).addEventListener("blur", () => check(id)));
+function showStatus(kind, title, text, extra = "") {
+  statusBox.className = `status-box show ${kind}`;
+  statusBox.innerHTML = `<h3>${title}</h3><p>${text}</p>${extra}`;
+}
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const bad = Object.keys(rules).filter(id => !check(id));
+  if (bad.length) {
+    showStatus("error", "Faltan datos", `Revisá ${bad.length === 1 ? "el campo marcado" : `los ${bad.length} campos marcados`} antes de continuar.`);
+    document.getElementById(bad[0]).focus(); return;
+  }
+  const v = id => document.getElementById(id).value.trim();
+  const subject = `[Web] ${v("f-reason")} — ${v("f-name")}`;
+  const body = `Nombre: ${v("f-name")}\nCorreo: ${v("f-email")}\nInstitución u organización: ${v("f-org") || "—"}\nMotivo: ${v("f-reason")}\n\n${v("f-msg")}`;
+  const href = `mailto:${P.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.__mailText = `Para: ${P.email}\nAsunto: ${subject}\n\n${body}`;
+  showStatus("ok", "Correo preparado. Todavía no se envió.",
+    `Abrí tu programa de correo con el botón y enviá el mensaje desde ahí. Si no se abre, copiá el texto y envialo a ${esc(P.email)}.`,
+    `<div class="row"><a class="btn btn-primary" href="${href}">Abrir en mi correo</a><button class="btn" type="button" id="copyMail">Copiar mensaje</button></div>`);
+  $("#copyMail").addEventListener("click", async ev => {
+    try { await navigator.clipboard.writeText(window.__mailText); ev.target.textContent = "Copiado"; }
+    catch { ev.target.textContent = "No se pudo copiar: seleccioná el texto manualmente"; }
+  });
+});
+
+/* ===================== Navegación ===================== */
+const header = $(".site-header"), nav = $("#nav"), menuBtn = $(".menu-btn"), toTop = $("#toTop");
+menuBtn.addEventListener("click", () => {
+  const open = nav.classList.toggle("open"); menuBtn.setAttribute("aria-expanded", open);
+  menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+});
+nav.addEventListener("click", e => { if (e.target.closest("a")) { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); } });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("open")) { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); menuBtn.focus(); } });
+toTop.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); $(".brand").focus({ preventScroll: true }); });
+
+/* Sección activa: proyectos agrupa también reconocimientos para el menú */
+const navMap = { "sobre-mi": "sobre-mi", investigacion: "investigacion", docencia: "docencia", proyectos: "proyectos", trayectoria: "trayectoria", reconocimientos: "trayectoria", contacto: "contacto" };
+const links = [...nav.querySelectorAll("a")];
+function onScroll() {
+  const y = window.scrollY;
+  header.classList.toggle("scrolled", y > 8);
+  toTop.classList.toggle("show", y > 700);
+  let current = null;
+  for (const id of Object.keys(navMap)) { const s = document.getElementById(id); if (s && s.getBoundingClientRect().top < window.innerHeight * 0.35) current = navMap[id]; }
+  links.forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + current ? "true" : "false"));
+  /* Línea de tiempo: progreso dibujado al desplazarse */
+  const tl = $("#timeline"), r = tl.getBoundingClientRect(), mark = window.innerHeight * 0.6;
+  const prog = Math.max(0, Math.min(r.height, mark - r.top));
+  $(".progress", tl).style.height = prog + "px";
+  tl.querySelectorAll(".tl-item").forEach(it => it.classList.toggle("reached", it.getBoundingClientRect().top + 30 < mark));
+}
+let ticking = false;
+window.addEventListener("scroll", () => { if (!ticking) { requestAnimationFrame(() => { onScroll(); ticking = false; }); ticking = true; } }, { passive: true });
+window.addEventListener("resize", onScroll);
+onScroll();
+
+/* Modo revisión */
+function setReview(on) {
+  document.body.classList.toggle("review", on);
+  document.querySelectorAll("[data-toggle-review]").forEach(b => b.textContent = on ? "Ocultar etiquetas de revisión" : "Mostrar etiquetas de revisión");
+  try { localStorage.setItem("da-review", on ? "1" : "0"); } catch {}
+}
+document.querySelectorAll("[data-toggle-review]").forEach(b => b.addEventListener("click", () => setReview(!document.body.classList.contains("review"))));
+try { const s = localStorage.getItem("da-review"); if (s !== null) setReview(s === "1"); } catch {}
+
+/* ===================== Fig. 01 — superficie paramétrica ===================== */
+(function () {
+  const cv = $("#paramCanvas"), ctx = cv.getContext("2d"), read = $("#figReadout");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+  const N = 16; let W = 0, H = 0, dpr = 1, theta = 0.6, last = 0, visible = true;
+  function size() { const r = cv.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  // Paraboloide hiperbólico (superficie reglada): z = k·u·v, construible con rectas, como un panel paramétrico.
+  function P(u, v, t) {
+    const k = 0.85 + 0.12 * Math.sin(t * 0.7);
+    let x = u, y = v, z = k * u * v;
+    const c = Math.cos(theta), s = Math.sin(theta);
+    let X = x * c - y * s, Y = x * s + y * c;            // rotación sobre el eje vertical
+    const tilt = 0.95, ct = Math.cos(tilt), st = Math.sin(tilt);
+    const Y2 = Y * ct - z * st, Z2 = Y * st + z * ct;     // inclinación de cámara
+    const sc = Math.min(W, H) * 0.34, f = 3.2 / (3.2 + Y2 * 0.35);
+    return [W / 2 + X * sc * f, H * 0.52 - Z2 * sc * f, Y2];
+  }
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    const lines = [];
+    for (let i = 0; i <= N; i++) {
+      const a = -1 + 2 * i / N, A = [], B = [];
+      for (let j = 0; j <= N; j++) { const b = -1 + 2 * j / N; A.push(P(a, b, t)); B.push(P(b, a, t)); }
+      lines.push({ pts: A, edge: i === 0 || i === N, mid: i === N / 2 }, { pts: B, edge: i === 0 || i === N, mid: i === N / 2 });
+    }
+    for (const l of lines) {
+      ctx.beginPath(); l.pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]));
+      ctx.strokeStyle = l.mid ? "#3978B8" : l.edge ? "#10243A" : "rgba(32,37,43,.38)";
+      ctx.lineWidth = l.mid ? 1.4 : l.edge ? 1.2 : 0.7; ctx.stroke();
+    }
+    // nodos de control en esquinas
+    [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([u, v]) => { const p = P(u, v, t); ctx.fillStyle = "#3978B8"; ctx.fillRect(p[0] - 3, p[1] - 3, 6, 6); });
+    // eje
+    const o = P(0, 0, t); ctx.beginPath(); ctx.setLineDash([3, 4]); ctx.moveTo(o[0], o[1] - Math.min(W,H)*0.3); ctx.lineTo(o[0], o[1] + Math.min(W,H)*0.3);
+    ctx.strokeStyle = "rgba(57,120,184,.6)"; ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]);
+    const deg = ((theta * 180 / Math.PI) % 360 + 360) % 360;
+    read.textContent = "θ " + deg.toFixed(1).padStart(5, "0") + "°";
+  }
+  function loop(ts) {
+    const dt = last ? Math.min(50, ts - last) : 16; last = ts;
+    if (visible && !reduce.matches) { theta += dt * 0.00012; draw(ts / 1000); }
+    requestAnimationFrame(loop);
+  }
+  size(); draw(0);
+  new ResizeObserver(() => { size(); draw(performance.now() / 1000); }).observe(cv);
+  if ("IntersectionObserver" in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(cv);
+  reduce.addEventListener?.("change", () => draw(0));
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
