@@ -94,6 +94,12 @@ p{margin:0}
 .nav .nav-cta{margin-left:10px;border:1px solid var(--deep);color:var(--deep);padding:7px 14px}
 .nav .nav-cta::after{display:none}
 .nav .nav-cta:hover{background:var(--deep);color:var(--paper)}
+.header-tools{display:flex;align-items:center;gap:10px;order:3}
+.lang-switch{display:inline-flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.lang-switch button{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;background:none;border:0;color:var(--mid-ink);padding:8px 10px;cursor:pointer;min-width:40px;min-height:36px}
+.lang-switch button+button{border-left:1px solid var(--rule)}
+.lang-switch button:hover{color:var(--deep)}
+.lang-switch button[aria-pressed="true"]{background:var(--deep);color:var(--paper)}
 .menu-btn{display:none;background:none;border:1px solid var(--rule);width:44px;height:40px;cursor:pointer;color:var(--deep);align-items:center;justify-content:center}
 @media (max-width:900px){
   .menu-btn{display:inline-flex}
@@ -373,9 +379,15 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="#inicio" aria-label="Diego Amaya, ir al inicio">DIEGO<span>·</span>AMAYA</a>
+    <div class="header-tools">
+    <div class="lang-switch" role="group" aria-label="Idioma">
+      <button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
       <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5"/></svg>
     </button>
+    </div>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#investigacion">Investigación</a>
@@ -601,7 +613,7 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
    editá SITE; los componentes no cambian.
    En la versión Next.js este objeto pasa a /content/*.ts o a un CMS.
    ===================================================================== */
-const SITE = {
+const SITE_ES = {
   person: {
     name: "Diego Germán Amaya",
     email: "amayadiegogerman@gmail.com",
@@ -797,48 +809,294 @@ const SITE = {
   }
 };
 
+/* =====================================================================
+   ENGLISH — capa de traducción
+   Solo contiene textos: se fusiona sobre SITE_ES por clave y posición.
+   Si se agrega un ítem en SITE_ES, agregar su traducción en el mismo lugar.
+   ===================================================================== */
+const SITE_EN_OVERLAY = {
+  person: {
+    location: "San Miguel de Tucumán, Argentina",
+    links: [{}, {}, { k: "Studio" }, {}, {}]
+  },
+  studio: {
+    desc: "Mechanical design and computational simulation services for product development.",
+    services: ["Mechanical design and 3D modeling", "CAE simulation", "2D technical drawings", "Rendering"]
+  },
+  about: {
+    paragraphs: [
+      "I am an industrial designer with an MBA and a Master's degree in Artificial Intelligence, currently pursuing a PhD in Design at Universidad de Palermo.",
+      "My professional and academic work sits at the intersection of industrial design, technological innovation, higher education and productive transformation.",
+      "For more than 15 years I have worked on product development, industrial project management and the integration of digital tools into design and manufacturing processes.",
+      "My professional experience taught me to understand design from an integral perspective, bringing together creativity, technical knowledge, business management and competitiveness.",
+      "In parallel, my teaching and doctoral studies have deepened my interest in knowledge production, design education and the transformations brought about by Industry 4.0 technologies.",
+      "My current interests focus on industrial design, additive manufacturing, computational simulation, artificial intelligence and digital transformation processes."
+    ],
+    axes: [
+      { k: "Design", d: "Development of products and industrial solutions." },
+      { k: "Teaching", d: "Academic training and knowledge transfer." },
+      { k: "Research", d: "The study of innovation and technological transformation." }
+    ]
+  },
+  research: {
+    paragraphs: [
+      "My research focuses on the relationships between industrial design, competitiveness, technological innovation and productive transformation.",
+      "I am currently pursuing a PhD in Design at Universidad de Palermo, with research centered on the competitiveness of Argentine ready-to-assemble (RTA) furniture design in the context of Industry 4.0.",
+      "The aim is to understand how emerging technologies shape design processes, production models and the competitive strategies of industrial companies."
+    ],
+    featured: {
+      status: "Doctoral research in progress",
+      summary: "Doctoral research on competitiveness, Argentine furniture design and Industry 4.0.",
+      spec: [
+        { k: "Title" },
+        { k: "Institution", v: "Universidad de Palermo · PhD in Design" },
+        { k: "Status", v: "In progress (started 2024)" },
+        { k: "Field", v: "Industrial design · Competitiveness · Industry 4.0" },
+        { k: "General aim", v: "To understand how emerging technologies shape design processes, production models and competitive strategies in Argentine ready-to-assemble (RTA) furniture design." },
+        { k: "Methodology", pending: "To be completed once documented in the thesis plan." },
+        { k: "Presentations", v: "“Mobiliario Argentino 4.0” (Argentine Furniture 4.0), Teaching Congress, School of Design and Communication, Universidad de Palermo (July 16, 2026)." },
+        { k: "Publications", pending: "No linked publications yet." },
+        { k: "Documents", pending: "No links yet. Only verified links will be published." }
+      ]
+    },
+    lines: [
+      "Industrial design and Industry 4.0",
+      "Competitiveness and innovation",
+      "Additive manufacturing and parametric design",
+      "Computational simulation and optimization",
+      "Artificial intelligence applied to design",
+      "Digital transformation of design processes"
+    ]
+  },
+  teaching: {
+    paragraphs: [
+      "I see industrial design education as a process that brings together critical thinking, experimentation, technological knowledge and problem solving.",
+      "From 2020 to 2025 I taught in the Industrial Design degree program at Universidad San Pablo Tucumán, in courses on technology, industrial design and business management.",
+      "My teaching approach connects academic content with the real challenges of production, encouraging project-based learning, prototyping and the use of digital tools.",
+      "I believe the education of future designers must cover both the fundamental skills of the discipline and the transformations driven by automation, digital fabrication and artificial intelligence."
+    ],
+    subjects: [
+      { s: "Technology I", m: "Technology" },
+      { s: "Technology II", m: "Technology" },
+      { s: "Industrial Design II", m: "Studio" },
+      { s: "Business Management", m: "Management" }
+    ],
+    areas: ["Industrial design", "Manufacturing technologies", "3D CAD modeling", "Additive manufacturing", "Mechanical design", "Business management", "Technological innovation"],
+    talks: [
+      { day: "Monday · 7:30 p.m.", kind: "Open talk",
+        title: "Industrial design: from function to meaning",
+        sub: "Objects, processes and contexts. From the industrial product to authorial design.",
+        host: "Higher Technical Degree in Industrial Design · Technical Institute, Universidad Nacional de Tucumán" },
+      { day: "Thursday · 5:30 p.m.", kind: "Congress",
+        title: "Mobiliario Argentino 4.0 (Argentine Furniture 4.0)",
+        sub: "Part of the Teaching Congress.",
+        host: "School of Design and Communication · Universidad de Palermo" },
+      { kind: "Talk series",
+        title: "SolidWorks, trade show stand design and intellectual property",
+        sub: "Talks on SolidWorks modeling, stand design and intellectual property in technology contexts.",
+        host: "Universidad San Pablo Tucumán" },
+      { kind: "Lecture",
+        title: "Design processes in the furniture industry",
+        sub: "Delivered as part of the specialization program.",
+        host: "DIMU · Universidad Nacional de Córdoba" },
+      { kind: "Presentation",
+        title: "Design culture and its links to the furniture sector" }
+    ]
+  },
+  projectsIntro: [
+    "My professional experience spans the development of industrial products, furniture, mechanical components, packaging and solutions for a range of productive sectors.",
+    "Throughout my career I have worked on projects that combine concept development, parametric design, technical documentation, computational simulation, prototyping and manufacturing.",
+    "This professional practice is a permanent link between academic knowledge and the concrete challenges of industry."
+  ],
+  categories: ["Product design", "Mechanical design", "FEA simulation", "Additive manufacturing", "RTA furniture", "Industrial packaging", "Technology development"],
+  projects: [
+    { name: "Mobio Furniture", cats: ["RTA furniture", "Product design"],
+      teaser: "A furniture line and factory that combined industrial RTA production with a customized design approach. Includes Mobio Lamp, awarded the Argentine Good Design Seal in 2017.",
+      results: "Argentine Good Design Seal 2017 for Mobio Lamp, featured in 90+10 magazine. Articles on Mobio in Ambientar and Asora magazines (2014 and 2016)." },
+    { name: "Porzana Coffee Cup", cats: ["Product design"], imageAlt: "Three white faceted Porzana coffee cups on a light background",
+      teaser: "A coffee cup that combines digital processes with local craft techniques. Argentine Good Design Seal 2025.",
+      results: "Argentine Good Design Seal (2025). Published in the official INNOVAR Competition catalogs." },
+    { name: "Bora Magic Bottle", cats: ["Industrial packaging", "Product design"], imageAlt: "Render of the Bora Magic detergent bottle, translucent yellow with a push-pull cap",
+      teaser: "Design and development of the bottle for Bora Magic dish detergent, a product sold in supermarkets across Argentina.",
+      results: "Product sold nationwide." },
+    { name: "Cattle Feeding Machine", cats: ["Mechanical design", "Technology development"],
+      teaser: "Equipment development for the agricultural sector. Published in the official INNOVAR Competition catalogs.",
+      results: "Published in the official INNOVAR Competition catalogs." },
+    { name: "Mechanical development with computational simulation", cats: ["FEA simulation", "Mechanical design"],
+      teaser: "Mechanical components validated through finite element analysis." },
+    { year: "2023–present", cats: ["Additive manufacturing", "Product design"],
+      teaser: "An experimental virtual studio founded with industrial designer Patricio Corvalán. It designs products for 3D printing, sold on the Cults3D platform.",
+      tech: "Design for additive manufacturing · Digital file distribution on Cults3D",
+      results: "Close to 100 products published since 2023." }
+  ],
+  timeline: [
+    { t: "Design of POP (point of purchase) materials and 3D displays for advertising campaigns at Ogilvy Argentina (Córdoba).", k: "Advertising" },
+    { t: "Design and development of the bottle for Bora Magic dish detergent, a product sold in supermarkets across Argentina.", k: "Design" },
+    { t: "Graduated as an Industrial Designer from Universidad Nacional de Córdoba.", k: "Education" },
+    { t: "Founded and led Mobio, a company devoted to the design and manufacture of contemporary furniture.", k: "Industry" },
+    { t: "Launched Muebles Online Argentina, the country's first 100% online furniture store, specialized in RTA furniture.", k: "Industry" },
+    { t: "MBA from Universidad Siglo 21.", k: "Education" },
+    { t: "Lecturer in the Industrial Design degree program at Universidad San Pablo Tucumán.", k: "Teaching" },
+    { y: "2021–present", t: "Business management and technological innovation projects.", k: "Industry" },
+    { y: "2023–present", t: "Co-founded Super Top Studio with Patricio Corvalán: an experimental virtual studio for 3D-printable products, with close to 100 designs published on Cults3D.", k: "Digital fabrication" },
+    { y: "2024–present", t: "PhD in Design at Universidad de Palermo (in progress).", k: "Research" },
+    { t: "Graduated from the Master's in Artificial Intelligence at CEUPE, European Postgraduate Center (Madrid, Spain).", k: "Education" }
+  ],
+  institutional: [
+    { y: "2017–present", org: "ACS · Córdoba Skateboarding Association",
+      d: "Design and development of skateparks, graphic pieces and institutional collaboration." },
+    { org: "Federation of Extreme Land Sports", role: "Board member",
+      d: "Coordinated the approval of public spaces for skateboarding." },
+    { org: "Youth Department · Córdoba Industrial Union (UIC)",
+      d: "Active participation and sector representation." },
+    { org: "CAMMEC · Córdoba Chamber of Wood, Furniture and Equipment", role: "Board of Directors member",
+      d: "Corporate identity development, logo design and relaunch of the institutional image." }
+  ],
+  awards: [
+    { t: "Argentine Good Design Seal", w: "Porzana coffee cup", type: "Award" },
+    { t: "INNOVAR National Competition", w: "Cattle feeding machine · Coffee cup", y: "2019 and 2022", type: "Competition" },
+    { t: "International Architecture Biennial of Argentina (BIA-AR)", type: "Biennial" },
+    { t: "Argentine Good Design Seal", type: "Award" }
+  ],
+  production: [
+    { t: "Academic publications and talks", d: "Articles, chapters, papers and lectures.", items: [
+      "“Nuevos lenguajes de las interacciones entre el arte y el diseño. Enfoque desde la historia cultural” (New languages in the interactions between art and design: a cultural history approach). Cuaderno 277, year 28, no. 225 (2025/2026). ISSN 1668-0227.",
+      "“Mobiliario Argentino 4.0”. Teaching Congress, School of Design and Communication, Universidad de Palermo, 2026.",
+      "“Diseño industrial: de la función al significado” (Industrial design: from function to meaning). Open talk, Technical Institute, Universidad Nacional de Tucumán, 2026."
+    ] },
+    { t: "Official catalogs", d: "Catalogs of design seals, competitions and biennials.", items: [
+      "Argentine Good Design Seal catalog, 2025: Porzana coffee cup.",
+      "Official INNOVAR Competition catalogs, 2019 and 2022: cattle feeding machine and coffee cup.",
+      "International Architecture Biennial of Argentina (BIA-AR), 2018: skate bike park.",
+      "Argentine Good Design Seal catalog, 2017: Mobio lamp."
+    ] },
+    { t: "Interviews and media", d: "Coverage in specialized magazines. Not equivalent to scientific publications.", items: [
+      "90+10 magazine, 2017: Mobio lamp featured.",
+      "Ambientar and Asora magazines, 2014 and 2016: articles on the impact of design on the furniture industry, with Mobio as an innovative case."
+    ] },
+    { t: "Industrial property registrations", d: "Industrial models and designs registered with INPI." }
+  ],
+  contact: {
+    paragraphs: [
+      "I am interested in initiatives that connect universities, research centers, companies and productive organizations.",
+      "I am open to academic collaborations, interdisciplinary projects, teaching, lectures, applied research and technology consulting."
+    ],
+    channels: { whatsapp: { greeting: "Hi Diego, I'm writing from your website." } }
+  }
+};
+
+/* Textos de interfaz generados por el script */
+const UI = {
+  es: {
+    all: "Todos", lines: "líneas", records: "registros", entities: "entidades", until: "hasta",
+    imgPending: "Imagen pendiente", yearTbc: "Año a confirmar", seeSheet: "Ver ficha →",
+    imgsPending: "Imágenes pendientes · no se usan imágenes generadas", pending: "Pendiente de documentar con el CV.",
+    year: "Año", category: "Categoría", problem: "Problema", solution: "Solución", tech: "Tecnologías", results: "Resultados",
+    tbd: "Proyecto a especificar", empty: "Sin registros cargados. Se agregarán solo referencias verificadas.",
+    name: "Nombre", location: "Ubicación", practice: "Práctica profesional actual", visitStudio: "Visitar el estudio",
+    mailSubject: "Contacto desde diegoamaya.com.ar", copied: "Email copiado", copy: "Copiar email",
+    title: "Diego Amaya | Diseño Industrial, Docencia e Investigación",
+    description: "Diego Germán Amaya, diseñador industrial, MBA, máster en Inteligencia Artificial y doctorando en Diseño. Investigación, docencia, innovación tecnológica, fabricación digital e Industria 4.0."
+  },
+  en: {
+    all: "All", lines: "lines", records: "entries", entities: "organizations", until: "to",
+    imgPending: "Image pending", yearTbc: "Year to be confirmed", seeSheet: "View project →",
+    imgsPending: "Images pending · no generated images are used", pending: "To be documented.",
+    year: "Year", category: "Category", problem: "Challenge", solution: "Solution", tech: "Technologies", results: "Results",
+    tbd: "Project to be specified", empty: "No entries yet. Only verified references will be added.",
+    name: "Name", location: "Location", practice: "Current professional practice", visitStudio: "Visit the studio",
+    mailSubject: "Contact from diegoamaya.com.ar", copied: "Email copied", copy: "Copy email",
+    title: "Diego Amaya | Industrial Design, Teaching and Research",
+    description: "Diego Germán Amaya, industrial designer, MBA, Master's in Artificial Intelligence and PhD candidate in Design. Research, teaching, technological innovation, digital fabrication and Industry 4.0."
+  }
+};
+
+/* Textos fijos del HTML: [selector, inglés]. El español se toma del HTML al cargar. */
+const STATIC_EN = [
+  [".skip", "Skip to content"],
+  ['#nav a[href="#sobre-mi"]', "About"],
+  ['#nav a[href="#investigacion"]', "Research"],
+  ['#nav a[href="#docencia"]', "Teaching"],
+  ['#nav a[href="#proyectos"]', "Projects"],
+  ['#nav a[href="#trayectoria"]', "Career"],
+  ['#nav a[href="#contacto"]', "Contact"],
+  [".hero-meta span:nth-child(2)", "Industrial Design · Teaching · Research"],
+  [".hero-desc", "Industrial Designer · MBA · MSc in AI · PhD Candidate in Design"],
+  ["#hero-title", 'Design the present.<span class="l2">Research the <em>future.</em></span>'],
+  [".hero-text", "Industrial designer, MBA, Master's in Artificial Intelligence and PhD candidate in Design. My work connects design thinking, academic research and emerging technologies to explore new ways of designing, producing and innovating."],
+  ['.hero-actions a[href="#trayectoria"]', 'Explore my career <span class="arr" aria-hidden="true">→</span>'],
+  ['.hero-actions a[href="#investigacion"]', 'Explore my research <span class="arr" aria-hidden="true">→</span>'],
+  [".fig-tl", "<b>Fig. 01</b> · Ruled surface"],
+  ["#sobre-mi .sec-label span", "About"],
+  ["#t-about", "Design as a meeting point for knowledge, technology and industry."],
+  [".portrait-photo figcaption", "Diego Germán Amaya · Tucumán, Argentina"],
+  ["#investigacion .sec-label span", "Research"],
+  ["#t-research", "Researching the transformations of design."],
+  [".lines .lines-head span:first-child", "Research lines"],
+  ["#docencia .sec-label span", "Teaching"],
+  ["#t-teach", "Teaching design is shaping new ways of thinking."],
+  [".teach-grid .side-label:first-of-type", "Courses · Industrial Design degree, USP-T"],
+  [".teach-grid .side-label:nth-of-type(2)", "Teaching areas"],
+  [".activities h3", "Talks and lectures"],
+  ["#proyectos .sec-label span", "Design and innovation"],
+  ["#t-proj", "From design thinking to production."],
+  ["#contactDialog .dlg-head .mono", "Contact"],
+  ["#contactDlgTitle", "How would you like to reach me?"],
+  ["#copyEmail", "Copy email"],
+  ["#trayectoria .sec-label span", "Career"],
+  ["#t-path", "A career across design, industry and academia."],
+  [".inst h3", "Institutional and sector involvement"],
+  ["#reconocimientos .sec-label span", "Awards and publications"],
+  ["#t-awards", "Design, knowledge and recognition."],
+  ["#reconocimientos .wrap > h3.mono", "Awards"],
+  [".prod .lines-head span:first-child", "Academic and professional output"],
+  [".prod .lines-head span:last-child", "Grouped by source type"],
+  [".legend span:nth-child(1)", '<i class="sw acad"></i>Academic'],
+  [".legend span:nth-child(2)", '<i class="sw cat"></i>Catalogs'],
+  [".legend span:nth-child(3)", '<i class="sw media"></i>Media'],
+  ["#contacto .sec-label span", "Contact"],
+  ["#t-contact", "Let's connect knowledge, design and new opportunities."],
+  [".contact-cta p", "Reach me on WhatsApp or by email. I reply personally."],
+  ["#openContact", 'Contact me <span class="arr" aria-hidden="true">→</span>'],
+  [".foot-tools .mono", "PDF CV: available soon"]
+];
+/* Atributos: [selector, atributo, inglés] */
+const STATIC_ATTR_EN = [
+  [".brand", "aria-label", "Diego Amaya, go to top"],
+  [".menu-btn", "aria-label", "Open menu"],
+  ["#nav", "aria-label", "Main"],
+  [".figure", "aria-label", "Technical figure: parametric wireframe surface, slowly rotating"],
+  [".portrait-photo img", "alt", "Portrait of Diego Germán Amaya"],
+  ["#filters", "aria-label", "Filter projects by category"],
+  ["#studio", "aria-label", "Professional studio"],
+  ["#projDialog .dlg-close", "aria-label", "Close project"],
+  ["#contactDialog .dlg-close", "aria-label", "Close"],
+  ["#toTop", "aria-label", "Back to top"],
+  [".lang-switch", "aria-label", "Language"]
+];
+
+
 /* ===================== Utilidades ===================== */
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 const para = p => typeof p === "string" ? `<p>${esc(p)}</p>` : `<p>${esc(p.text)}</p>`;
 const pad = n => String(n).padStart(2, "0");
 
-/* ===================== Render ===================== */
-$("#aboutText").innerHTML = SITE.about.paragraphs.map(para).join("");
-$("#axes").innerHTML = SITE.about.axes.map((a, i) =>
-  `<div class="axis"><span class="mono n">E-${pad(i + 1)}</span><h3>${esc(a.k.toUpperCase())}</h3><p>${esc(a.d)}</p></div>`).join("");
-
-$("#researchText").innerHTML = SITE.research.paragraphs.map(para).join("");
-const F = SITE.research.featured;
-$("#m40status").textContent = F.status;
-$("#m40summary").textContent = F.summary;
-$("#m40spec").innerHTML = F.spec.map(r =>
-  `<dt>${esc(r.k)}</dt><dd>${r.pending ? `<span class="muted">${esc(r.pending)}</span>` : esc(r.v)}</dd>`).join("");
-$("#linesList").innerHTML = SITE.research.lines.map((l, i) =>
-  `<li><span class="mono code">L-${pad(i + 1)}</span><span class="t">${esc(l)}</span></li>`).join("");
-$("#linesCount").textContent = `${pad(SITE.research.lines.length)} líneas`;
-
-$("#teachText").innerHTML = SITE.teaching.paragraphs.map(para).join("");
-$("#subjects").innerHTML = SITE.teaching.subjects.map(s =>
-  `<li><span class="s">${esc(s.s)}</span><span class="mono m">${esc(s.m)}</span></li>`).join("");
-$("#teachAreas").innerHTML = SITE.teaching.areas.map(a => `<span class="chip">${esc(a)}</span>`).join("");
-const talks = [...SITE.teaching.talks].sort((a, b) => b.date.localeCompare(a.date));
-$("#talksCount").textContent = `${pad(talks.length)} registros`;
-$("#talks").innerHTML = talks.map(t => `
-  <li class="talk">
-    ${t.label
-      ? `<span class="talk-date"><span class="d">${esc(t.label)}</span>${t.until ? `<span class="y mono">hasta ${esc(t.until)}</span>` : ""}</span>`
-      : `<time class="talk-date" datetime="${esc(t.date)}"><span class="d">${esc(t.date.slice(8,10))}.${esc(t.date.slice(5,7))}</span><span class="y mono">${esc(t.date.slice(0,4))}</span></time>`}
-    <div class="talk-body">
-      <span class="mono talk-kind">${esc(t.kind)}</span>
-      <h4>${esc(t.title)}</h4>
-      ${t.sub ? `<p class="talk-sub">${esc(t.sub)}</p>` : ""}
-      <p class="talk-meta">${esc(t.host)}${t.place ? ` · ${esc(t.place)}` : ""}</p>
-    </div>
-    <span class="mono talk-day">${t.day ? esc(t.day) : ""}</span>
-  </li>`).join("");
-
-$("#projText").innerHTML = SITE.projectsIntro.map(para).join("");
+/* ===================== Idioma ===================== */
+function deepMerge(base, over) {
+  if (over === undefined || over === null) return base;
+  if (Array.isArray(base)) return base.map((b, i) => deepMerge(b, Array.isArray(over) ? over[i] : undefined));
+  if (base && typeof base === "object") {
+    const out = { ...base };
+    for (const k of Object.keys(over)) out[k] = deepMerge(base[k], over[k]);
+    return out;
+  }
+  return over;
+}
+const DATA = { es: SITE_ES, en: deepMerge(SITE_ES, SITE_EN_OVERLAY) };
+let LANG = "es";
+let SITE = DATA.es;
+const T = k => UI[LANG][k];
 
 /* Placeholders técnicos (no representan los proyectos reales: son esquemas genéricos rotulados) */
 function phSVG(shape) {
@@ -854,47 +1112,145 @@ function phSVG(shape) {
   };
   return `<svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${m[shape] || ""}</svg>`;
 }
-
 const photo = p => `<picture><source type="image/webp" srcset="${p.image}.webp"><img src="${p.image}.jpg" alt="${esc(p.imageAlt || p.name)}"${p.imagePos ? ` style="object-position:${p.imagePos}"` : ""} loading="lazy" decoding="async"></picture>`;
-const activeCats = new Set(SITE.projects.flatMap(p => p.cats));
-const filterCats = ["Todos", ...SITE.categories.filter(c => activeCats.has(c))];
-$("#filters").innerHTML = filterCats.map((c, i) =>
-  `<button class="filter" type="button" aria-pressed="${i === 0}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+const ICON = {
+  wa: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/><path d="M9 9.5c.3 2 2.1 4.1 4.6 4.8l1.1-1.1 1.8.8-.4 1.6c-3.6.2-7.6-3.4-7.7-7.3l1.6-.4.8 1.8z"/></svg>',
+  mail: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg>'
+};
 
-$("#projectGrid").innerHTML = SITE.projects.map((p, i) => `
-  <button class="card${p.wide ? " wide" : ""}" type="button" data-id="${p.id}" data-cats="${esc(p.cats.join("|"))}" aria-haspopup="dialog">
-    <div class="ph">${p.image ? photo(p) : `${phSVG(p.shape)}<span class="ph-label">P-${pad(i + 1)} · Imagen pendiente</span>`}</div>
-    <div class="card-body">
-      <div class="card-meta mono"><span>${esc(p.cats[0])}</span><span>${p.year ? esc(p.year) : "Año a confirmar"}</span></div>
-      <h3>${esc(p.name)}</h3>
-      <p>${esc(p.teaser)}</p>
-      <span class="more">Ver ficha →</span>
-    </div>
-  </button>`).join("");
+/* ===================== Render (se repite al cambiar de idioma) ===================== */
+function render() {
+  $("#aboutText").innerHTML = SITE.about.paragraphs.map(para).join("");
+  $("#axes").innerHTML = SITE.about.axes.map((a, i) =>
+    `<div class="axis"><span class="mono n">E-${pad(i + 1)}</span><h3>${esc(a.k.toUpperCase())}</h3><p>${esc(a.d)}</p></div>`).join("");
 
+  $("#researchText").innerHTML = SITE.research.paragraphs.map(para).join("");
+  const F = SITE.research.featured;
+  $("#m40status").textContent = F.status;
+  $("#m40summary").textContent = F.summary;
+  $("#m40spec").innerHTML = F.spec.map(r =>
+    `<dt>${esc(r.k)}</dt><dd>${r.pending ? `<span class="muted">${esc(r.pending)}</span>` : esc(r.v)}</dd>`).join("");
+  $("#linesList").innerHTML = SITE.research.lines.map((l, i) =>
+    `<li><span class="mono code">L-${pad(i + 1)}</span><span class="t">${esc(l)}</span></li>`).join("");
+  $("#linesCount").textContent = `${pad(SITE.research.lines.length)} ${T("lines")}`;
+
+  $("#teachText").innerHTML = SITE.teaching.paragraphs.map(para).join("");
+  $("#subjects").innerHTML = SITE.teaching.subjects.map(s =>
+    `<li><span class="s">${esc(s.s)}</span><span class="mono m">${esc(s.m)}</span></li>`).join("");
+  $("#teachAreas").innerHTML = SITE.teaching.areas.map(a => `<span class="chip">${esc(a)}</span>`).join("");
+  const talks = [...SITE.teaching.talks].sort((a, b) => b.date.localeCompare(a.date));
+  $("#talksCount").textContent = `${pad(talks.length)} ${T("records")}`;
+  $("#talks").innerHTML = talks.map(t => `
+    <li class="talk">
+      ${t.label
+        ? `<span class="talk-date"><span class="d">${esc(t.label)}</span>${t.until ? `<span class="y mono">${T("until")} ${esc(t.until)}</span>` : ""}</span>`
+        : `<time class="talk-date" datetime="${esc(t.date)}"><span class="d">${esc(t.date.slice(8,10))}.${esc(t.date.slice(5,7))}</span><span class="y mono">${esc(t.date.slice(0,4))}</span></time>`}
+      <div class="talk-body">
+        <span class="mono talk-kind">${esc(t.kind)}</span>
+        <h4>${esc(t.title)}</h4>
+        ${t.sub ? `<p class="talk-sub">${esc(t.sub)}</p>` : ""}
+        <p class="talk-meta">${esc(t.host)}${t.place ? ` · ${esc(t.place)}` : ""}</p>
+      </div>
+      <span class="mono talk-day">${t.day ? esc(t.day) : ""}</span>
+    </li>`).join("");
+
+  $("#projText").innerHTML = SITE.projectsIntro.map(para).join("");
+  const activeCats = new Set(SITE.projects.flatMap(p => p.cats));
+  const filterCats = [T("all"), ...SITE.categories.filter(c => activeCats.has(c))];
+  $("#filters").innerHTML = filterCats.map((c, i) =>
+    `<button class="filter" type="button" aria-pressed="${i === 0}" data-cat="${i === 0 ? "*" : esc(c)}">${esc(c)}</button>`).join("");
+  $("#projectGrid").innerHTML = SITE.projects.map((p, i) => `
+    <button class="card${p.wide ? " wide" : ""}" type="button" data-id="${p.id}" data-cats="${esc(p.cats.join("|"))}" aria-haspopup="dialog">
+      <div class="ph">${p.image ? photo(p) : `${phSVG(p.shape)}<span class="ph-label">P-${pad(i + 1)} · ${T("imgPending")}</span>`}</div>
+      <div class="card-body">
+        <div class="card-meta mono"><span>${esc(p.cats[0])}</span><span>${p.year ? esc(p.year) : T("yearTbc")}</span></div>
+        <h3>${esc(p.name)}</h3>
+        <p>${esc(p.teaser)}</p>
+        <span class="more">${T("seeSheet")}</span>
+      </div>
+    </button>`).join("");
+
+  document.querySelectorAll("#timeline .tl-item").forEach(n => n.remove());
+  $("#timeline").insertAdjacentHTML("beforeend", SITE.timeline.map(t => `
+    <li class="tl-item ${t.c}"><div class="tl-year">${esc(t.y)}</div>
+    <div class="tl-body"><span class="mono k">${esc(t.k)}</span><h3>${esc(t.t)}</h3></div></li>`).join(""));
+
+  $("#instCount").textContent = `${pad(SITE.institutional.length)} ${T("entities")}`;
+  $("#inst").innerHTML = SITE.institutional.map(i => `
+    <li><span class="mono inst-y">${esc(i.y)}</span>
+    <div><h4>${esc(i.org)}</h4>${i.role ? `<span class="mono inst-role">${esc(i.role)}</span>` : ""}</div>
+    <p>${esc(i.d)}</p></li>`).join("");
+
+  $("#awards").innerHTML = SITE.awards.map(a => `
+    <article class="award"><div class="top mono"><span>${esc(a.type)}</span><span class="yr">${a.y ? esc(a.y) : "—"}</span></div>
+    <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : T("tbd")}</p></article>`).join("");
+  $("#prodGrid").innerHTML = SITE.production.filter(c => c.items.length).map(c => `
+    <div class="prod-col ${c.id}"><h3>${esc(c.t)}</h3><p style="color:var(--mid-ink);font-size:15px">${esc(c.d)}</p>
+    <ul>${c.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("");
+
+  $("#contactText").innerHTML = SITE.contact.paragraphs.map(para).join("");
+  const P = SITE.person, C = SITE.contact.channels;
+  $("#contactData").innerHTML = `
+    <li><span class="mono">${T("name")}</span><span>${esc(P.name)}</span></li>
+    <li><span class="mono">WhatsApp</span><a href="https://wa.me/${C.whatsapp.wa}" target="_blank" rel="noopener">${esc(C.whatsapp.display)}</a></li>
+    <li><span class="mono">Email</span><a href="mailto:${esc(P.email)}">${esc(P.email)}</a></li>
+    <li><span class="mono">${T("location")}</span><span>${esc(P.location)}</span></li>
+    ${P.links.map(l => `<li><span class="mono">${esc(l.k)}</span><a href="${esc(l.url)}" rel="noopener" target="_blank">${esc(l.label)} ↗</a></li>`).join("")}`;
+  const ST = SITE.studio;
+  $("#studio").innerHTML = `
+    <div><span class="mono" style="color:var(--accent)">${T("practice")}</span>
+    <h3>${esc(ST.name)}</h3><p>${esc(ST.desc)}</p></div>
+    <ul>${ST.services.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
+    <a class="btn btn-ghost" href="${esc(ST.url)}" rel="noopener" target="_blank">${T("visitStudio")} <span class="arr" aria-hidden="true">↗</span></a>`;
+
+  $("#channels").innerHTML = `
+    <li><a class="channel" href="https://wa.me/${C.whatsapp.wa}?text=${encodeURIComponent(C.whatsapp.greeting)}" target="_blank" rel="noopener">
+      <span class="ic">${ICON.wa}</span><span><b>WhatsApp</b><span class="v">${esc(C.whatsapp.display)}</span></span><span class="go" aria-hidden="true">↗</span></a></li>
+    <li><a class="channel" href="mailto:${esc(C.email)}?subject=${encodeURIComponent(T("mailSubject"))}">
+      <span class="ic">${ICON.mail}</span><span><b>Email</b><span class="v">${esc(C.email)}</span></span><span class="go" aria-hidden="true">→</span></a></li>`;
+}
+
+/* Textos fijos: el español se guarda del HTML original */
+const STATIC_ES = STATIC_EN.map(([sel]) => { const el = $(sel); return el ? el.innerHTML : null; });
+const STATIC_ATTR_ES = STATIC_ATTR_EN.map(([sel, attr]) => { const el = $(sel); return el ? el.getAttribute(attr) : null; });
+function applyStatic() {
+  STATIC_EN.forEach(([sel, en], i) => { const el = $(sel); if (el && STATIC_ES[i] !== null) el.innerHTML = LANG === "en" ? en : STATIC_ES[i]; });
+  STATIC_ATTR_EN.forEach(([sel, attr, en], i) => { const el = $(sel); if (el && STATIC_ATTR_ES[i] !== null) el.setAttribute(attr, LANG === "en" ? en : STATIC_ATTR_ES[i]); });
+  document.documentElement.lang = LANG === "en" ? "en" : "es-AR";
+  document.title = T("title");
+  const md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", T("description"));
+  document.querySelectorAll(".lang-switch button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === LANG));
+}
+function setLang(lang, save = true) {
+  LANG = lang === "en" ? "en" : "es";
+  SITE = DATA[LANG];
+  render(); applyStatic();
+  try { onScroll(); } catch {}
+  if (save) { try { localStorage.setItem("da-lang", LANG); } catch {} }
+}
+document.querySelectorAll(".lang-switch button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+/* ===================== Interacciones (se registran una vez) ===================== */
 $("#filters").addEventListener("click", e => {
   const b = e.target.closest(".filter"); if (!b) return;
   document.querySelectorAll(".filter").forEach(f => f.setAttribute("aria-pressed", f === b));
   const cat = b.dataset.cat;
-  document.querySelectorAll(".card").forEach(c => { c.hidden = cat !== "Todos" && !c.dataset.cats.split("|").includes(cat); });
+  document.querySelectorAll(".card").forEach(c => { c.hidden = cat !== "*" && !c.dataset.cats.split("|").includes(cat); });
 });
 
-/* Ficha de proyecto */
 const dlg = $("#projDialog");
 let lastFocus = null;
-const pending = "Pendiente de documentar con el CV.";
 function openProject(id) {
   const i = SITE.projects.findIndex(p => p.id === id); const p = SITE.projects[i]; if (!p) return;
   $("#dlgCat").textContent = `P-${pad(i + 1)} · ${p.cats.join(" · ")}`;
   $("#dlgTitle").textContent = p.name;
-  const row = (k, v) => `<dt>${k}</dt><dd>${v ? esc(v) : `<span class="pending">${pending}</span>`}</dd>`;
+  const row = (k, v) => `<dt>${k}</dt><dd>${v ? esc(v) : `<span class="pending">${T("pending")}</span>`}</dd>`;
   $("#dlgBody").innerHTML = `
-    <div class="ph">${p.image ? photo(p) : `${phSVG(p.shape)}<span class="ph-label">Imágenes pendientes · no se usan imágenes generadas</span>`}</div>
+    <div class="ph">${p.image ? photo(p) : `${phSVG(p.shape)}<span class="ph-label">${T("imgsPending")}</span>`}</div>
     <dl class="spec">
-      ${row("Año", p.year)}${row("Categoría", p.cats.join(", "))}${row("Problema", p.problem)}
-      ${row("Solución", p.solution)}${row("Tecnologías", p.tech)}${row("Resultados", p.results)}
-    </dl>
-`;
+      ${row(T("year"), p.year)}${row(T("category"), p.cats.join(", "))}${row(T("problem"), p.problem)}
+      ${row(T("solution"), p.solution)}${row(T("tech"), p.tech)}${row(T("results"), p.results)}
+    </dl>`;
   lastFocus = document.activeElement;
   if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
 }
@@ -903,69 +1259,27 @@ $("#projectGrid").addEventListener("click", e => { const c = e.target.closest(".
 dlg.addEventListener("click", e => { if (e.target === dlg || e.target.closest("[data-close]")) closeProject(); });
 dlg.addEventListener("close", () => { if (lastFocus) lastFocus.focus(); });
 
-/* Trayectoria */
-$("#timeline").insertAdjacentHTML("beforeend", SITE.timeline.map(t => `
-  <li class="tl-item ${t.c}"><div class="tl-year">${esc(t.y)}</div>
-  <div class="tl-body"><span class="mono k">${esc(t.k)}</span><h3>${esc(t.t)}</h3></div></li>`).join(""));
-
-/* Participación institucional */
-$("#instCount").textContent = `${pad(SITE.institutional.length)} entidades`;
-$("#inst").innerHTML = SITE.institutional.map(i => `
-  <li><span class="mono inst-y">${esc(i.y)}</span>
-  <div><h4>${esc(i.org)}</h4>${i.role ? `<span class="mono inst-role">${esc(i.role)}</span>` : ""}</div>
-  <p>${esc(i.d)}</p></li>`).join("");
-
-/* Reconocimientos */
-$("#awards").innerHTML = SITE.awards.map(a => `
-  <article class="award"><div class="top mono"><span>${esc(a.type)}</span><span class="yr">${a.y ? esc(a.y) : "—"}</span></div>
-  <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : "Proyecto a especificar"}</p></article>`).join("");
-$("#prodGrid").innerHTML = SITE.production.filter(c => c.items.length).map(c => `
-  <div class="prod-col ${c.id}"><h3>${esc(c.t)}</h3><p style="color:var(--mid-ink);font-size:15px">${esc(c.d)}</p>
-  ${c.items.length ? `<ul>${c.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`
-    : `<p class="empty">Sin registros cargados. Se agregarán solo referencias verificadas.</p>`}</div>`).join("");
-
-/* Contacto */
-$("#contactText").innerHTML = SITE.contact.paragraphs.map(para).join("");
-const P = SITE.person;
-$("#contactData").innerHTML = `
-  <li><span class="mono">Nombre</span><span>${esc(P.name)}</span></li>
-  <li><span class="mono">WhatsApp</span><a href="https://wa.me/${SITE.contact.channels.whatsapp.wa}" target="_blank" rel="noopener">${esc(SITE.contact.channels.whatsapp.display)}</a></li>
-  <li><span class="mono">Email</span><a href="mailto:${esc(P.email)}">${esc(P.email)}</a></li>
-  <li><span class="mono">Ubicación</span><span>${esc(P.location)}</span></li>
-  ${P.links.map(l => `<li><span class="mono">${esc(l.k)}</span><a href="${esc(l.url)}" rel="noopener" target="_blank">${esc(l.label)} ↗</a></li>`).join("")}`;
-const ST = SITE.studio;
-$("#studio").innerHTML = `
-  <div><span class="mono" style="color:var(--accent)">Práctica profesional actual</span>
-  <h3>${esc(ST.name)}</h3><p>${esc(ST.desc)}</p></div>
-  <ul>${ST.services.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
-  <a class="btn btn-ghost" href="${esc(ST.url)}" rel="noopener" target="_blank">Visitar el estudio <span class="arr" aria-hidden="true">↗</span></a>`;
-
-/* ===================== Contacto ===================== */
-const ICON = {
-  wa: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/><path d="M9 9.5c.3 2 2.1 4.1 4.6 4.8l1.1-1.1 1.8.8-.4 1.6c-3.6.2-7.6-3.4-7.7-7.3l1.6-.4.8 1.8z"/></svg>',
-  mail: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg>'
-};
-const C = SITE.contact.channels;
-$("#channels").innerHTML = `
-  <li><a class="channel" href="https://wa.me/${C.whatsapp.wa}?text=${encodeURIComponent(C.whatsapp.greeting)}" target="_blank" rel="noopener">
-    <span class="ic">${ICON.wa}</span><span><b>WhatsApp</b><span class="v">${esc(C.whatsapp.display)}</span></span><span class="go" aria-hidden="true">↗</span></a></li>
-  <li><a class="channel" href="mailto:${esc(C.email)}?subject=${encodeURIComponent("Contacto desde diegoamaya.com.ar")}">
-    <span class="ic">${ICON.mail}</span><span><b>Email</b><span class="v">${esc(C.email)}</span></span><span class="go" aria-hidden="true">→</span></a></li>`;
 const cdlg = $("#contactDialog"); let cLast = null;
 function openContact() { cLast = document.activeElement; cdlg.showModal ? cdlg.showModal() : cdlg.setAttribute("open", ""); }
 document.querySelectorAll("#openContact, [data-open-contact]").forEach(b => b.addEventListener("click", e => { e.preventDefault(); openContact(); }));
 cdlg.addEventListener("click", e => { if (e.target === cdlg || e.target.closest("[data-close]")) cdlg.close ? cdlg.close() : cdlg.removeAttribute("open"); });
-cdlg.addEventListener("close", () => { if (cLast) cLast.focus(); });
+cdlg.addEventListener("close", () => { if (cLast) cLast.focus(); $("#copyEmail").textContent = T("copy"); });
 $("#copyEmail").addEventListener("click", async e => {
-  try { await navigator.clipboard.writeText(C.email); e.target.textContent = "Email copiado"; }
-  catch { e.target.textContent = C.email; }
+  const mail = SITE.contact.channels.email;
+  try { await navigator.clipboard.writeText(mail); e.target.textContent = T("copied"); }
+  catch { e.target.textContent = mail; }
 });
+
+/* Idioma inicial: español, salvo que el visitante haya elegido inglés antes */
+let savedLang = "es";
+try { savedLang = localStorage.getItem("da-lang") || "es"; } catch {}
+setLang(savedLang, false);
 
 /* ===================== Navegación ===================== */
 const header = $(".site-header"), nav = $("#nav"), menuBtn = $(".menu-btn"), toTop = $("#toTop");
 menuBtn.addEventListener("click", () => {
   const open = nav.classList.toggle("open"); menuBtn.setAttribute("aria-expanded", open);
-  menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  menuBtn.setAttribute("aria-label", LANG === "en" ? (open ? "Close menu" : "Open menu") : (open ? "Cerrar menú" : "Abrir menú"));
 });
 nav.addEventListener("click", e => { if (e.target.closest("a")) { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); } });
 document.addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("open")) { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", false); menuBtn.focus(); } });
