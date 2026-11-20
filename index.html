@@ -680,7 +680,19 @@ const SITE = {
         title: "Mobiliario Argentino 4.0",
         sub: "Actividad integrante del Congreso de Enseñanza.",
         host: "Facultad de Diseño y Comunicación · Universidad de Palermo",
-        place: null }
+        place: null },
+      { date: "2024-12-31", label: "2023", until: "2024", kind: "Ciclo de charlas",
+        title: "SolidWorks, diseño de stands y propiedad intelectual",
+        sub: "Charlas sobre modelado en SolidWorks, diseño de stands y propiedad intelectual aplicada al entorno tecnológico.",
+        host: "Universidad San Pablo Tucumán", place: null },
+      { date: "2017-12-31", label: "2017", kind: "Disertación",
+        title: "Procesos de diseño en la industria del mueble",
+        sub: "En el marco de la carrera de especialización.",
+        host: "DIMU · Universidad Nacional de Córdoba", place: null },
+      { date: "2017-12-30", label: "2017", kind: "Exposición",
+        title: "Cultura proyectual y su vínculo con el sector mueblero",
+        sub: null,
+        host: "IPET Cassafoush", place: null }
     ]
   },
   projectsIntro: [
@@ -783,14 +795,16 @@ const talks = [...SITE.teaching.talks].sort((a, b) => b.date.localeCompare(a.dat
 $("#talksCount").textContent = `${pad(talks.length)} registros`;
 $("#talks").innerHTML = talks.map(t => `
   <li class="talk">
-    <time class="talk-date" datetime="${esc(t.date)}"><span class="d">${esc(t.date.slice(8,10))}.${esc(t.date.slice(5,7))}</span><span class="y mono">${esc(t.date.slice(0,4))}</span></time>
+    ${t.label
+      ? `<span class="talk-date"><span class="d">${esc(t.label)}</span>${t.until ? `<span class="y mono">hasta ${esc(t.until)}</span>` : ""}</span>`
+      : `<time class="talk-date" datetime="${esc(t.date)}"><span class="d">${esc(t.date.slice(8,10))}.${esc(t.date.slice(5,7))}</span><span class="y mono">${esc(t.date.slice(0,4))}</span></time>`}
     <div class="talk-body">
       <span class="mono talk-kind">${esc(t.kind)}</span>
       <h4>${esc(t.title)}</h4>
-      <p class="talk-sub">${esc(t.sub)}</p>
+      ${t.sub ? `<p class="talk-sub">${esc(t.sub)}</p>` : ""}
       <p class="talk-meta">${esc(t.host)}${t.place ? ` · ${esc(t.place)}` : ""}</p>
     </div>
-    <span class="mono talk-day">${esc(t.day)}</span>
+    <span class="mono talk-day">${t.day ? esc(t.day) : ""}</span>
   </li>`).join("");
 
 $("#projText").innerHTML = SITE.projectsIntro.map(para).join("");
