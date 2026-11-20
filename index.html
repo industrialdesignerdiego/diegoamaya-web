@@ -597,9 +597,6 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
       <a class="brand" href="#inicio">DIEGO<span>·</span>AMAYA</a>
       <p class="mono" style="margin-top:8px;color:#8C97A1">© <span id="yr">2026</span> Diego Germán Amaya · San Miguel de Tucumán</p>
     </div>
-    <div class="foot-tools">
-      <span class="mono" style="color:#8C97A1">CV en PDF: disponible cuando se cargue el archivo</span>
-    </div>
   </div>
 </footer>
 
@@ -632,8 +629,8 @@ const SITE_ES = {
   studio: {
     name: "Mechanical Design Department",
     url: "https://mechanicaldesigndept.com/es-ar",
-    desc: "Servicio de diseño mecánico y simulación computacional para desarrollo de productos.",
-    services: ["Diseño mecánico y modelado 3D", "Simulación CAE", "Planimetría técnica 2D", "Renderizado"]
+    desc: "Desde 2023, servicios de simulación computacional para terceros. Me encargo del relevamiento, la simulación y el análisis de resultados.",
+    services: ["Relevamiento técnico", "Simulación computacional (FEA · CFD)", "Análisis e informe de resultados"]
   },
   about: {
     paragraphs: [
@@ -665,7 +662,7 @@ const SITE_ES = {
         { k: "Estado", v: "En desarrollo (inicio 2024)" },
         { k: "Área", v: "Diseño industrial · Competitividad · Industria 4.0" },
         { k: "Objetivo general", v: "Comprender cómo las tecnologías emergentes influyen sobre los procesos proyectuales, los modelos de producción y las estrategias competitivas en el diseño de mobiliario argentino desarmable (RTA)." },
-        { k: "Metodología", pending: "A completar cuando esté documentada en el plan de tesis." },
+        { k: "Metodología", v: "Cualitativa: entrevistas y análisis de casos." },
         { k: "Presentaciones", v: "«Mobiliario Argentino 4.0», Congreso de Enseñanza, Facultad de Diseño y Comunicación, Universidad de Palermo (16 de julio de 2026)." },
         { k: "Publicaciones", pending: "Sin publicaciones vinculadas cargadas." },
         { k: "Documentos", pending: "Sin enlaces cargados. Se publicarán solo enlaces verificados." }
@@ -717,7 +714,7 @@ const SITE_ES = {
       { date: "2017-12-30", label: "2017", kind: "Exposición",
         title: "Cultura proyectual y su vínculo con el sector mueblero",
         sub: null,
-        host: "IPET Cassafoush", place: null }
+        host: "IPET Cassafoush", place: "Córdoba" }
     ]
   },
   projectsIntro: [
@@ -731,12 +728,12 @@ const SITE_ES = {
       teaser: "Línea y fábrica de mobiliario que combinó la producción industrial RTA con un enfoque de diseño personalizado. Incluye Mobio Lamp, distinguida con el Sello Buen Diseño Argentino en 2017.",
       problem: null, solution: null, tech: null,
       results: "Sello Buen Diseño Argentino 2017 para Mobio Lamp, destacada en la revista 90+10. Artículos sobre Mobio en las revistas Ambientar y Asora (2014 y 2016)." },
-    { id: "porzana", name: "Pocillo Porzana", year: null, cats: ["Diseño de productos"], shape: "cup", image: "images/porzana", imageAlt: "Tres pocillos Porzana blancos de geometría facetada sobre fondo claro",
+    { id: "porzana", name: "Pocillo Porzana", year: "2011", cats: ["Diseño de productos"], shape: "cup", image: "images/porzana", imageAlt: "Tres pocillos Porzana blancos de geometría facetada sobre fondo claro",
       teaser: "Pocillo de café que integra procesos digitales con técnicas artesanales locales. Sello Buen Diseño Argentino 2025.",
       problem: null, solution: null, tech: null,
-      results: "Sello Buen Diseño Argentino (2025). Publicado en los catálogos oficiales del Concurso INNOVAR." },
+      results: "Diseñado en 2011, fabricado en 2019 (incluido ese año en el catálogo oficial del Concurso INNOVAR) y distinguido con el Sello Buen Diseño Argentino en 2025." },
     { id: "bora", name: "Envase Bora Magic", year: "2011", wide: true, cats: ["Packaging industrial","Diseño de productos"], shape: "am", image: "images/bora-magic", imagePos: "center 12%", imageAlt: "Render del envase de detergente Bora Magic, botella amarilla translúcida con tapa a presión",
-      teaser: "Diseño y desarrollo del envase del detergente Bora Magic, producto con distribución en supermercados de todo el país.",
+      teaser: "Diseño y desarrollo del envase del detergente Bora Magic, realizado de forma independiente para la empresa Santiago Saenz. El producto se distribuye en supermercados de todo el país.",
       problem: null, solution: null, tech: null, results: "Producto en comercialización a nivel nacional." },
     { id: "bovinos", name: "Máquina de alimentación para bovinos", year: null, cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine", image: "images/maquina-bovinos", imageAlt: "Render de la máquina de alimentación para bovinos, azul, con pala frontal que carga un rollo de heno",
       teaser: "Desarrollo de equipamiento para el sector agropecuario. Publicado en los catálogos oficiales del Concurso INNOVAR.",
@@ -752,13 +749,13 @@ const SITE_ES = {
   ],
   timeline: [
     { y: "2009–2011", t: "Diseño de material POP (punto de compra) y desarrollo de soportes 3D para campañas publicitarias en Ogilvy Argentina (Córdoba).", k: "Publicidad", c: "biz" },
-    { y: "2011", t: "Diseño y desarrollo del envase del detergente Bora Magic, producto con distribución en supermercados de todo el país.", k: "Diseño", c: "acad" },
+    { y: "2011", t: "Diseño y desarrollo independiente del envase del detergente Bora Magic para la empresa Santiago Saenz, con distribución en supermercados de todo el país.", k: "Diseño", c: "acad" },
     { y: "2012", t: "Graduación como Diseñador Industrial en la Universidad Nacional de Córdoba.", k: "Formación", c: "acad" },
     { y: "2014–2019", t: "Desarrollo y dirección de Mobio, empresa dedicada al diseño y fabricación de mobiliario contemporáneo.", k: "Industria", c: "biz" },
     { y: "2015–2019", t: "Lanzamiento de Muebles Online Argentina, la primera tienda de muebles 100 % online del país, especializada en mobiliario RTA.", k: "Industria", c: "biz" },
     { y: "2020", t: "Obtención del MBA en Administración de Empresas por la Universidad Siglo 21.", k: "Formación", c: "acad" },
     { y: "2020–2025", t: "Docencia en la Licenciatura en Diseño Industrial de la Universidad San Pablo Tucumán.", k: "Docencia", c: "acad" },
-    { y: "2021–hoy", t: "Participación en gestión empresarial y proyectos de innovación tecnológica.", k: "Industria", c: "biz" },
+    { y: "2023–hoy", t: "Mechanical Design Department: servicios de simulación computacional para terceros, con relevamiento, simulación y análisis de resultados a mi cargo.", k: "Simulación", c: "acad" },
     { y: "2023–hoy", t: "Creación de Super Top Studio junto a Patricio Corvalán: estudio virtual experimental de productos para impresión 3D, con cerca de 100 diseños publicados en Cults3D.", k: "Fabricación digital", c: "acad" },
     { y: "2024–hoy", t: "Doctorado en Diseño en la Universidad de Palermo (en curso).", k: "Investigación", c: "acad" },
     { y: "2026", t: "Graduación del Máster en Inteligencia Artificial en CEUPE, Centro Europeo de Postgrado (Madrid, España).", k: "Formación", c: "acad" }
@@ -782,7 +779,7 @@ const SITE_ES = {
   /* Columnas sin items no se muestran */
   production: [
     { id: "acad", t: "Publicaciones académicas y ponencias", d: "Artículos, capítulos, ponencias y conferencias.", items: [
-      "«Nuevos lenguajes de las interacciones entre el arte y el diseño. Enfoque desde la historia cultural». Cuaderno 277, año 28, n.º 225 (2025/2026). ISSN 1668-0227.",
+      "«Nuevos lenguajes de las interacciones entre el arte y el diseño. Enfoque desde la historia cultural». Cuaderno 277, Universidad de Palermo. Año 28, n.º 225 (2025/2026). ISSN 1668-0227.",
       "«Mobiliario Argentino 4.0». Congreso de Enseñanza, Facultad de Diseño y Comunicación, Universidad de Palermo, 2026.",
       "«Diseño industrial: de la función al significado». Charla abierta, Instituto Técnico, Universidad Nacional de Tucumán, 2026."
     ] },
@@ -822,8 +819,8 @@ const SITE_EN_OVERLAY = {
     links: [{}, {}, { k: "Studio" }, {}, {}]
   },
   studio: {
-    desc: "Mechanical design and computational simulation services for product development.",
-    services: ["Mechanical design and 3D modeling", "CAE simulation", "2D technical drawings", "Rendering"]
+    desc: "Since 2023, computational simulation services for third parties. I handle the technical survey, the simulation and the analysis of results.",
+    services: ["Technical survey", "Computational simulation (FEA · CFD)", "Results analysis and reporting"]
   },
   about: {
     paragraphs: [
@@ -855,7 +852,7 @@ const SITE_EN_OVERLAY = {
         { k: "Status", v: "In progress (started 2024)" },
         { k: "Field", v: "Industrial design · Competitiveness · Industry 4.0" },
         { k: "General aim", v: "To understand how emerging technologies shape design processes, production models and competitive strategies in Argentine ready-to-assemble (RTA) furniture design." },
-        { k: "Methodology", pending: "To be completed once documented in the thesis plan." },
+        { k: "Methodology", v: "Qualitative: interviews and case analysis." },
         { k: "Presentations", v: "“Mobiliario Argentino 4.0” (Argentine Furniture 4.0), Teaching Congress, School of Design and Communication, Universidad de Palermo (July 16, 2026)." },
         { k: "Publications", pending: "No linked publications yet." },
         { k: "Documents", pending: "No links yet. Only verified links will be published." }
@@ -917,9 +914,9 @@ const SITE_EN_OVERLAY = {
       results: "Argentine Good Design Seal 2017 for Mobio Lamp, featured in 90+10 magazine. Articles on Mobio in Ambientar and Asora magazines (2014 and 2016)." },
     { name: "Porzana Coffee Cup", cats: ["Product design"], imageAlt: "Three white faceted Porzana coffee cups on a light background",
       teaser: "A coffee cup that combines digital processes with local craft techniques. Argentine Good Design Seal 2025.",
-      results: "Argentine Good Design Seal (2025). Published in the official INNOVAR Competition catalogs." },
+      results: "Designed in 2011, manufactured in 2019 (included that year in the official INNOVAR Competition catalog) and awarded the Argentine Good Design Seal in 2025." },
     { name: "Bora Magic Bottle", cats: ["Industrial packaging", "Product design"], imageAlt: "Render of the Bora Magic detergent bottle, translucent yellow with a push-pull cap",
-      teaser: "Design and development of the bottle for Bora Magic dish detergent, a product sold in supermarkets across Argentina.",
+      teaser: "Design and development of the bottle for Bora Magic dish detergent, carried out independently for the company Santiago Saenz. The product is sold in supermarkets across Argentina.",
       results: "Product sold nationwide." },
     { name: "Cattle Feeding Machine", cats: ["Mechanical design", "Technology development"], imageAlt: "Render of the blue cattle feeding machine with a front loader carrying a hay bale",
       teaser: "Equipment development for the agricultural sector. Published in the official INNOVAR Competition catalogs.",
@@ -935,13 +932,13 @@ const SITE_EN_OVERLAY = {
   ],
   timeline: [
     { t: "Design of POP (point of purchase) materials and 3D displays for advertising campaigns at Ogilvy Argentina (Córdoba).", k: "Advertising" },
-    { t: "Design and development of the bottle for Bora Magic dish detergent, a product sold in supermarkets across Argentina.", k: "Design" },
+    { t: "Independent design and development of the Bora Magic detergent bottle for the company Santiago Saenz, sold in supermarkets across Argentina.", k: "Design" },
     { t: "Graduated as an Industrial Designer from Universidad Nacional de Córdoba.", k: "Education" },
     { t: "Founded and led Mobio, a company devoted to the design and manufacture of contemporary furniture.", k: "Industry" },
     { t: "Launched Muebles Online Argentina, the country's first 100% online furniture store, specialized in RTA furniture.", k: "Industry" },
     { t: "MBA from Universidad Siglo 21.", k: "Education" },
     { t: "Lecturer in the Industrial Design degree program at Universidad San Pablo Tucumán.", k: "Teaching" },
-    { y: "2021–present", t: "Business management and technological innovation projects.", k: "Industry" },
+    { y: "2023–present", t: "Mechanical Design Department: computational simulation services for third parties, handling the technical survey, simulation and analysis of results.", k: "Simulation" },
     { y: "2023–present", t: "Co-founded Super Top Studio with Patricio Corvalán: an experimental virtual studio for 3D-printable products, with close to 100 designs published on Cults3D.", k: "Digital fabrication" },
     { y: "2024–present", t: "PhD in Design at Universidad de Palermo (in progress).", k: "Research" },
     { t: "Graduated from the Master's in Artificial Intelligence at CEUPE, European Postgraduate Center (Madrid, Spain).", k: "Education" }
@@ -964,7 +961,7 @@ const SITE_EN_OVERLAY = {
   ],
   production: [
     { t: "Academic publications and talks", d: "Articles, chapters, papers and lectures.", items: [
-      "“Nuevos lenguajes de las interacciones entre el arte y el diseño. Enfoque desde la historia cultural” (New languages in the interactions between art and design: a cultural history approach). Cuaderno 277, year 28, no. 225 (2025/2026). ISSN 1668-0227.",
+      "“Nuevos lenguajes de las interacciones entre el arte y el diseño. Enfoque desde la historia cultural” (New languages in the interactions between art and design: a cultural history approach). Cuaderno 277, Universidad de Palermo. Year 28, no. 225 (2025/2026). ISSN 1668-0227.",
       "“Mobiliario Argentino 4.0”. Teaching Congress, School of Design and Communication, Universidad de Palermo, 2026.",
       "“Diseño industrial: de la función al significado” (Industrial design: from function to meaning). Open talk, Technical Institute, Universidad Nacional de Tucumán, 2026."
     ] },
@@ -1062,7 +1059,7 @@ const STATIC_EN = [
   ["#t-contact", "Let's connect knowledge, design and new opportunities."],
   [".contact-cta p", "Reach me on WhatsApp or by email. I reply personally."],
   ["#openContact", 'Contact me <span class="arr" aria-hidden="true">→</span>'],
-  [".foot-tools .mono", "PDF CV: available soon"]
+  [".site-footer .wrap > div:first-child .mono", "© 2026 Diego Germán Amaya · San Miguel de Tucumán, Argentina"]
 ];
 /* Atributos: [selector, atributo, inglés] */
 const STATIC_ATTR_EN = [
