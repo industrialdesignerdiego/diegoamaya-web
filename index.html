@@ -1134,7 +1134,7 @@ function render() {
   const F = SITE.research.featured;
   $("#m40status").textContent = F.status;
   $("#m40summary").textContent = F.summary;
-  $("#m40spec").innerHTML = F.spec.map(r =>
+  $("#m40spec").innerHTML = F.spec.filter(r => r.v).map(r =>
     `<dt>${esc(r.k)}</dt><dd>${r.pending ? `<span class="muted">${esc(r.pending)}</span>` : esc(r.v)}</dd>`).join("");
   $("#linesList").innerHTML = SITE.research.lines.map((l, i) =>
     `<li><span class="mono code">L-${pad(i + 1)}</span><span class="t">${esc(l)}</span></li>`).join("");
@@ -1169,7 +1169,7 @@ function render() {
     <button class="card${p.wide ? " wide" : ""}" type="button" data-id="${p.id}" data-cats="${esc(p.cats.join("|"))}" aria-haspopup="dialog">
       <div class="ph">${p.image ? photo(p) : `${phSVG(p.shape)}<span class="ph-label">P-${pad(i + 1)} · ${T("imgPending")}</span>`}</div>
       <div class="card-body">
-        <div class="card-meta mono"><span>${esc(p.cats[0])}</span><span>${p.year ? esc(p.year) : T("yearTbc")}</span></div>
+        <div class="card-meta mono"><span>${esc(p.cats[0])}</span><span>${p.year ? esc(p.year) : ""}</span></div>
         <h3>${esc(p.name)}</h3>
         <p>${esc(p.teaser)}</p>
         <span class="more">${T("seeSheet")}</span>
@@ -1189,7 +1189,7 @@ function render() {
 
   $("#awards").innerHTML = SITE.awards.map(a => `
     <article class="award"><div class="top mono"><span>${esc(a.type)}</span><span class="yr">${a.y ? esc(a.y) : "—"}</span></div>
-    <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : T("tbd")}</p>${a.detail ? `<p class="award-detail">${esc(a.detail)}</p>` : ""}</article>`).join("");
+    <h3>${esc(a.t)}</h3>${a.w ? `<p>${esc(a.w)}</p>` : ""}${a.detail ? `<p class="award-detail">${esc(a.detail)}</p>` : ""}</article>`).join("");
   $("#prodGrid").innerHTML = SITE.production.filter(c => c.items.length).map(c => `
     <div class="prod-col ${c.id}"><h3>${esc(c.t)}</h3><p style="color:var(--mid-ink);font-size:15px">${esc(c.d)}</p>
     <ul>${c.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("");
@@ -1250,7 +1250,7 @@ function openProject(id) {
   const i = SITE.projects.findIndex(p => p.id === id); const p = SITE.projects[i]; if (!p) return;
   $("#dlgCat").textContent = `P-${pad(i + 1)} · ${p.cats.join(" · ")}`;
   $("#dlgTitle").textContent = p.name;
-  const row = (k, v) => `<dt>${k}</dt><dd>${v ? esc(v) : `<span class="pending">${T("pending")}</span>`}</dd>`;
+  const row = (k, v) => v ? `<dt>${k}</dt><dd>${esc(v)}</dd>` : "";
   $("#dlgBody").innerHTML = `
     <div class="ph">${p.image ? photo(p) : `${phSVG(p.shape)}<span class="ph-label">${T("imgsPending")}</span>`}</div>
     <dl class="spec">
