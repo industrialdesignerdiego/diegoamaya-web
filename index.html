@@ -320,7 +320,8 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
 .award .top{display:flex;justify-content:space-between;gap:10px;color:var(--mid-ink)}
 .award .yr{font-variant-numeric:tabular-nums;color:var(--deep)}
 .award h3{font-size:22px;font-weight:600;color:var(--deep);line-height:1.15}
-.award p{color:var(--mid-ink);font-size:15px;margin-top:auto}
+.award p{color:var(--mid-ink);font-size:15px;margin-top:-4px}
+.award .award-detail{margin-top:auto;padding-top:12px;border-top:1px solid var(--rule);font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;line-height:1.55;color:var(--mid-ink)}
 .prod{margin-top:clamp(56px,7vw,96px)}
 .legend{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--mid-ink);margin:14px 0 22px}
 .legend span{display:inline-flex;align-items:center;gap:8px}
@@ -727,11 +728,11 @@ const SITE_ES = {
     { id: "mobio", name: "Mobiliario Mobio", year: "2014–2019", cats: ["Mobiliario RTA","Diseño de productos"], wide: true, shape: "rta", image: "images/mobio-cama", imageAlt: "Vista explotada de una cama con cajones Mobio que muestra su estructura desarmable de placas",
       teaser: "Línea y fábrica de mobiliario que combinó la producción industrial RTA con un enfoque de diseño personalizado. Incluye Mobio Lamp, distinguida con el Sello Buen Diseño Argentino en 2017.",
       problem: null, solution: null, tech: null,
-      results: "Sello Buen Diseño Argentino 2017 para Mobio Lamp, destacada en la revista 90+10. Artículos sobre Mobio en las revistas Ambientar y Asora (2014 y 2016)." },
+      results: "Sello Buen Diseño Argentino 2017 (n.º 1693) para la Lámpara Mobio, destacada en la revista 90+10. Artículos sobre Mobio en las revistas Ambientar y Asora (2014 y 2016)." },
     { id: "porzana", name: "Pocillo Porzana", year: "2011", cats: ["Diseño de productos"], shape: "cup", image: "images/porzana", imageAlt: "Tres pocillos Porzana blancos de geometría facetada sobre fondo claro",
       teaser: "Pocillo de café que integra procesos digitales con técnicas artesanales locales. Sello Buen Diseño Argentino 2025.",
       problem: null, solution: null, tech: null,
-      results: "Diseñado en 2011, fabricado en 2019 (incluido ese año en el catálogo oficial del Concurso INNOVAR) y distinguido con el Sello Buen Diseño Argentino en 2025." },
+      results: "Diseñado en 2011, fabricado en 2019 (incluido ese año en el catálogo oficial del Concurso INNOVAR) y distinguido con el Sello Buen Diseño Argentino en 2025 (producto n.º 5882)." },
     { id: "bora", name: "Envase Bora Magic", year: "2011", wide: true, cats: ["Packaging industrial","Diseño de productos"], shape: "am", image: "images/bora-magic", imagePos: "center 12%", imageAlt: "Render del envase de detergente Bora Magic, botella amarilla translúcida con tapa a presión",
       teaser: "Diseño y desarrollo del envase del detergente Bora Magic, realizado de forma independiente para la empresa Santiago Saenz. El producto se distribuye en supermercados de todo el país.",
       problem: null, solution: null, tech: null, results: "Producto en comercialización a nivel nacional." },
@@ -771,10 +772,12 @@ const SITE_ES = {
       d: "Desarrollo de identidad corporativa, diseño del isologotipo y relanzamiento de la imagen institucional." }
   ],
   awards: [
-    { t: "Sello Buen Diseño Argentino", w: "Pocillo de café Porzana", y: "2025", type: "Distinción" },
+    { t: "Sello Buen Diseño Argentino", w: "Pocillo de café Porzana", y: "2025", type: "Distinción",
+      detail: "Producto n.º 5882 · Edición 13 · Subsecretaría de la Pequeña y Mediana Empresa, Ministerio de Economía de la Nación · Plan Nacional de Diseño" },
     { t: "Concurso Nacional INNOVAR", w: "Máquina de alimentación para bovinos · Pocillo para café", y: "2019 y 2022", type: "Concurso" },
     { t: "Bienal Internacional de Arquitectura de Argentina (BIA-AR)", w: "Skate bike park", y: "2018", type: "Bienal" },
-    { t: "Sello Buen Diseño Argentino", w: "Mobio Lamp", y: "2017", type: "Distinción" }
+    { t: "Sello Buen Diseño Argentino", w: "Lámpara Mobio", y: "2017", type: "Distinción",
+      detail: "Sello n.º 1693 · Ministerio de Producción de la Nación · Plan Nacional de Diseño" }
   ],
   /* Columnas sin items no se muestran */
   production: [
@@ -911,10 +914,10 @@ const SITE_EN_OVERLAY = {
   projects: [
     { name: "Mobio Furniture", cats: ["RTA furniture", "Product design"], imageAlt: "Exploded view of a Mobio storage bed showing its ready-to-assemble panel structure",
       teaser: "A furniture line and factory that combined industrial RTA production with a customized design approach. Includes Mobio Lamp, awarded the Argentine Good Design Seal in 2017.",
-      results: "Argentine Good Design Seal 2017 for Mobio Lamp, featured in 90+10 magazine. Articles on Mobio in Ambientar and Asora magazines (2014 and 2016)." },
+      results: "Argentine Good Design Seal 2017 (no. 1693) for Mobio Lamp, featured in 90+10 magazine. Articles on Mobio in Ambientar and Asora magazines (2014 and 2016)." },
     { name: "Porzana Coffee Cup", cats: ["Product design"], imageAlt: "Three white faceted Porzana coffee cups on a light background",
       teaser: "A coffee cup that combines digital processes with local craft techniques. Argentine Good Design Seal 2025.",
-      results: "Designed in 2011, manufactured in 2019 (included that year in the official INNOVAR Competition catalog) and awarded the Argentine Good Design Seal in 2025." },
+      results: "Designed in 2011, manufactured in 2019 (included that year in the official INNOVAR Competition catalog) and awarded the Argentine Good Design Seal in 2025 (product no. 5882)." },
     { name: "Bora Magic Bottle", cats: ["Industrial packaging", "Product design"], imageAlt: "Render of the Bora Magic detergent bottle, translucent yellow with a push-pull cap",
       teaser: "Design and development of the bottle for Bora Magic dish detergent, carried out independently for the company Santiago Saenz. The product is sold in supermarkets across Argentina.",
       results: "Product sold nationwide." },
@@ -954,10 +957,12 @@ const SITE_EN_OVERLAY = {
       d: "Corporate identity development, logo design and relaunch of the institutional image." }
   ],
   awards: [
-    { t: "Argentine Good Design Seal", w: "Porzana coffee cup", type: "Award" },
+    { t: "Argentine Good Design Seal", w: "Porzana coffee cup", type: "Award",
+      detail: "Product no. 5882 · 13th edition · Undersecretariat for Small and Medium Enterprises, Ministry of Economy · National Design Plan" },
     { t: "INNOVAR National Competition", w: "Cattle feeding machine · Coffee cup", y: "2019 and 2022", type: "Competition" },
     { t: "International Architecture Biennial of Argentina (BIA-AR)", type: "Biennial" },
-    { t: "Argentine Good Design Seal", type: "Award" }
+    { t: "Argentine Good Design Seal", w: "Mobio Lamp", type: "Award",
+      detail: "Seal no. 1693 · Ministry of Production · National Design Plan" }
   ],
   production: [
     { t: "Academic publications and talks", d: "Articles, chapters, papers and lectures.", items: [
@@ -1184,7 +1189,7 @@ function render() {
 
   $("#awards").innerHTML = SITE.awards.map(a => `
     <article class="award"><div class="top mono"><span>${esc(a.type)}</span><span class="yr">${a.y ? esc(a.y) : "—"}</span></div>
-    <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : T("tbd")}</p></article>`).join("");
+    <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : T("tbd")}</p>${a.detail ? `<p class="award-detail">${esc(a.detail)}</p>` : ""}</article>`).join("");
   $("#prodGrid").innerHTML = SITE.production.filter(c => c.items.length).map(c => `
     <div class="prod-col ${c.id}"><h3>${esc(c.t)}</h3><p style="color:var(--mid-ink);font-size:15px">${esc(c.d)}</p>
     <ul>${c.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("");
