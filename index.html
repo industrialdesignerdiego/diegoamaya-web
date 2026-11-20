@@ -215,11 +215,20 @@ section{position:relative}
 .chip{font-size:14px;border:1px solid var(--rule);padding:6px 12px;border-radius:2px;background:#fff}
 .side-label{color:var(--mid-ink);margin:0 0 12px}
 .activities{margin-top:clamp(56px,7vw,96px)}
-.act-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+.talks{list-style:none;margin:0;padding:0}
+.talk{display:grid;grid-template-columns:140px 1fr auto;gap:12px 32px;padding:28px 0;border-bottom:1px solid var(--rule);align-items:start}
+.talk-date{display:flex;flex-direction:column;gap:4px}
+.talk-date .d{font-family:var(--font-display);font-stretch:80%;font-weight:600;font-size:44px;line-height:1;color:var(--deep);font-variant-numeric:tabular-nums}
+.talk-date .y{color:var(--mid-ink)}
+.talk-kind{color:var(--accent)}
+.talk h4{font-size:clamp(24px,2.6vw,34px);font-weight:600;color:var(--deep);margin:8px 0 8px;max-width:24ch}
+.talk-sub{color:var(--graphite);max-width:56ch}
+.talk-meta{color:var(--mid-ink);font-size:15px;margin-top:8px;max-width:60ch}
+.talk-day{color:var(--mid-ink);white-space:nowrap;padding-top:6px}
+@media (max-width:760px){.talk{grid-template-columns:1fr}.talk-day{white-space:normal;padding-top:0}}
 .slot{border:1px dashed var(--mid);padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;color:var(--mid-ink);background:#fff}
 .slot b{font-family:var(--font-display);font-weight:500;color:var(--graphite);font-size:18px;line-height:1.25}
-@media (max-width:900px){.teach-grid{grid-template-columns:1fr}.act-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:480px){.act-grid{grid-template-columns:1fr}}
+@media (max-width:900px){.teach-grid{grid-template-columns:1fr}}
 
 /* ---------- Proyectos ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
@@ -306,6 +315,8 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
 .prod-col.cat{border-top-color:var(--mid)}
 .prod-col.inpi{border-top-color:var(--accent)}
 .prod-col h3{font-family:var(--font-body);font-size:17px;font-weight:600;color:var(--graphite);margin-bottom:6px}
+.prod-col ul{list-style:none;margin:10px 0 0;padding:0}
+.prod-col li{font-size:15px;line-height:1.5;padding:12px 0;border-bottom:1px solid var(--rule)}
 .prod-col .empty{color:var(--mid-ink);font-size:15px;border:1px dashed var(--rule);padding:14px;margin-top:10px;background:#fff}
 @media (max-width:860px){.prod-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.prod-grid{grid-template-columns:1fr}}
@@ -466,8 +477,8 @@ input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="tr
       </div>
     </div>
     <div class="activities">
-      <div class="lines-head mono" style="color:var(--mid-ink);border-bottom-color:var(--graphite)"><span>Actividades académicas</span><span>Espacio preparado para cargar material</span></div>
-      <div class="act-grid" id="activities"></div>
+      <div class="lines-head mono" style="color:var(--mid-ink);border-bottom-color:var(--graphite)"><h3 class="mono" style="font-family:var(--font-mono);font-weight:400;font-size:12px;line-height:1.6">Disertaciones y conferencias</h3><span id="talksCount"></span></div>
+      <ol class="talks" id="talks"></ol>
     </div>
   </div>
 </section>
@@ -653,6 +664,7 @@ const SITE = {
         { k: "Área", v: "Diseño industrial · Competitividad · Industria 4.0" },
         { k: "Objetivo general", v: "Comprender cómo las tecnologías emergentes influyen sobre los procesos proyectuales, los modelos de producción y las estrategias competitivas en el diseño de mobiliario argentino desarmable (RTA)." },
         { k: "Metodología", pending: "A completar cuando esté documentada en el plan de tesis." },
+        { k: "Presentaciones", v: "«Mobiliario Argentino 4.0», Congreso de Enseñanza, Facultad de Diseño y Comunicación, Universidad de Palermo (16 de julio de 2026)." },
         { k: "Publicaciones", pending: "Sin publicaciones vinculadas cargadas." },
         { k: "Documentos", pending: "Sin enlaces cargados. Se publicarán solo enlaces verificados." }
       ]
@@ -680,11 +692,18 @@ const SITE = {
       { s: "Gestión de Empresas", m: "Gestión" }
     ],
     areas: ["Diseño industrial","Tecnologías de fabricación","Modelado CAD 3D","Fabricación aditiva","Diseño mecánico","Gestión empresarial","Innovación tecnológica"],
-    activities: [
-      { t: "Talleres", d: "Registro de talleres dictados" },
-      { t: "Conferencias y seminarios", d: "Fecha, institución y tema" },
-      { t: "Proyectos de estudiantes", d: "Solo con autorización de sus autores" },
-      { t: "Actividades académicas", d: "Jurados, extensión, comisiones" }
+    /* Disertaciones: la más reciente primero. date = AAAA-MM-DD */
+    talks: [
+      { date: "2026-10-05", day: "Lunes · 19:30 h", kind: "Charla abierta",
+        title: "Diseño industrial: de la función al significado",
+        sub: "Objetos, procesos y contextos. Del producto industrial al diseño autoral.",
+        host: "Tecnicatura Superior en Diseño Industrial · Instituto Técnico, Universidad Nacional de Tucumán",
+        place: "San Miguel de Tucumán" },
+      { date: "2026-07-16", day: "Jueves · 17:30 h", kind: "Congreso",
+        title: "Mobiliario Argentino 4.0",
+        sub: "Actividad integrante del Congreso de Enseñanza.",
+        host: "Facultad de Diseño y Comunicación · Universidad de Palermo",
+        place: null }
     ]
   },
   projectsIntro: [
@@ -735,7 +754,10 @@ const SITE = {
     { t: "Reconocimientos en diseño de mobiliario", w: null, y: null, type: "Distinciones" }
   ],
   production: [
-    { id: "acad", t: "Publicaciones académicas y ponencias", d: "Artículos con referato, capítulos, ponencias y conferencias.", items: [] },
+    { id: "acad", t: "Publicaciones académicas y ponencias", d: "Artículos con referato, capítulos, ponencias y conferencias.", items: [
+      "«Mobiliario Argentino 4.0». Congreso de Enseñanza, Facultad de Diseño y Comunicación, Universidad de Palermo, 2026.",
+      "«Diseño industrial: de la función al significado». Charla abierta, Instituto Técnico, Universidad Nacional de Tucumán, 2026."
+    ] },
     { id: "media", t: "Menciones en medios", d: "Notas periodísticas y artículos de divulgación. No equivalen a publicaciones científicas.", items: [] },
     { id: "cat", t: "Catálogos oficiales", d: "Catálogos de exposiciones, sellos y bienales.", items: [] },
     { id: "inpi", t: "Registros de propiedad industrial", d: "Modelos y diseños industriales registrados ante el INPI.", items: [] }
@@ -774,8 +796,19 @@ $("#teachText").innerHTML = SITE.teaching.paragraphs.map(para).join("");
 $("#subjects").innerHTML = SITE.teaching.subjects.map(s =>
   `<li><span class="s">${esc(s.s)}</span><span class="mono m">${esc(s.m)}</span></li>`).join("");
 $("#teachAreas").innerHTML = SITE.teaching.areas.map(a => `<span class="chip">${esc(a)}</span>`).join("");
-$("#activities").innerHTML = SITE.teaching.activities.map((a, i) =>
-  `<div class="slot"><span class="mono">A-${pad(i + 1)} · Sin cargar</span><b>${esc(a.t)}</b><span style="font-size:14px">${esc(a.d)}</span></div>`).join("");
+const talks = [...SITE.teaching.talks].sort((a, b) => b.date.localeCompare(a.date));
+$("#talksCount").textContent = `${pad(talks.length)} registros`;
+$("#talks").innerHTML = talks.map(t => `
+  <li class="talk">
+    <time class="talk-date" datetime="${esc(t.date)}"><span class="d">${esc(t.date.slice(8,10))}.${esc(t.date.slice(5,7))}</span><span class="y mono">${esc(t.date.slice(0,4))}</span></time>
+    <div class="talk-body">
+      <span class="mono talk-kind">${esc(t.kind)}</span>
+      <h4>${esc(t.title)}</h4>
+      <p class="talk-sub">${esc(t.sub)}</p>
+      <p class="talk-meta">${esc(t.host)}${t.place ? ` · ${esc(t.place)}` : ""}</p>
+    </div>
+    <span class="mono talk-day">${esc(t.day)}</span>
+  </li>`).join("");
 
 $("#projText").innerHTML = SITE.projectsIntro.map(para).join("");
 
