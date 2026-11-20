@@ -136,7 +136,7 @@ section{position:relative}
 
 /* ---------- Hero ---------- */
 .hero{padding:clamp(40px,6vw,72px) 0 clamp(56px,7vw,96px);border-bottom:1px solid var(--rule)}
-.hero-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(24px,4vw,64px);align-items:end}
+.hero-grid{display:block}
 .hero-meta{display:flex;flex-wrap:wrap;gap:8px 24px;color:var(--mid-ink);margin-bottom:clamp(28px,4vw,48px)}
 .hero-meta .loc::before{content:"";display:inline-block;width:7px;height:7px;background:var(--accent);margin-right:8px;vertical-align:1px}
 .hero-name{font-family:var(--font-display);font-stretch:125%;font-weight:700;font-size:clamp(15px,1.3vw,18px);letter-spacing:.22em;color:var(--deep);margin-bottom:10px}
@@ -155,15 +155,6 @@ section{position:relative}
 .on-deep .btn{border-color:#C9D3DC;color:var(--paper)}
 .on-deep .btn-primary{background:var(--paper);color:var(--deep);border-color:var(--paper)}
 .on-deep .btn-primary:hover{background:var(--accent-on-deep);border-color:var(--accent-on-deep)}
-
-.figure{position:relative;border:1px solid var(--rule);background:
-  linear-gradient(var(--rule) 1px,transparent 1px) 0 0/24px 24px,
-  linear-gradient(90deg,var(--rule) 1px,transparent 1px) 0 0/24px 24px;background-color:#FBFCFC;aspect-ratio:4/5;min-height:320px}
-.figure canvas{position:absolute;inset:0;width:100%;height:100%}
-.fig-tag{position:absolute;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;color:var(--mid-ink);background:#FBFCFC;padding:2px 6px;text-transform:uppercase}
-.fig-tl{top:10px;left:10px}.fig-tr{top:10px;right:10px}.fig-bl{bottom:10px;left:10px}.fig-br{bottom:10px;right:10px;font-variant-numeric:tabular-nums}
-.fig-tl b{color:var(--deep);font-weight:500}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.figure{aspect-ratio:16/11;min-height:0}}
 
 .enter{animation:enter .9s cubic-bezier(.2,.7,.2,1) both}
 .enter.d1{animation-delay:.08s}.enter.d2{animation-delay:.16s}.enter.d3{animation-delay:.24s}.enter.d4{animation-delay:.32s}
@@ -420,13 +411,6 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
         <a class="btn btn-ghost" href="#investigacion">Explorar investigaciones <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
-    <figure class="figure enter d2" aria-label="Figura técnica: superficie paramétrica en malla de alambre, en rotación lenta">
-      <canvas id="paramCanvas" aria-hidden="true"></canvas>
-      <span class="fig-tag fig-tl"><b>Fig. 01</b> · Superficie reglada</span>
-      <span class="fig-tag fig-tr">u, v ∈ [−1, 1]</span>
-      <span class="fig-tag fig-bl">z = k · u · v</span>
-      <span class="fig-tag fig-br" id="figReadout">θ 000.0°</span>
-    </figure>
   </div>
 </section>
 
@@ -1036,7 +1020,6 @@ const STATIC_EN = [
   [".hero-text", "Industrial designer, MBA, Master's in Artificial Intelligence and PhD candidate in Design. My work connects design thinking, academic research and emerging technologies to explore new ways of designing, producing and innovating."],
   ['.hero-actions a[href="#trayectoria"]', 'Explore my career <span class="arr" aria-hidden="true">→</span>'],
   ['.hero-actions a[href="#investigacion"]', 'Explore my research <span class="arr" aria-hidden="true">→</span>'],
-  [".fig-tl", "<b>Fig. 01</b> · Ruled surface"],
   ["#sobre-mi .sec-label span", "About"],
   ["#t-about", "Design as a meeting point for knowledge, technology and industry."],
   [".portrait-photo figcaption", "Diego Germán Amaya · Tucumán, Argentina"],
@@ -1075,7 +1058,6 @@ const STATIC_ATTR_EN = [
   [".brand", "aria-label", "Diego Amaya, go to top"],
   [".menu-btn", "aria-label", "Open menu"],
   ["#nav", "aria-label", "Main"],
-  [".figure", "aria-label", "Technical figure: parametric wireframe surface, slowly rotating"],
   [".portrait-photo img", "alt", "Portrait of Diego Germán Amaya"],
   ["#filters", "aria-label", "Filter projects by category"],
   ["#studio", "aria-label", "Professional studio"],
@@ -1317,55 +1299,6 @@ window.addEventListener("scroll", () => { if (!ticking) { requestAnimationFrame(
 window.addEventListener("resize", onScroll);
 onScroll();
 
-/* ===================== Fig. 01 — superficie paramétrica ===================== */
-(function () {
-  const cv = $("#paramCanvas"), ctx = cv.getContext("2d"), read = $("#figReadout");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-  const N = 16; let W = 0, H = 0, dpr = 1, theta = 0.6, last = 0, visible = true;
-  function size() { const r = cv.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1); W = r.width; H = r.height; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
-  // Paraboloide hiperbólico (superficie reglada): z = k·u·v, construible con rectas, como un panel paramétrico.
-  function P(u, v, t) {
-    const k = 0.85 + 0.12 * Math.sin(t * 0.7);
-    let x = u, y = v, z = k * u * v;
-    const c = Math.cos(theta), s = Math.sin(theta);
-    let X = x * c - y * s, Y = x * s + y * c;            // rotación sobre el eje vertical
-    const tilt = 0.95, ct = Math.cos(tilt), st = Math.sin(tilt);
-    const Y2 = Y * ct - z * st, Z2 = Y * st + z * ct;     // inclinación de cámara
-    const sc = Math.min(W, H) * 0.34, f = 3.2 / (3.2 + Y2 * 0.35);
-    return [W / 2 + X * sc * f, H * 0.52 - Z2 * sc * f, Y2];
-  }
-  function draw(t) {
-    ctx.clearRect(0, 0, W, H);
-    const lines = [];
-    for (let i = 0; i <= N; i++) {
-      const a = -1 + 2 * i / N, A = [], B = [];
-      for (let j = 0; j <= N; j++) { const b = -1 + 2 * j / N; A.push(P(a, b, t)); B.push(P(b, a, t)); }
-      lines.push({ pts: A, edge: i === 0 || i === N, mid: i === N / 2 }, { pts: B, edge: i === 0 || i === N, mid: i === N / 2 });
-    }
-    for (const l of lines) {
-      ctx.beginPath(); l.pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]));
-      ctx.strokeStyle = l.mid ? "#3978B8" : l.edge ? "#10243A" : "rgba(32,37,43,.38)";
-      ctx.lineWidth = l.mid ? 1.4 : l.edge ? 1.2 : 0.7; ctx.stroke();
-    }
-    // nodos de control en esquinas
-    [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(([u, v]) => { const p = P(u, v, t); ctx.fillStyle = "#3978B8"; ctx.fillRect(p[0] - 3, p[1] - 3, 6, 6); });
-    // eje
-    const o = P(0, 0, t); ctx.beginPath(); ctx.setLineDash([3, 4]); ctx.moveTo(o[0], o[1] - Math.min(W,H)*0.3); ctx.lineTo(o[0], o[1] + Math.min(W,H)*0.3);
-    ctx.strokeStyle = "rgba(57,120,184,.6)"; ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]);
-    const deg = ((theta * 180 / Math.PI) % 360 + 360) % 360;
-    read.textContent = "θ " + deg.toFixed(1).padStart(5, "0") + "°";
-  }
-  function loop(ts) {
-    const dt = last ? Math.min(50, ts - last) : 16; last = ts;
-    if (visible && !reduce.matches) { theta += dt * 0.00012; draw(ts / 1000); }
-    requestAnimationFrame(loop);
-  }
-  size(); draw(0);
-  new ResizeObserver(() => { size(); draw(performance.now() / 1000); }).observe(cv);
-  if ("IntersectionObserver" in window) new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(cv);
-  reduce.addEventListener?.("change", () => draw(0));
-  requestAnimationFrame(loop);
-})();
 </script>
 </body>
 </html>
