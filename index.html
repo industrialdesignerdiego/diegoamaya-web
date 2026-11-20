@@ -724,7 +724,7 @@ const SITE_ES = {
     "A lo largo de mi trayectoria he participado en proyectos que integran conceptualización, diseño paramétrico, documentación técnica, simulación computacional, prototipado y fabricación.",
     "Esta práctica profesional constituye un vínculo permanente entre el conocimiento académico y los desafíos concretos de la industria."
   ],
-  categories: ["Diseño de productos","Diseño mecánico","Simulación FEA","Fabricación aditiva","Mobiliario RTA","Packaging industrial","Desarrollo tecnológico"],
+  categories: ["Diseño de productos","Diseño mecánico","Simulación computacional","Fabricación aditiva","Mobiliario RTA","Packaging industrial","Desarrollo tecnológico"],
   projects: [
     { id: "mobio", name: "Mobiliario Mobio", year: "2014–2019", cats: ["Mobiliario RTA","Diseño de productos"], wide: true, shape: "rta",
       teaser: "Línea y fábrica de mobiliario que combinó la producción industrial RTA con un enfoque de diseño personalizado. Incluye Mobio Lamp, distinguida con el Sello Buen Diseño Argentino en 2017.",
@@ -740,9 +740,9 @@ const SITE_ES = {
     { id: "bovinos", name: "Máquina de alimentación para bovinos", year: null, cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine", image: "images/maquina-bovinos", imageAlt: "Render de la máquina de alimentación para bovinos, azul, con pala frontal que carga un rollo de heno",
       teaser: "Desarrollo de equipamiento para el sector agropecuario. Publicado en los catálogos oficiales del Concurso INNOVAR.",
       problem: null, solution: null, tech: null, results: "Publicado en los catálogos oficiales del Concurso INNOVAR." },
-    { id: "fea", name: "Desarrollos mecánicos con simulación computacional", year: null, cats: ["Simulación FEA","Diseño mecánico"], shape: "fea",
-      teaser: "Componentes mecánicos validados mediante análisis por elementos finitos.",
-      problem: null, solution: null, tech: null, results: null },
+    { id: "fea", name: "Simulación computacional", year: null, cats: ["Simulación computacional","Diseño mecánico"], shape: "fea", image: "images/simulacion-cfd", imagePos: "40% center", imageAlt: "Simulación de dinámica de fluidos sobre un monoplaza de competición, con trayectorias de flujo coloreadas según la velocidad",
+      teaser: "Validación de desarrollos mecánicos mediante análisis por elementos finitos (FEA) y dinámica de fluidos computacional (CFD). En la imagen, estudio aerodinámico de un monoplaza.",
+      problem: null, solution: null, tech: "SolidWorks Flow Simulation (CFD) · Análisis por elementos finitos (FEA)", results: null },
     { id: "supertop", name: "Super Top Studio", year: "2023–hoy", wide: true, cats: ["Fabricación aditiva","Diseño de productos"], shape: "am",
       teaser: "Estudio virtual experimental creado junto al diseñador industrial Patricio Corvalán. Diseña productos para impresión 3D que se comercializan en la plataforma Cults3D.",
       problem: null, solution: null, tech: "Diseño para fabricación aditiva · Distribución digital de archivos en Cults3D",
@@ -908,7 +908,7 @@ const SITE_EN_OVERLAY = {
     "Throughout my career I have worked on projects that combine concept development, parametric design, technical documentation, computational simulation, prototyping and manufacturing.",
     "This professional practice is a permanent link between academic knowledge and the concrete challenges of industry."
   ],
-  categories: ["Product design", "Mechanical design", "FEA simulation", "Additive manufacturing", "RTA furniture", "Industrial packaging", "Technology development"],
+  categories: ["Product design", "Mechanical design", "Computational simulation", "Additive manufacturing", "RTA furniture", "Industrial packaging", "Technology development"],
   projects: [
     { name: "Mobio Furniture", cats: ["RTA furniture", "Product design"],
       teaser: "A furniture line and factory that combined industrial RTA production with a customized design approach. Includes Mobio Lamp, awarded the Argentine Good Design Seal in 2017.",
@@ -922,8 +922,9 @@ const SITE_EN_OVERLAY = {
     { name: "Cattle Feeding Machine", cats: ["Mechanical design", "Technology development"], imageAlt: "Render of the blue cattle feeding machine with a front loader carrying a hay bale",
       teaser: "Equipment development for the agricultural sector. Published in the official INNOVAR Competition catalogs.",
       results: "Published in the official INNOVAR Competition catalogs." },
-    { name: "Mechanical development with computational simulation", cats: ["FEA simulation", "Mechanical design"],
-      teaser: "Mechanical components validated through finite element analysis." },
+    { name: "Computational simulation", cats: ["Computational simulation", "Mechanical design"], imageAlt: "Computational fluid dynamics study of a race car, with flow trajectories colored by velocity",
+      teaser: "Validation of mechanical developments through finite element analysis (FEA) and computational fluid dynamics (CFD). Pictured: aerodynamic study of a single-seater race car.",
+      tech: "SolidWorks Flow Simulation (CFD) · Finite element analysis (FEA)" },
     { year: "2023–present", cats: ["Additive manufacturing", "Product design"],
       teaser: "An experimental virtual studio founded with industrial designer Patricio Corvalán. It designs products for 3D printing, sold on the Cults3D platform.",
       tech: "Design for additive manufacturing · Digital file distribution on Cults3D",
