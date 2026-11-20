@@ -504,7 +504,6 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
     </div>
     <div class="filters" role="group" aria-label="Filtrar proyectos por categoría" id="filters"></div>
     <div class="projects" id="projectGrid"></div>
-    <aside class="studio" id="studio" aria-label="Estudio profesional"></aside>
   </div>
 </section>
 
@@ -732,8 +731,9 @@ const SITE_ES = {
     { id: "bovinos", name: "Máquina de alimentación para bovinos", year: "2012", cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine", image: "images/maquina-bovinos", imageAlt: "Render de la máquina de alimentación para bovinos, azul, con pala frontal que carga un rollo de heno",
       teaser: "Tesis de grado en Diseño Industrial (Universidad Nacional de Córdoba, 2012). Equipamiento para el sector agropecuario, publicado en el catálogo oficial del Concurso INNOVAR 2022.",
       problem: null, solution: null, tech: null, results: "Publicado en el catálogo oficial del Concurso INNOVAR 2022." },
-    { id: "fea", name: "Simulación computacional", year: null, cats: ["Simulación computacional","Diseño mecánico"], shape: "fea", image: "images/simulacion-cfd", imagePos: "40% center", imageAlt: "Simulación de dinámica de fluidos sobre un monoplaza de competición, con trayectorias de flujo coloreadas según la velocidad",
-      teaser: "Validación de desarrollos mecánicos mediante análisis por elementos finitos (FEA) y dinámica de fluidos computacional (CFD). En la imagen, estudio aerodinámico de un monoplaza.",
+    { id: "fea", name: "Mechanical Design Department", year: "2023–hoy", cats: ["Simulación computacional","Diseño mecánico"], shape: "fea", image: "images/simulacion-cfd", imagePos: "40% center", imageAlt: "Simulación de dinámica de fluidos sobre un monoplaza de competición, con trayectorias de flujo coloreadas según la velocidad",
+      teaser: "Servicio de simulación computacional para terceros. Me encargo del relevamiento, la simulación por elementos finitos (FEA) y dinámica de fluidos (CFD), y el análisis de resultados. En la imagen, estudio aerodinámico de un monoplaza.",
+      links: [{ label: "mechanicaldesigndept.com", url: "https://mechanicaldesigndept.com/es-ar" }, { label: "Instagram @mechanicaldesigndept", url: "https://www.instagram.com/mechanicaldesigndept" }],
       problem: null, solution: null, tech: "SolidWorks Flow Simulation (CFD) · Análisis por elementos finitos (FEA)", results: null },
     { id: "supertop", name: "Super Top Studio", year: "2023–hoy", wide: true, cats: ["Fabricación aditiva","Diseño de productos"], shape: "am", image: "images/supertop-vinoteca", imageAlt: "Vinoteca modular impresa en 3D en blanco, con columnas apilables y botellas de vino, sobre fondo negro",
       links: [{ label: "Tienda en Cults3D", url: "https://cults3d.com/es/usuarios/supertopstudio/modelos-3d" }, { label: "Instagram @supertopstudio", url: "https://www.instagram.com/supertopstudio" }],
@@ -919,8 +919,8 @@ const SITE_EN_OVERLAY = {
     { name: "Cattle Feeding Machine", cats: ["Mechanical design", "Technology development"], imageAlt: "Render of the blue cattle feeding machine with a front loader carrying a hay bale",
       teaser: "Undergraduate thesis in Industrial Design (Universidad Nacional de Córdoba, 2012). Equipment for the agricultural sector, published in the official INNOVAR Competition catalog in 2022.",
       results: "Published in the official INNOVAR Competition catalog in 2022." },
-    { name: "Computational simulation", cats: ["Computational simulation", "Mechanical design"], imageAlt: "Computational fluid dynamics study of a race car, with flow trajectories colored by velocity",
-      teaser: "Validation of mechanical developments through finite element analysis (FEA) and computational fluid dynamics (CFD). Pictured: aerodynamic study of a single-seater race car.",
+    { year: "2023–present", cats: ["Computational simulation", "Mechanical design"], imageAlt: "Computational fluid dynamics study of a race car, with flow trajectories colored by velocity",
+      teaser: "Computational simulation services for third parties. I handle the technical survey, finite element (FEA) and fluid dynamics (CFD) simulation, and the analysis of results. Pictured: aerodynamic study of a single-seater race car.",
       tech: "SolidWorks Flow Simulation (CFD) · Finite element analysis (FEA)" },
     { year: "2023–present", cats: ["Additive manufacturing", "Product design"], imageAlt: "White 3D-printed modular wine rack with stackable columns holding wine bottles, on a black background",
       links: [{ label: "Cults3D store" }, { label: "Instagram @supertopstudio" }],
@@ -1069,7 +1069,6 @@ const STATIC_ATTR_EN = [
   ["#nav", "aria-label", "Main"],
   [".portrait-photo img", "alt", "Portrait of Diego Germán Amaya"],
   ["#filters", "aria-label", "Filter projects by category"],
-  ["#studio", "aria-label", "Professional studio"],
   ["#projDialog .dlg-close", "aria-label", "Close project"],
   ["#contactDialog .dlg-close", "aria-label", "Close"],
   ["#toTop", "aria-label", "Back to top"],
@@ -1198,12 +1197,6 @@ function render() {
     <li><span class="mono">Email</span><a href="mailto:${esc(P.email)}">${esc(P.email)}</a></li>
     <li><span class="mono">${T("location")}</span><span>${esc(P.location)}</span></li>
     ${P.links.map(l => `<li><span class="mono">${esc(l.k)}</span><a href="${esc(l.url)}" rel="noopener" target="_blank">${esc(l.label)} ↗</a></li>`).join("")}`;
-  const ST = SITE.studio;
-  $("#studio").innerHTML = `
-    <div><span class="mono" style="color:var(--accent)">${T("practice")}</span>
-    <h3>${esc(ST.name)}</h3><p>${esc(ST.desc)}</p></div>
-    <ul>${ST.services.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
-    <a class="btn btn-ghost" href="${esc(ST.url)}" rel="noopener" target="_blank">${T("visitStudio")} <span class="arr" aria-hidden="true">↗</span></a>`;
 
   $("#channels").innerHTML = `
     <li><a class="channel" href="https://wa.me/${C.whatsapp.wa}?text=${encodeURIComponent(C.whatsapp.greeting)}" target="_blank" rel="noopener">
