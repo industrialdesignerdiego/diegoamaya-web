@@ -584,9 +584,9 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
     <button class="card" type="button" data-id="bovinos" data-cats="Diseño mecánico|Desarrollo tecnológico" aria-haspopup="dialog">
       <div class="ph"><picture><source type="image/webp" srcset="images/maquina-bovinos.webp"><img src="images/maquina-bovinos.jpg" alt="Render de la máquina de alimentación para bovinos, azul, con pala frontal que carga un rollo de heno" loading="lazy" decoding="async"></picture></div>
       <div class="card-body">
-        <div class="card-meta mono"><span>Diseño mecánico</span><span></span></div>
+        <div class="card-meta mono"><span>Diseño mecánico</span><span>2012</span></div>
         <h3>Máquina de alimentación para bovinos</h3>
-        <p>Desarrollo de equipamiento para el sector agropecuario. Publicado en los catálogos oficiales del Concurso INNOVAR.</p>
+        <p>Tesis de grado en Diseño Industrial (Universidad Nacional de Córdoba, 2012). Equipamiento para el sector agropecuario, publicado en los catálogos oficiales del Concurso INNOVAR.</p>
         <span class="more">Ver ficha →</span>
       </div>
     </button>
@@ -650,13 +650,13 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
     <li class="tl-item acad"><div class="tl-year">2011</div>
     <div class="tl-body"><span class="mono k">Diseño</span><h3>Diseño y desarrollo independiente del envase del detergente Bora Magic para la empresa Santiago Saenz, con distribución en supermercados de todo el país.</h3></div></li>
     <li class="tl-item acad"><div class="tl-year">2012</div>
-    <div class="tl-body"><span class="mono k">Formación</span><h3>Graduación como Diseñador Industrial en la Universidad Nacional de Córdoba.</h3></div></li>
+    <div class="tl-body"><span class="mono k">Formación</span><h3>Graduación como Diseñador Industrial en la Universidad Nacional de Córdoba, con la tesis de grado «Máquina de alimentación para bovinos».</h3></div></li>
     <li class="tl-item biz"><div class="tl-year">2014–2019</div>
     <div class="tl-body"><span class="mono k">Industria</span><h3>Desarrollo y dirección de Mobio, empresa dedicada al diseño y fabricación de mobiliario contemporáneo.</h3></div></li>
     <li class="tl-item biz"><div class="tl-year">2015–2019</div>
     <div class="tl-body"><span class="mono k">Industria</span><h3>Lanzamiento de Muebles Online Argentina, la primera tienda de muebles 100 % online del país, especializada en mobiliario RTA.</h3></div></li>
     <li class="tl-item acad"><div class="tl-year">2020</div>
-    <div class="tl-body"><span class="mono k">Formación</span><h3>Obtención del MBA en Administración de Empresas por la Universidad Siglo 21.</h3></div></li>
+    <div class="tl-body"><span class="mono k">Formación</span><h3>MBA por la Universidad Siglo 21, con una tesis sobre el e-commerce Muebles Online Argentina. El jurado destacó que era la primera vez que se presentaba un caso real aplicado como tesis de esa maestría.</h3></div></li>
     <li class="tl-item acad"><div class="tl-year">2020–2025</div>
     <div class="tl-body"><span class="mono k">Docencia</span><h3>Docencia en la Licenciatura en Diseño Industrial de la Universidad San Pablo Tucumán.</h3></div></li>
     <li class="tl-item acad"><div class="tl-year">2023–hoy</div>
@@ -894,8 +894,8 @@ const SITE_ES = {
     { id: "bora", name: "Envase Bora Magic", year: "2011", wide: true, cats: ["Packaging industrial","Diseño de productos"], shape: "am", image: "images/bora-magic", imagePos: "center 12%", imageAlt: "Render del envase de detergente Bora Magic, botella amarilla translúcida con tapa a presión",
       teaser: "Diseño y desarrollo del envase del detergente Bora Magic, realizado de forma independiente para la empresa Santiago Saenz. El producto se distribuye en supermercados de todo el país.",
       problem: null, solution: null, tech: null, results: "Producto en comercialización a nivel nacional." },
-    { id: "bovinos", name: "Máquina de alimentación para bovinos", year: null, cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine", image: "images/maquina-bovinos", imageAlt: "Render de la máquina de alimentación para bovinos, azul, con pala frontal que carga un rollo de heno",
-      teaser: "Desarrollo de equipamiento para el sector agropecuario. Publicado en los catálogos oficiales del Concurso INNOVAR.",
+    { id: "bovinos", name: "Máquina de alimentación para bovinos", year: "2012", cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine", image: "images/maquina-bovinos", imageAlt: "Render de la máquina de alimentación para bovinos, azul, con pala frontal que carga un rollo de heno",
+      teaser: "Tesis de grado en Diseño Industrial (Universidad Nacional de Córdoba, 2012). Equipamiento para el sector agropecuario, publicado en los catálogos oficiales del Concurso INNOVAR.",
       problem: null, solution: null, tech: null, results: "Publicado en los catálogos oficiales del Concurso INNOVAR." },
     { id: "fea", name: "Simulación computacional", year: null, cats: ["Simulación computacional","Diseño mecánico"], shape: "fea", image: "images/simulacion-cfd", imagePos: "40% center", imageAlt: "Simulación de dinámica de fluidos sobre un monoplaza de competición, con trayectorias de flujo coloreadas según la velocidad",
       teaser: "Validación de desarrollos mecánicos mediante análisis por elementos finitos (FEA) y dinámica de fluidos computacional (CFD). En la imagen, estudio aerodinámico de un monoplaza.",
@@ -909,10 +909,10 @@ const SITE_ES = {
   timeline: [
     { y: "2009–2011", t: "Diseño de material POP (punto de compra) y desarrollo de soportes 3D para campañas publicitarias en Ogilvy Argentina (Córdoba).", k: "Publicidad", c: "biz" },
     { y: "2011", t: "Diseño y desarrollo independiente del envase del detergente Bora Magic para la empresa Santiago Saenz, con distribución en supermercados de todo el país.", k: "Diseño", c: "acad" },
-    { y: "2012", t: "Graduación como Diseñador Industrial en la Universidad Nacional de Córdoba.", k: "Formación", c: "acad" },
+    { y: "2012", t: "Graduación como Diseñador Industrial en la Universidad Nacional de Córdoba, con la tesis de grado «Máquina de alimentación para bovinos».", k: "Formación", c: "acad" },
     { y: "2014–2019", t: "Desarrollo y dirección de Mobio, empresa dedicada al diseño y fabricación de mobiliario contemporáneo.", k: "Industria", c: "biz" },
     { y: "2015–2019", t: "Lanzamiento de Muebles Online Argentina, la primera tienda de muebles 100 % online del país, especializada en mobiliario RTA.", k: "Industria", c: "biz" },
-    { y: "2020", t: "Obtención del MBA en Administración de Empresas por la Universidad Siglo 21.", k: "Formación", c: "acad" },
+    { y: "2020", t: "MBA por la Universidad Siglo 21, con una tesis sobre el e-commerce Muebles Online Argentina. El jurado destacó que era la primera vez que se presentaba un caso real aplicado como tesis de esa maestría.", k: "Formación", c: "acad" },
     { y: "2020–2025", t: "Docencia en la Licenciatura en Diseño Industrial de la Universidad San Pablo Tucumán.", k: "Docencia", c: "acad" },
     { y: "2023–hoy", t: "Mechanical Design Department: servicios de simulación computacional para terceros, con relevamiento, simulación y análisis de resultados a mi cargo.", k: "Simulación", c: "acad" },
     { y: "2023–hoy", t: "Creación de Super Top Studio junto a Patricio Corvalán: estudio virtual experimental de productos para impresión 3D, con cerca de 100 diseños publicados en Cults3D.", k: "Fabricación digital", c: "acad" },
@@ -1082,7 +1082,7 @@ const SITE_EN_OVERLAY = {
       teaser: "Design and development of the bottle for Bora Magic dish detergent, carried out independently for the company Santiago Saenz. The product is sold in supermarkets across Argentina.",
       results: "Product sold nationwide." },
     { name: "Cattle Feeding Machine", cats: ["Mechanical design", "Technology development"], imageAlt: "Render of the blue cattle feeding machine with a front loader carrying a hay bale",
-      teaser: "Equipment development for the agricultural sector. Published in the official INNOVAR Competition catalogs.",
+      teaser: "Undergraduate thesis in Industrial Design (Universidad Nacional de Córdoba, 2012). Equipment for the agricultural sector, published in the official INNOVAR Competition catalogs.",
       results: "Published in the official INNOVAR Competition catalogs." },
     { name: "Computational simulation", cats: ["Computational simulation", "Mechanical design"], imageAlt: "Computational fluid dynamics study of a race car, with flow trajectories colored by velocity",
       teaser: "Validation of mechanical developments through finite element analysis (FEA) and computational fluid dynamics (CFD). Pictured: aerodynamic study of a single-seater race car.",
@@ -1096,10 +1096,10 @@ const SITE_EN_OVERLAY = {
   timeline: [
     { t: "Design of POP (point of purchase) materials and 3D displays for advertising campaigns at Ogilvy Argentina (Córdoba).", k: "Advertising" },
     { t: "Independent design and development of the Bora Magic detergent bottle for the company Santiago Saenz, sold in supermarkets across Argentina.", k: "Design" },
-    { t: "Graduated as an Industrial Designer from Universidad Nacional de Córdoba.", k: "Education" },
+    { t: "Graduated as an Industrial Designer from Universidad Nacional de Córdoba, with the undergraduate thesis “Cattle Feeding Machine”.", k: "Education" },
     { t: "Founded and led Mobio, a company devoted to the design and manufacture of contemporary furniture.", k: "Industry" },
     { t: "Launched Muebles Online Argentina, the country's first 100% online furniture store, specialized in RTA furniture.", k: "Industry" },
-    { t: "MBA from Universidad Siglo 21.", k: "Education" },
+    { t: "MBA from Universidad Siglo 21, with a thesis on the e-commerce venture Muebles Online Argentina. The examining board noted it was the first time a real applied case had been presented as a thesis in that master’s program.", k: "Education" },
     { t: "Lecturer in the Industrial Design degree program at Universidad San Pablo Tucumán.", k: "Teaching" },
     { y: "2023–present", t: "Mechanical Design Department: computational simulation services for third parties, handling the technical survey, simulation and analysis of results.", k: "Simulation" },
     { y: "2023–present", t: "Co-founded Super Top Studio with Patricio Corvalán: an experimental virtual studio for 3D-printable products, with close to 100 designs published on Cults3D.", k: "Digital fabrication" },
