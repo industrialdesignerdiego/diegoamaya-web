@@ -297,6 +297,15 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
   .tl-body::before{left:-5px;top:-22px}
 }
 
+.inst{margin-top:clamp(56px,7vw,96px)}
+.inst-list{list-style:none;margin:0;padding:0}
+.inst-list li{display:grid;grid-template-columns:140px minmax(0,5fr) minmax(0,6fr);gap:8px 32px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.inst-y{color:var(--deep);font-variant-numeric:tabular-nums}
+.inst-list h4{font-size:clamp(19px,1.7vw,22px);font-weight:600;color:var(--deep);line-height:1.25}
+.inst-role{display:inline-block;margin-top:8px;color:var(--accent)}
+.inst-list p{color:var(--mid-ink);font-size:16px;max-width:52ch}
+@media (max-width:760px){.inst-list li{grid-template-columns:1fr}}
+
 /* ---------- Reconocimientos ---------- */
 .awards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .award{border:1px solid var(--rule);background:#fff;padding:20px;display:flex;flex-direction:column;gap:14px;min-height:190px;transition:border-color .25s}
@@ -519,6 +528,10 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
       <h2 class="sec-title" id="t-path">Una trayectoria entre el diseño, la industria y la academia.</h2>
     </div>
     <ol class="timeline" id="timeline"><li class="progress" aria-hidden="true"></li></ol>
+    <div class="inst">
+      <div class="lines-head mono" style="color:var(--mid-ink);border-bottom-color:var(--graphite)"><h3 class="mono" style="font-family:var(--font-mono);font-weight:400;font-size:12px;line-height:1.6">Participación institucional y sectorial</h3><span id="instCount"></span></div>
+      <ul class="inst-list" id="inst"></ul>
+    </div>
   </div>
 </section>
 
@@ -736,6 +749,16 @@ const SITE = {
     { y: "2024–hoy", t: "Doctorado en Diseño en la Universidad de Palermo (en curso).", k: "Investigación", c: "acad" },
     { y: "2026", t: "Graduación del Máster en Inteligencia Artificial en CEUPE, Centro Europeo de Postgrado (Madrid, España).", k: "Formación", c: "acad" }
   ],
+  institutional: [
+    { y: "2017–hoy", org: "ACS · Asociación Cordobesa de Skateboarding", role: null,
+      d: "Diseño y desarrollo de pistas, piezas gráficas y colaboración institucional." },
+    { y: "2018–2020", org: "Federación de Deportes Extremos de Tierra", role: "Vocal",
+      d: "Coordinación en la homologación de espacios públicos para skateboarding." },
+    { y: "2017–2019", org: "Departamento Jóvenes · Unión Industrial de Córdoba (UIC)", role: null,
+      d: "Participación activa y representación sectorial." },
+    { y: "2015–2021", org: "CAMMEC · Cámara de la Madera, Mueble y Equipamiento de Córdoba", role: "Vocal en Comisión Directiva",
+      d: "Desarrollo de identidad corporativa, diseño del isologotipo y relanzamiento de la imagen institucional." }
+  ],
   awards: [
     { t: "Sello Buen Diseño Argentino", w: "Pocillo de café Porzana", y: "2025", type: "Distinción" },
     { t: "Concurso Nacional INNOVAR", w: "Máquina de alimentación para bovinos · Pocillo para café", y: "2019 y 2022", type: "Concurso" },
@@ -884,6 +907,13 @@ dlg.addEventListener("close", () => { if (lastFocus) lastFocus.focus(); });
 $("#timeline").insertAdjacentHTML("beforeend", SITE.timeline.map(t => `
   <li class="tl-item ${t.c}"><div class="tl-year">${esc(t.y)}</div>
   <div class="tl-body"><span class="mono k">${esc(t.k)}</span><h3>${esc(t.t)}</h3></div></li>`).join(""));
+
+/* Participación institucional */
+$("#instCount").textContent = `${pad(SITE.institutional.length)} entidades`;
+$("#inst").innerHTML = SITE.institutional.map(i => `
+  <li><span class="mono inst-y">${esc(i.y)}</span>
+  <div><h4>${esc(i.org)}</h4>${i.role ? `<span class="mono inst-role">${esc(i.role)}</span>` : ""}</div>
+  <p>${esc(i.d)}</p></li>`).join("");
 
 /* Reconocimientos */
 $("#awards").innerHTML = SITE.awards.map(a => `
