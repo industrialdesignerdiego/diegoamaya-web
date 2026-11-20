@@ -536,9 +536,8 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
       <div class="lines-head mono" style="color:var(--mid-ink);border-bottom-color:var(--graphite)"><span>Producción académica y profesional</span><span>Clasificada por tipo de fuente</span></div>
       <div class="legend mono" aria-hidden="true">
         <span><i class="sw acad"></i>Académica</span>
-        <span><i class="sw media"></i>Medios</span>
         <span><i class="sw cat"></i>Catálogos</span>
-        <span><i class="sw inpi"></i>Registros INPI</span>
+        <span><i class="sw media"></i>Medios</span>
       </div>
       <div class="prod-grid" id="prodGrid"></div>
     </div>
@@ -705,17 +704,17 @@ const SITE = {
     { id: "mobio", name: "Mobiliario Mobio", year: "2014–2019", cats: ["Mobiliario RTA","Diseño de productos"], wide: true, shape: "rta",
       teaser: "Línea y fábrica de mobiliario que combinó la producción industrial RTA con un enfoque de diseño personalizado. Incluye Mobio Lamp, distinguida con el Sello Buen Diseño Argentino en 2017.",
       problem: null, solution: null, tech: null,
-      results: "Sello Buen Diseño Argentino — Mobio Lamp (2017)." },
+      results: "Sello Buen Diseño Argentino 2017 para Mobio Lamp, destacada en la revista 90+10. Artículos sobre Mobio en las revistas Ambientar y Asora (2014 y 2016)." },
     { id: "porzana", name: "Taza Porzana", year: null, cats: ["Diseño de productos"], shape: "cup", image: "images/porzana", imageAlt: "Tres tazas Porzana blancas de geometría facetada sobre fondo claro",
-      teaser: "Taza que integra procesos digitales con técnicas artesanales locales. Distinguida con el Sello Buen Diseño Argentino.",
+      teaser: "Pocillo de café que integra procesos digitales con técnicas artesanales locales. Sello Buen Diseño Argentino 2025.",
       problem: null, solution: null, tech: null,
-      results: "Sello Buen Diseño Argentino." },
+      results: "Sello Buen Diseño Argentino (2025). Publicado en los catálogos oficiales del Concurso INNOVAR." },
     { id: "bora", name: "Envase Bora Magic", year: "2011", wide: true, cats: ["Packaging industrial","Diseño de productos"], shape: "am", image: "images/bora-magic", imagePos: "center 12%", imageAlt: "Render del envase de detergente Bora Magic, botella amarilla translúcida con tapa a presión",
       teaser: "Diseño y desarrollo del envase del detergente Bora Magic, producto con distribución en supermercados de todo el país.",
       problem: null, solution: null, tech: null, results: "Producto en comercialización a nivel nacional." },
     { id: "bovinos", name: "Máquina de alimentación para bovinos", year: null, cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine",
-      teaser: "Desarrollo de equipamiento para el sector agropecuario.",
-      problem: null, solution: null, tech: null, results: null },
+      teaser: "Desarrollo de equipamiento para el sector agropecuario. Publicado en los catálogos oficiales del Concurso INNOVAR.",
+      problem: null, solution: null, tech: null, results: "Publicado en los catálogos oficiales del Concurso INNOVAR." },
     { id: "fea", name: "Desarrollos mecánicos con simulación computacional", year: null, cats: ["Simulación FEA","Diseño mecánico"], shape: "fea",
       teaser: "Componentes mecánicos validados mediante análisis por elementos finitos.",
       problem: null, solution: null, tech: null, results: null },
@@ -738,19 +737,28 @@ const SITE = {
     { y: "2026", t: "Graduación del Máster en Inteligencia Artificial en CEUPE, Centro Europeo de Postgrado (Madrid, España).", k: "Formación", c: "acad" }
   ],
   awards: [
-    { t: "Sello Buen Diseño Argentino", w: "Taza Porzana", y: null, type: "Distinción" },
-    { t: "Concurso Nacional INNOVAR", w: null, y: "2019", type: "Concurso" },
-    { t: "Sello Buen Diseño Argentino", w: "Mobio Lamp", y: "2017", type: "Distinción" },
-    { t: "Bienal Internacional de Arquitectura de Argentina", w: null, y: "2018", type: "Exhibición" },
-    { t: "Reconocimientos en diseño de mobiliario", w: null, y: null, type: "Distinciones" }
+    { t: "Sello Buen Diseño Argentino", w: "Pocillo de café Porzana", y: "2025", type: "Distinción" },
+    { t: "Concurso Nacional INNOVAR", w: "Máquina de alimentación para bovinos · Pocillo para café", y: "2019 y 2022", type: "Concurso" },
+    { t: "Bienal Internacional de Arquitectura de Argentina (BIA-AR)", w: "Skate bike park", y: "2018", type: "Bienal" },
+    { t: "Sello Buen Diseño Argentino", w: "Mobio Lamp", y: "2017", type: "Distinción" }
   ],
+  /* Columnas sin items no se muestran */
   production: [
-    { id: "acad", t: "Publicaciones académicas y ponencias", d: "Artículos con referato, capítulos, ponencias y conferencias.", items: [
+    { id: "acad", t: "Publicaciones académicas y ponencias", d: "Artículos, capítulos, ponencias y conferencias.", items: [
+      "«Nuevos lenguajes de las interacciones entre el arte y el diseño. Enfoque desde la historia cultural». Cuaderno 277, año 28, n.º 225 (2025/2026). ISSN 1668-0227.",
       "«Mobiliario Argentino 4.0». Congreso de Enseñanza, Facultad de Diseño y Comunicación, Universidad de Palermo, 2026.",
       "«Diseño industrial: de la función al significado». Charla abierta, Instituto Técnico, Universidad Nacional de Tucumán, 2026."
     ] },
-    { id: "media", t: "Menciones en medios", d: "Notas periodísticas y artículos de divulgación. No equivalen a publicaciones científicas.", items: [] },
-    { id: "cat", t: "Catálogos oficiales", d: "Catálogos de exposiciones, sellos y bienales.", items: [] },
+    { id: "cat", t: "Catálogos oficiales", d: "Catálogos de sellos, concursos y bienales.", items: [
+      "Catálogo Sello Buen Diseño Argentino, 2025: Pocillo de café Porzana.",
+      "Catálogos oficiales del Concurso INNOVAR, 2019 y 2022: máquina de alimentación para bovinos y pocillo para café.",
+      "Bienal Internacional de Arquitectura de Argentina (BIA-AR), 2018: skate bike park.",
+      "Catálogo Sello Buen Diseño Argentino, 2017: lámpara Mobio."
+    ] },
+    { id: "media", t: "Entrevistas y menciones en medios", d: "Difusión en revistas especializadas. No equivalen a publicaciones científicas.", items: [
+      "Revista 90+10, 2017: la lámpara Mobio, destacada.",
+      "Revistas Ambientar y Asora, 2014 y 2016: artículos sobre el impacto del diseño en la industria del mueble, con Mobio como caso innovador."
+    ] },
     { id: "inpi", t: "Registros de propiedad industrial", d: "Modelos y diseños industriales registrados ante el INPI.", items: [] }
   ],
   contact: {
@@ -881,7 +889,7 @@ $("#timeline").insertAdjacentHTML("beforeend", SITE.timeline.map(t => `
 $("#awards").innerHTML = SITE.awards.map(a => `
   <article class="award"><div class="top mono"><span>${esc(a.type)}</span><span class="yr">${a.y ? esc(a.y) : "—"}</span></div>
   <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : "Proyecto a especificar"}</p></article>`).join("");
-$("#prodGrid").innerHTML = SITE.production.map(c => `
+$("#prodGrid").innerHTML = SITE.production.filter(c => c.items.length).map(c => `
   <div class="prod-col ${c.id}"><h3>${esc(c.t)}</h3><p style="color:var(--mid-ink);font-size:15px">${esc(c.d)}</p>
   ${c.items.length ? `<ul>${c.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`
     : `<p class="empty">Sin registros cargados. Se agregarán solo referencias verificadas.</p>`}</div>`).join("");
