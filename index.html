@@ -125,10 +125,6 @@ section{position:relative}
 .on-deep .sec-label b{color:var(--paper)}
 .on-deep .lede{color:#DDE4EA}
 
-/* ---------- Review flags ---------- */
-.flag{display:none;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#8A5A00;background:#FFF3D6;border:1px solid #E9C877;padding:1px 6px;border-radius:2px;vertical-align:middle;margin-left:6px;cursor:help;white-space:nowrap}
-body.review .flag{display:inline-block}
-.on-deep .flag{color:#FFE2A3;background:rgba(255,200,90,.12);border-color:rgba(255,200,90,.45)}
 
 /* ---------- Hero ---------- */
 .hero{padding:clamp(40px,6vw,72px) 0 clamp(56px,7vw,96px);border-bottom:1px solid var(--rule)}
@@ -347,26 +343,15 @@ input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="tr
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px}
 .foot .brand{color:var(--paper)}
 .foot-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.tool-btn{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;background:none;color:#DDE4EA;border:1px solid #4A535C;padding:8px 12px;cursor:pointer;border-radius:2px}
-.tool-btn:hover{border-color:#DDE4EA}
 .to-top{position:fixed;right:18px;bottom:18px;z-index:40;width:46px;height:46px;border:1px solid var(--deep);background:var(--paper);color:var(--deep);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s,transform .25s,visibility .25s}
 .to-top.show{opacity:1;visibility:visible;transform:none}
 .to-top:hover{background:var(--deep);color:var(--paper)}
-.review-banner{display:none;background:#FFF3D6;color:#6B4600;border-bottom:1px solid #E9C877;font-size:14px}
-body.review .review-banner{display:block}
-.review-banner .wrap{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding-top:8px;padding-bottom:8px}
-.review-banner button{font:inherit;font-size:13px;background:none;border:1px solid #C9A04A;color:#6B4600;padding:4px 10px;cursor:pointer;border-radius:2px}
 </style>
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
 
-<div class="review-banner" role="note">
-  <div class="wrap">
-    <span><strong>Borrador para revisión.</strong> Las etiquetas «a verificar» marcan datos que hay que confirmar con los CV antes de publicar.</span>
-    <button type="button" data-toggle-review>Ocultar etiquetas</button>
-  </div>
-</div>
+
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
@@ -599,7 +584,6 @@ body.review .review-banner{display:block}
     </div>
     <div class="foot-tools">
       <span class="mono" style="color:#8C97A1">CV en PDF: disponible cuando se cargue el archivo</span>
-      <button class="tool-btn" type="button" data-toggle-review>Ocultar etiquetas de revisión</button>
     </div>
   </div>
 </footer>
@@ -612,7 +596,7 @@ body.review .review-banner{display:block}
 /* =====================================================================
    CONTENIDO CENTRALIZADO
    Todo el texto del sitio vive en este objeto. Para actualizar el sitio,
-   editá SITE; los componentes no cambian. `verify` = nota de revisión.
+   editá SITE; los componentes no cambian.
    En la versión Next.js este objeto pasa a /content/*.ts o a un CMS.
    ===================================================================== */
 const SITE = {
@@ -634,15 +618,13 @@ const SITE = {
     name: "Mechanical Design Department",
     url: "https://mechanicaldesigndept.com/es-ar",
     desc: "Servicio de diseño mecánico y simulación computacional para desarrollo de productos.",
-    services: ["Diseño mecánico y modelado 3D", "Simulación CAE", "Planimetría técnica 2D", "Renderizado"],
-    verify: "Confirmar rol (fundador, director) y año de inicio. El sitio del estudio no nombra al titular."
+    services: ["Diseño mecánico y modelado 3D", "Simulación CAE", "Planimetría técnica 2D", "Renderizado"]
   },
   about: {
     paragraphs: [
       "Soy diseñador industrial, Magíster en Administración de Empresas y doctorando en Diseño por la Universidad de Palermo.",
       "Mi trayectoria profesional y académica se desarrolla en la intersección entre el diseño industrial, la innovación tecnológica, la educación superior y los procesos de transformación productiva.",
-      { text: "Durante más de 15 años he trabajado en el desarrollo de productos, la gestión de proyectos industriales y la incorporación de herramientas digitales a los procesos de diseño y fabricación.",
-        verify: "«Más de 15 años»: la graduación figura en 2012 (14 años a 2026). Confirmar si se cuenta experiencia previa al título." },
+      "Durante más de 15 años he trabajado en el desarrollo de productos, la gestión de proyectos industriales y la incorporación de herramientas digitales a los procesos de diseño y fabricación.",
       "Mi experiencia profesional me permitió comprender el diseño desde una perspectiva integral, articulando creatividad, conocimiento técnico, gestión empresarial y competitividad.",
       "En paralelo, mi actividad docente y mi formación doctoral consolidaron un interés particular por la producción de conocimiento, la enseñanza del diseño y las transformaciones asociadas a las tecnologías de Industria 4.0.",
       "Actualmente, mis intereses se concentran en el diseño industrial, la fabricación aditiva, la simulación computacional, la inteligencia artificial y los procesos de transformación digital."
@@ -663,7 +645,7 @@ const SITE = {
       status: "Investigación doctoral en curso",
       summary: "Investigación doctoral sobre competitividad, diseño de mobiliario argentino e Industria 4.0.",
       spec: [
-        { k: "Título", v: "Mobiliario 4.0", verify: "Confirmar el título formal registrado de la tesis." },
+        { k: "Título", v: "Mobiliario 4.0" },
         { k: "Institución", v: "Universidad de Palermo · Doctorado en Diseño" },
         { k: "Estado", v: "En desarrollo (inicio 2024)" },
         { k: "Área", v: "Diseño industrial · Competitividad · Industria 4.0" },
@@ -713,45 +695,37 @@ const SITE = {
     { id: "mobio", name: "Mobiliario Mobio", year: "2014–2019", cats: ["Mobiliario RTA","Diseño de productos"], wide: true, shape: "rta",
       teaser: "Diseño y fabricación de mobiliario contemporáneo. Incluye Mobio Lamp, distinguida con el Sello Buen Diseño Argentino en 2017.",
       problem: null, solution: null, tech: null,
-      results: "Sello Buen Diseño Argentino — Mobio Lamp (2017).",
-      verify: "Completar problema, solución y tecnologías desde el CV." },
+      results: "Sello Buen Diseño Argentino — Mobio Lamp (2017)." },
     { id: "porzana", name: "Pocillo Porzana", year: null, cats: ["Diseño de productos"], shape: "cup",
       teaser: "Pieza de vajilla distinguida con el Sello Buen Diseño Argentino.",
       problem: null, solution: null, tech: null,
-      results: "Sello Buen Diseño Argentino.",
-      verify: "Falta el año del proyecto y de la distinción." },
+      results: "Sello Buen Diseño Argentino." },
     { id: "bovinos", name: "Máquina de alimentación para bovinos", year: null, cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine",
       teaser: "Desarrollo de equipamiento para el sector agropecuario.",
-      problem: null, solution: null, tech: null, results: null,
-      verify: "Confirmar año, cliente o contexto y alcance de la participación." },
+      problem: null, solution: null, tech: null, results: null },
     { id: "fea", name: "Desarrollos mecánicos con simulación computacional", year: null, cats: ["Simulación FEA","Diseño mecánico"], shape: "fea",
       teaser: "Componentes mecánicos validados mediante análisis por elementos finitos.",
-      problem: null, solution: null, tech: null, results: null,
-      verify: "Seleccionar casos concretos documentados en el CV." },
+      problem: null, solution: null, tech: null, results: null },
     { id: "am", name: "Productos desarrollados mediante impresión 3D", year: null, cats: ["Fabricación aditiva","Diseño de productos"], shape: "am",
       teaser: "Productos y prototipos concebidos para fabricación aditiva.",
-      problem: null, solution: null, tech: null, results: null,
-      verify: "Seleccionar casos concretos documentados en el CV." }
+      problem: null, solution: null, tech: null, results: null }
   ],
   timeline: [
     { y: "2012", t: "Graduación como Diseñador Industrial en la Universidad Nacional de Córdoba.", k: "Formación", c: "acad" },
     { y: "2014–2019", t: "Desarrollo y dirección de Mobio, empresa dedicada al diseño y fabricación de mobiliario contemporáneo.", k: "Industria", c: "biz" },
     { y: "2015–2019", t: "Desarrollo de MueblesOnline, iniciativa de comercialización digital de mobiliario.", k: "Industria", c: "biz" },
-    { y: "2020", t: "Obtención del MBA en Administración de Empresas por la Universidad Siglo 21.", k: "Formación", c: "acad",
-      verify: "Confirmar denominación exacta del título (MBA / Magíster en Administración de Empresas)." },
+    { y: "2020", t: "Obtención del MBA en Administración de Empresas por la Universidad Siglo 21.", k: "Formación", c: "acad" },
     { y: "2020–2025", t: "Docencia en la Licenciatura en Diseño Industrial de la Universidad San Pablo Tucumán.", k: "Docencia", c: "acad" },
-    { y: "2021–hoy", t: "Participación en gestión empresarial y proyectos de innovación tecnológica.", k: "Industria", c: "biz",
-      verify: "Indicar organización y rol para dar precisión al hito." },
+    { y: "2021–hoy", t: "Participación en gestión empresarial y proyectos de innovación tecnológica.", k: "Industria", c: "biz" },
     { y: "2024–hoy", t: "Doctorado en Diseño en la Universidad de Palermo (en curso).", k: "Investigación", c: "acad" },
-    { y: "2025–2026", t: "Profundización de la formación en tecnologías digitales, inteligencia artificial, simulación y fabricación aditiva.", k: "Formación", c: "acad",
-      verify: "Detallar cursos o certificaciones concretas." }
+    { y: "2025–2026", t: "Profundización de la formación en tecnologías digitales, inteligencia artificial, simulación y fabricación aditiva.", k: "Formación", c: "acad" }
   ],
   awards: [
-    { t: "Sello Buen Diseño Argentino", w: "Pocillo Porzana", y: null, type: "Distinción", verify: "Falta el año." },
-    { t: "Concurso Nacional INNOVAR", w: null, y: "2019", type: "Concurso", verify: "Indicar proyecto y categoría o mención obtenida." },
+    { t: "Sello Buen Diseño Argentino", w: "Pocillo Porzana", y: null, type: "Distinción" },
+    { t: "Concurso Nacional INNOVAR", w: null, y: "2019", type: "Concurso" },
     { t: "Sello Buen Diseño Argentino", w: "Mobio Lamp", y: "2017", type: "Distinción" },
-    { t: "Bienal Internacional de Arquitectura de Argentina", w: null, y: "2018", type: "Exhibición", verify: "Indicar proyecto y tipo de participación (selección, exhibición, premio)." },
-    { t: "Reconocimientos en diseño de mobiliario", w: null, y: null, type: "Distinciones", verify: "Detallar cada reconocimiento por separado con año y entidad." }
+    { t: "Bienal Internacional de Arquitectura de Argentina", w: null, y: "2018", type: "Exhibición" },
+    { t: "Reconocimientos en diseño de mobiliario", w: null, y: null, type: "Distinciones" }
   ],
   production: [
     { id: "acad", t: "Publicaciones académicas y ponencias", d: "Artículos con referato, capítulos, ponencias y conferencias.", items: [] },
@@ -771,8 +745,7 @@ const SITE = {
 /* ===================== Utilidades ===================== */
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
-const flag = note => note ? `<span class="flag" title="${esc(note)}" tabindex="0" aria-label="A verificar: ${esc(note)}">a verificar</span>` : "";
-const para = p => typeof p === "string" ? `<p>${esc(p)}</p>` : `<p>${esc(p.text)}${flag(p.verify)}</p>`;
+const para = p => typeof p === "string" ? `<p>${esc(p)}</p>` : `<p>${esc(p.text)}</p>`;
 const pad = n => String(n).padStart(2, "0");
 
 /* ===================== Render ===================== */
@@ -785,7 +758,7 @@ const F = SITE.research.featured;
 $("#m40status").textContent = F.status;
 $("#m40summary").textContent = F.summary;
 $("#m40spec").innerHTML = F.spec.map(r =>
-  `<dt>${esc(r.k)}</dt><dd>${r.pending ? `<span class="muted">${esc(r.pending)}</span>` : esc(r.v)}${flag(r.verify)}</dd>`).join("");
+  `<dt>${esc(r.k)}</dt><dd>${r.pending ? `<span class="muted">${esc(r.pending)}</span>` : esc(r.v)}</dd>`).join("");
 $("#linesList").innerHTML = SITE.research.lines.map((l, i) =>
   `<li><span class="mono code">L-${pad(i + 1)}</span><span class="t">${esc(l)}</span></li>`).join("");
 $("#linesCount").textContent = `${pad(SITE.research.lines.length)} líneas`;
@@ -852,7 +825,7 @@ function openProject(id) {
       ${row("Año", p.year)}${row("Categoría", p.cats.join(", "))}${row("Problema", p.problem)}
       ${row("Solución", p.solution)}${row("Tecnologías", p.tech)}${row("Resultados", p.results)}
     </dl>
-    ${p.verify ? `<p style="margin-top:16px">${flag(p.verify)} <span class="flag" style="margin:0;cursor:default">${esc(p.verify)}</span></p>` : ""}`;
+`;
   lastFocus = document.activeElement;
   if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
 }
@@ -864,12 +837,12 @@ dlg.addEventListener("close", () => { if (lastFocus) lastFocus.focus(); });
 /* Trayectoria */
 $("#timeline").insertAdjacentHTML("beforeend", SITE.timeline.map(t => `
   <li class="tl-item ${t.c}"><div class="tl-year">${esc(t.y)}</div>
-  <div class="tl-body"><span class="mono k">${esc(t.k)}</span><h3>${esc(t.t)}${flag(t.verify)}</h3></div></li>`).join(""));
+  <div class="tl-body"><span class="mono k">${esc(t.k)}</span><h3>${esc(t.t)}</h3></div></li>`).join(""));
 
 /* Reconocimientos */
 $("#awards").innerHTML = SITE.awards.map(a => `
   <article class="award"><div class="top mono"><span>${esc(a.type)}</span><span class="yr">${a.y ? esc(a.y) : "—"}</span></div>
-  <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : "Proyecto a especificar"}${flag(a.verify)}</p></article>`).join("");
+  <h3>${esc(a.t)}</h3><p>${a.w ? esc(a.w) : "Proyecto a especificar"}</p></article>`).join("");
 $("#prodGrid").innerHTML = SITE.production.map(c => `
   <div class="prod-col ${c.id}"><h3>${esc(c.t)}</h3><p style="color:var(--mid-ink);font-size:15px">${esc(c.d)}</p>
   ${c.items.length ? `<ul>${c.items.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`
@@ -886,7 +859,7 @@ $("#contactData").innerHTML = `
 const ST = SITE.studio;
 $("#studio").innerHTML = `
   <div><span class="mono" style="color:var(--accent)">Práctica profesional actual</span>
-  <h3>${esc(ST.name)}${flag(ST.verify)}</h3><p>${esc(ST.desc)}</p></div>
+  <h3>${esc(ST.name)}</h3><p>${esc(ST.desc)}</p></div>
   <ul>${ST.services.map(s => `<li>${esc(s)}</li>`).join("")}</ul>
   <a class="btn btn-ghost" href="${esc(ST.url)}" rel="noopener" target="_blank">Visitar el estudio <span class="arr" aria-hidden="true">↗</span></a>`;
 $("#f-reason").innerHTML = `<option value="">Seleccioná una opción</option>` +
@@ -960,15 +933,6 @@ let ticking = false;
 window.addEventListener("scroll", () => { if (!ticking) { requestAnimationFrame(() => { onScroll(); ticking = false; }); ticking = true; } }, { passive: true });
 window.addEventListener("resize", onScroll);
 onScroll();
-
-/* Modo revisión */
-function setReview(on) {
-  document.body.classList.toggle("review", on);
-  document.querySelectorAll("[data-toggle-review]").forEach(b => b.textContent = on ? "Ocultar etiquetas de revisión" : "Mostrar etiquetas de revisión");
-  try { localStorage.setItem("da-review", on ? "1" : "0"); } catch {}
-}
-document.querySelectorAll("[data-toggle-review]").forEach(b => b.addEventListener("click", () => setReview(!document.body.classList.contains("review"))));
-try { const s = localStorage.getItem("da-review"); if (s !== null) setReview(s === "1"); } catch {}
 
 /* ===================== Fig. 01 — superficie paramétrica ===================== */
 (function () {
