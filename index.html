@@ -276,6 +276,7 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
 .dlg-close:hover{border-color:var(--graphite)}
 .dlg-body{padding:0 28px 28px}
 .dlg-body .ph{aspect-ratio:21/9;margin:20px 0 4px;border:1px solid var(--rule)}
+.dlg-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .spec{display:grid;grid-template-columns:minmax(130px,1fr) 3fr;margin:0}
 .spec dt,.spec dd{margin:0;padding:12px 0;border-bottom:1px solid var(--rule)}
 .spec dt{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mid-ink);padding-top:15px}
@@ -743,8 +744,9 @@ const SITE_ES = {
     { id: "fea", name: "Simulación computacional", year: null, cats: ["Simulación computacional","Diseño mecánico"], shape: "fea", image: "images/simulacion-cfd", imagePos: "40% center", imageAlt: "Simulación de dinámica de fluidos sobre un monoplaza de competición, con trayectorias de flujo coloreadas según la velocidad",
       teaser: "Validación de desarrollos mecánicos mediante análisis por elementos finitos (FEA) y dinámica de fluidos computacional (CFD). En la imagen, estudio aerodinámico de un monoplaza.",
       problem: null, solution: null, tech: "SolidWorks Flow Simulation (CFD) · Análisis por elementos finitos (FEA)", results: null },
-    { id: "supertop", name: "Super Top Studio", year: "2023–hoy", wide: true, cats: ["Fabricación aditiva","Diseño de productos"], shape: "am",
-      teaser: "Estudio virtual experimental creado junto al diseñador industrial Patricio Corvalán. Diseña productos para impresión 3D que se comercializan en la plataforma Cults3D.",
+    { id: "supertop", name: "Super Top Studio", year: "2023–hoy", wide: true, cats: ["Fabricación aditiva","Diseño de productos"], shape: "am", image: "images/supertop-vinoteca", imageAlt: "Vinoteca modular impresa en 3D en blanco, con columnas apilables y botellas de vino, sobre fondo negro",
+      links: [{ label: "Tienda en Cults3D", url: "https://cults3d.com/es/usuarios/supertopstudio/modelos-3d" }, { label: "Instagram @supertopstudio", url: "https://www.instagram.com/supertopstudio" }],
+      teaser: "Estudio virtual experimental creado junto al diseñador industrial Patricio Corvalán. Diseña productos para impresión 3D que se comercializan en la plataforma Cults3D. En la imagen, vinoteca modular escalable de 4 a 80 botellas, imprimible sin soportes.",
       problem: null, solution: null, tech: "Diseño para fabricación aditiva · Distribución digital de archivos en Cults3D",
       results: "Cerca de 100 productos publicados desde 2023." },
   ],
@@ -925,8 +927,9 @@ const SITE_EN_OVERLAY = {
     { name: "Computational simulation", cats: ["Computational simulation", "Mechanical design"], imageAlt: "Computational fluid dynamics study of a race car, with flow trajectories colored by velocity",
       teaser: "Validation of mechanical developments through finite element analysis (FEA) and computational fluid dynamics (CFD). Pictured: aerodynamic study of a single-seater race car.",
       tech: "SolidWorks Flow Simulation (CFD) · Finite element analysis (FEA)" },
-    { year: "2023–present", cats: ["Additive manufacturing", "Product design"],
-      teaser: "An experimental virtual studio founded with industrial designer Patricio Corvalán. It designs products for 3D printing, sold on the Cults3D platform.",
+    { year: "2023–present", cats: ["Additive manufacturing", "Product design"], imageAlt: "White 3D-printed modular wine rack with stackable columns holding wine bottles, on a black background",
+      links: [{ label: "Cults3D store" }, { label: "Instagram @supertopstudio" }],
+      teaser: "An experimental virtual studio founded with industrial designer Patricio Corvalán. It designs products for 3D printing, sold on the Cults3D platform. Pictured: a modular wine rack that scales from 4 to 80 bottles and prints without supports.",
       tech: "Design for additive manufacturing · Digital file distribution on Cults3D",
       results: "Close to 100 products published since 2023." }
   ],
@@ -1251,7 +1254,8 @@ function openProject(id) {
     <dl class="spec">
       ${row(T("year"), p.year)}${row(T("category"), p.cats.join(", "))}${row(T("problem"), p.problem)}
       ${row(T("solution"), p.solution)}${row(T("tech"), p.tech)}${row(T("results"), p.results)}
-    </dl>`;
+    </dl>
+    ${p.links ? `<div class="dlg-links">${p.links.map(l => `<a class="btn btn-ghost" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} <span class="arr" aria-hidden="true">↗</span></a>`).join("")}</div>` : ""}`;
   lastFocus = document.activeElement;
   if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
 }
