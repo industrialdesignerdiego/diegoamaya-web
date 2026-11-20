@@ -702,18 +702,22 @@ const SITE = {
       teaser: "Taza que integra procesos digitales con técnicas artesanales locales. Distinguida con el Sello Buen Diseño Argentino.",
       problem: null, solution: null, tech: null,
       results: "Sello Buen Diseño Argentino." },
+    { id: "bora", name: "Envase Bora Magic", year: "2011", wide: true, cats: ["Packaging industrial","Diseño de productos"], shape: "am", image: "images/bora-magic", imagePos: "center 12%", imageAlt: "Render del envase de detergente Bora Magic, botella amarilla translúcida con tapa a presión",
+      teaser: "Diseño y desarrollo del envase del detergente Bora Magic, producto con distribución en supermercados de todo el país.",
+      problem: null, solution: null, tech: null, results: "Producto en comercialización a nivel nacional." },
     { id: "bovinos", name: "Máquina de alimentación para bovinos", year: null, cats: ["Diseño mecánico","Desarrollo tecnológico"], shape: "machine",
       teaser: "Desarrollo de equipamiento para el sector agropecuario.",
       problem: null, solution: null, tech: null, results: null },
     { id: "fea", name: "Desarrollos mecánicos con simulación computacional", year: null, cats: ["Simulación FEA","Diseño mecánico"], shape: "fea",
       teaser: "Componentes mecánicos validados mediante análisis por elementos finitos.",
       problem: null, solution: null, tech: null, results: null },
-    { id: "am", name: "Productos desarrollados mediante impresión 3D", year: null, cats: ["Fabricación aditiva","Diseño de productos"], shape: "am",
+    { id: "am", name: "Productos desarrollados mediante impresión 3D", year: null, wide: true, cats: ["Fabricación aditiva","Diseño de productos"], shape: "am",
       teaser: "Productos y prototipos concebidos para fabricación aditiva.",
       problem: null, solution: null, tech: null, results: null }
   ],
   timeline: [
     { y: "2009–2011", t: "Diseño de material POP (punto de compra) y desarrollo de soportes 3D para campañas publicitarias en Ogilvy Argentina (Córdoba).", k: "Publicidad", c: "biz" },
+    { y: "2011", t: "Diseño y desarrollo del envase del detergente Bora Magic, producto con distribución en supermercados de todo el país.", k: "Diseño", c: "acad" },
     { y: "2012", t: "Graduación como Diseñador Industrial en la Universidad Nacional de Córdoba.", k: "Formación", c: "acad" },
     { y: "2014–2019", t: "Desarrollo y dirección de Mobio, empresa dedicada al diseño y fabricación de mobiliario contemporáneo.", k: "Industria", c: "biz" },
     { y: "2015–2019", t: "Lanzamiento de Muebles Online Argentina, la primera tienda de muebles 100 % online del país, especializada en mobiliario RTA.", k: "Industria", c: "biz" },
@@ -790,7 +794,7 @@ function phSVG(shape) {
   return `<svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${m[shape] || ""}</svg>`;
 }
 
-const photo = p => `<picture><source type="image/webp" srcset="${p.image}.webp"><img src="${p.image}.jpg" alt="${esc(p.imageAlt || p.name)}" loading="lazy" decoding="async"></picture>`;
+const photo = p => `<picture><source type="image/webp" srcset="${p.image}.webp"><img src="${p.image}.jpg" alt="${esc(p.imageAlt || p.name)}"${p.imagePos ? ` style="object-position:${p.imagePos}"` : ""} loading="lazy" decoding="async"></picture>`;
 const activeCats = new Set(SITE.projects.flatMap(p => p.cats));
 const filterCats = ["Todos", ...SITE.categories.filter(c => activeCats.has(c))];
 $("#filters").innerHTML = filterCats.map((c, i) =>
