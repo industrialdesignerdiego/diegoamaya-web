@@ -556,7 +556,7 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
       <div class="sec-label mono"><b>06</b><span>Reconocimientos y publicaciones</span></div>
       <h2 class="sec-title" id="t-awards">Diseño, conocimiento y reconocimiento.</h2>
     </div>
-    <h3 class="mono" style="font-family:var(--font-mono);font-weight:500;color:var(--mid-ink);margin-bottom:16px">Distinciones</h3>
+    <h3 class="mono" style="font-family:var(--font-mono);font-weight:500;color:var(--mid-ink);margin-bottom:16px">Distinciones y selecciones</h3>
     <div class="awards" id="awards"></div>
 
     <div class="prod">
@@ -774,8 +774,10 @@ const SITE_ES = {
   awards: [
     { t: "Sello Buen Diseño Argentino", w: "Pocillo de café Porzana", y: "2025", type: "Distinción",
       detail: "Producto n.º 5882 · Edición 13 · Subsecretaría de la Pequeña y Mediana Empresa, Ministerio de Economía de la Nación · Plan Nacional de Diseño" },
-    { t: "Concurso Nacional INNOVAR", w: "Máquina de alimentación para bovinos · Pocillo para café", y: "2019 y 2022", type: "Concurso" },
-    { t: "Bienal Internacional de Arquitectura de Argentina (BIA-AR)", w: "Skate bike park", y: "2018", type: "Bienal" },
+    { t: "Concurso Nacional INNOVAR", w: "Máquina de alimentación para bovinos · Pocillo para café", y: "2019 y 2022", type: "Selección",
+      detail: "Proyectos seleccionados para el catálogo oficial del concurso" },
+    { t: "Bienal Internacional de Arquitectura de Argentina (BIA-AR)", w: "Skate bike park", y: "2018", type: "Selección",
+      detail: "Proyecto seleccionado para el catálogo oficial de la bienal" },
     { t: "Sello Buen Diseño Argentino", w: "Lámpara Mobio", y: "2017", type: "Distinción",
       detail: "Sello n.º 1693 · Ministerio de Producción de la Nación · Plan Nacional de Diseño" }
   ],
@@ -959,8 +961,10 @@ const SITE_EN_OVERLAY = {
   awards: [
     { t: "Argentine Good Design Seal", w: "Porzana coffee cup", type: "Award",
       detail: "Product no. 5882 · 13th edition · Undersecretariat for Small and Medium Enterprises, Ministry of Economy · National Design Plan" },
-    { t: "INNOVAR National Competition", w: "Cattle feeding machine · Coffee cup", y: "2019 and 2022", type: "Competition" },
-    { t: "International Architecture Biennial of Argentina (BIA-AR)", type: "Biennial" },
+    { t: "INNOVAR National Competition", w: "Cattle feeding machine · Coffee cup", y: "2019 and 2022", type: "Selection",
+      detail: "Projects selected for the official competition catalog" },
+    { t: "International Architecture Biennial of Argentina (BIA-AR)", type: "Selection",
+      detail: "Project selected for the official biennial catalog" },
     { t: "Argentine Good Design Seal", w: "Mobio Lamp", type: "Award",
       detail: "Seal no. 1693 · Ministry of Production · National Design Plan" }
   ],
@@ -1054,7 +1058,7 @@ const STATIC_EN = [
   [".inst h3", "Institutional and sector involvement"],
   ["#reconocimientos .sec-label span", "Awards and publications"],
   ["#t-awards", "Design, knowledge and recognition."],
-  ["#reconocimientos .wrap > h3.mono", "Awards"],
+  ["#reconocimientos .wrap > h3.mono", "Awards and selections"],
   [".prod .lines-head span:first-child", "Academic and professional output"],
   [".prod .lines-head span:last-child", "Grouped by source type"],
   [".legend span:nth-child(1)", '<i class="sw acad"></i>Academic'],
