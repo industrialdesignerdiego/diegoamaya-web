@@ -15,6 +15,10 @@
 <meta property="og:description" content="Diseñador industrial, MBA y doctorando en Diseño. Investigación, docencia, fabricación digital e Industria 4.0.">
 <meta property="profile:first_name" content="Diego Germán">
 <meta property="profile:last_name" content="Amaya">
+<meta property="og:image" content="https://www.diegoamaya.com.ar/images/og-diego-amaya.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Diego Amaya · Diseñar el presente. Investigar el futuro.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#10243A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +31,7 @@
   "name": "Diego Germán Amaya",
   "alternateName": "Diego Amaya",
   "url": "https://www.diegoamaya.com.ar/",
+  "image": "https://www.diegoamaya.com.ar/images/diego-amaya.jpg",
   "jobTitle": "Diseñador Industrial · MBA · Doctorando en Diseño",
   "email": "mailto:diego.g.amaya@gmail.com",
   "address": {"@type": "PostalAddress", "addressLocality": "San Miguel de Tucumán", "addressRegion": "Tucumán", "addressCountry": "AR"},
@@ -164,6 +169,10 @@ body.review .flag{display:inline-block}
 .about-grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(24px,4vw,64px);align-items:start}
 .portrait{aspect-ratio:4/5;border:1px dashed var(--mid);display:flex;flex-direction:column;justify-content:space-between;padding:14px;color:var(--mid-ink);background:repeating-linear-gradient(135deg,transparent 0 11px,rgba(119,129,139,.12) 11px 12px)}
 .portrait strong{font-family:var(--font-display);font-weight:500;color:var(--graphite);font-size:17px;line-height:1.3}
+.portrait-photo{margin:0;max-width:100%}
+.portrait-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:saturate(.82);border:1px solid var(--rule)}
+.portrait-photo figcaption{margin-top:10px;color:var(--mid-ink)}
+@media (max-width:760px){.portrait-photo{max-width:300px}}
 .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--graphite)}
 .axis{padding:22px 24px 8px 0}
 .axis+.axis{padding-left:24px;border-left:1px solid var(--rule)}
@@ -413,11 +422,13 @@ body.review .review-banner{display:block}
       <h2 class="sec-title" id="t-about">El diseño como punto de encuentro entre conocimiento, tecnología e industria.</h2>
     </div>
     <div class="about-grid">
-      <div class="portrait" role="img" aria-label="Espacio reservado para la fotografía profesional de Diego Germán Amaya">
-        <span class="mono">Retrato · 4:5</span>
-        <strong>Fotografía profesional pendiente</strong>
-        <span class="mono">Reemplazar por imagen del titular</span>
-      </div>
+      <figure class="portrait-photo">
+        <picture>
+          <source type="image/webp" srcset="images/diego-amaya-400.webp 400w, images/diego-amaya.webp 800w" sizes="(max-width: 760px) 300px, 33vw">
+          <img src="images/diego-amaya.jpg" width="800" height="1000" loading="lazy" decoding="async" alt="Retrato de Diego Germán Amaya">
+        </picture>
+        <figcaption class="mono">Diego Germán Amaya · Tucumán</figcaption>
+      </figure>
       <div class="prose lede" id="aboutText"></div>
     </div>
     <div class="axes" id="axes"></div>
