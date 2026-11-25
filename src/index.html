@@ -482,9 +482,7 @@ dialog::backdrop{background:rgba(16,36,58,.55)}
     <div class="teach-grid">
       <div class="prose" id="teachText"></div>
       <div>
-        <p class="side-label mono">Asignaturas · Lic. en Diseño Industrial, USP-T</p>
-        <ul class="subjects" id="subjects"></ul>
-        <p class="side-label mono" style="margin-top:36px">Áreas de enseñanza</p>
+        <p class="side-label mono">Áreas de enseñanza</p>
         <div class="chips" id="teachAreas"></div>
       </div>
     </div>
@@ -1040,8 +1038,7 @@ const STATIC_EN = [
   [".lines .lines-head span:first-child", "Research lines"],
   ["#docencia .sec-label span", "Teaching"],
   ["#t-teach", "Teaching design is shaping new ways of thinking."],
-  [".teach-grid .side-label:first-of-type", "Courses · Industrial Design degree, USP-T"],
-  [".teach-grid .side-label:nth-of-type(2)", "Teaching areas"],
+  [".teach-grid .side-label", "Teaching areas"],
   [".activities h3", "Talks and lectures"],
   ["#proyectos .sec-label span", "Design and innovation"],
   ["#t-proj", "From design thinking to production."],
@@ -1139,8 +1136,6 @@ function render() {
   $("#linesCount").textContent = `${pad(SITE.research.lines.length)} ${T("lines")}`;
 
   $("#teachText").innerHTML = SITE.teaching.paragraphs.map(para).join("");
-  $("#subjects").innerHTML = SITE.teaching.subjects.map(s =>
-    `<li><span class="s">${esc(s.s)}</span><span class="mono m">${esc(s.m)}</span></li>`).join("");
   $("#teachAreas").innerHTML = SITE.teaching.areas.map(a => `<span class="chip">${esc(a)}</span>`).join("");
   const talks = [...SITE.teaching.talks].sort((a, b) => b.date.localeCompare(a.date));
   $("#talksCount").textContent = `${pad(talks.length)} ${T("records")}`;
